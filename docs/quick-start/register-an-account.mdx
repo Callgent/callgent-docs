@@ -1,0 +1,18 @@
+---
+sidebar_position: 1
+---
+
+# Register an Account
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import IconExternalLink from '@theme/Icon/ExternalLink';
+export const SignupLink = () => {
+  const { siteConfig } = useDocusaurusContext();
+  return (
+      <a href={siteConfig.customFields.signupUrl} target='_blank'>sign-up page<IconExternalLink /></a>
+  );
+};
+
+Firstly register an account from the <SignupLink />.
+
+Once you have registered, you can go to [Create Your First Botlet](create-a-new-botlet) page.
