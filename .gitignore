@@ -6,7 +6,6 @@
 
 # husky
 .husky/_
-.dcosign
 
 # Generated files
 .docusaurus
