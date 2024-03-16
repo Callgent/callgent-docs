@@ -50,14 +50,14 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/Botlet-IO/botlet-docs/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/Botlet-IO/botlet-docs/tree/main/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/Botlet-IO/botlet-docs/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/Botlet-IO/botlet-docs/tree/main/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -85,7 +85,7 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
-        // { label: "Developers", to: '/docs/developers' },
+        { label: "Developers", to: '/docs/developers/guide' },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {

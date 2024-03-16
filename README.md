@@ -46,3 +46,11 @@ This is the portal website of [Botlet.IO](https://botlet.io), gratefully forked 
 ## Contributing
 
 We welcome contributions from the community! Before submitting a pull request, please review our [Contributor Development Agreement (CDO)](CONTRIBUTING.md).
+
+### DCO Signoff
+
+please commit with `-s`:
+
+```bash
+git commit -s -m '...'
+```
