@@ -50,14 +50,14 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/Botlet-IO/botlet-docs/tree/main/",
+            "https://github.com/Botlet-IO/botlet-docs/edit/main/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/Botlet-IO/botlet-docs/tree/main/",
+            "https://github.com/Botlet-IO/botlet-docs/edit/main/",
         },
         theme: {
           customCss: "./src/css/custom.css",
