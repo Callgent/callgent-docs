@@ -20,7 +20,7 @@ prisma.$transaction(async (tx) => {
 
 ## Container managed transactions
 
-As we integrate Prisma to `NestJs`, we want cross `Services` transaction propagation, `container managed tx` is even better. After some investigation, we come to @nestjs-cls/transactional](https://papooch.github.io/nestjs-cls/plugins/available-plugins/transactional),
+As we integrate Prisma to `NestJs`, we want cross `Services` transaction propagation, `container managed tx` is even better. After some investigation, we come to [@nestjs-cls/transactional](https://papooch.github.io/nestjs-cls/plugins/available-plugins/transactional),
 
 <!--truncate-->
 
