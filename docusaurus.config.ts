@@ -105,6 +105,10 @@ const config: Config = {
               label: "Tutorial",
               to: "/docs/intro",
             },
+            {
+              label: "Developers",
+              to: "/docs/developers/guide",
+            },
           ],
         },
         {
