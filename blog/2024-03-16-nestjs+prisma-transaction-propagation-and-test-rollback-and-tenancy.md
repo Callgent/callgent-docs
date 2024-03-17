@@ -1,6 +1,6 @@
 ---
 slug: nestjs+prisma-transaction-propagation-and-test-rollback-and-tenancy
-title: Nestjs + Prisma, interactive transaction propagation & rollback in e2e-test & multi-tenancy
+title: Nestjs + Prisma, transaction propagation & e2e test rollback & multi-tenancy
 authors: jamesp
 tags: [Technology Stack, Prisma, NestJs, Tenancy, Transaction]
 ---
@@ -20,7 +20,7 @@ prisma.$transaction(async (tx) => {
 
 ## Container managed transactions
 
-As we integrate Prisma to `NestJs`, we want cross `Services` transaction propagation, `container managed tx` is even better. After some investigation, we come to @nestjs-cls/transactional](https://papooch.github.io/nestjs-cls/plugins/available-plugins/transactional),
+As we integrate Prisma to `NestJs`, we want cross `Services` transaction propagation, `container managed tx` is even better. After some investigation, we come to [@nestjs-cls/transactional](https://papooch.github.io/nestjs-cls/plugins/available-plugins/transactional),
 
 <!--truncate-->
 
