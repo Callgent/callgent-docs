@@ -1,6 +1,6 @@
 ---
 slug: nestjs+prisma-transaction-propagation-and-test-rollback-and-tenancy
-title: Nestjs + Prisma, transaction propagation & e2e test rollback & multi-tenancy
+title: Nestjs + Prisma, transaction propagation & test rollback & multi-tenancy
 authors: jamesp
 tags: [Technology Stack, Prisma, NestJs, Tenancy, Transaction]
 ---
