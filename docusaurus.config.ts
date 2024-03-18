@@ -18,7 +18,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: process.env.SITE_URL,
+  url: process.env.SITE_URL_DOCUMENTATION_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: process.env.SITE_BASE_PATH,
