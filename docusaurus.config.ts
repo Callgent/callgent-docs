@@ -89,7 +89,7 @@ const config: Config = {
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/Botlet-IO/botlet-docs",
           label: "GitHub",
           position: "right",
         },
@@ -116,15 +116,15 @@ const config: Config = {
           items: [
             {
               label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              href: "https://stackoverflow.com/questions/tagged/botlet",
             },
             {
               label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              href: "https://discord.com/invite/V9HKBukSRp",
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              href: "https://twitter.com/BotletIO",
             },
           ],
         },
@@ -137,7 +137,7 @@ const config: Config = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/Botlet-IO/botlet-docs",
             },
           ],
         },
@@ -148,6 +148,11 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    algolia: {
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_APP_INDEX,
+    }
   } satisfies Preset.ThemeConfig,
 };
 
