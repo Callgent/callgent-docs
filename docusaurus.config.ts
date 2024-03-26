@@ -5,13 +5,12 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
   title: "Botlet.IO",
-  tagline:
-    "Break the silos between Users & Systems<br/> User-as-a-Service v.v., Service-as-a-User",
+  tagline: "Break the silos between Users & Systems<br/> User-as-a-Service v.v., Service-as-a-User",
   favicon: "img/favicon.ico",
 
   customFields: {
-    homeTitle: "",
-    homeDescription: "",
+    homeTitle: "botlet",
+    homeDescription: "docsbotlet",
     signupUrl: process.env.SITE_SIGNUP_URL,
     apiSiteUrl: process.env.API_SITE_URL,
     cookieDomain: process.env.SITE_URL_DOMAIN,
@@ -61,6 +60,10 @@ const config: Config = {
         },
         theme: {
           customCss: "./src/css/custom.css",
+        },
+        gtag: {
+          trackingID: process.env.GOOGLE_GTAG,
+          anonymizeIP: true,
         },
       } satisfies Preset.Options,
     ],
