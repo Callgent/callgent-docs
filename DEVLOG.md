@@ -28,7 +28,7 @@
    }
    ```
 
-3. please reference file: docsearch.json，For more configurations, please refer to the [Config templates](https://docsearch.algolia.com/docs/templates/)
+3. add file: `docsearch.json`，For more configurations, please refer to the [Config templates](https://docsearch.algolia.com/docs/templates/)
 
    ```shell
    {
