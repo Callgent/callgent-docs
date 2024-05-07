@@ -19,7 +19,7 @@
     "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
-    "@docusaurus/core": "3.1.1",
+    "@docusaurus/core": "3.2.0",
     "@docusaurus/preset-classic": "3.1.1",
     "@docusaurus/theme-common": "^3.1.1",
     "@mdx-js/react": "^3.0.0",
