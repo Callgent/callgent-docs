@@ -1,6 +1,14 @@
 # Botlet.IO Documentation Site
 
-<p align="center"><a href="#license">
+<p align="center">
+    <a href="https://botlet.io" target="_blank">
+        <img alt="Static Badge" src="https://img.shields.io/badge/IO-IO?logo=IO&logoColor=%20%23f5f5f5&label=Botlet&labelColor=%20%23155EEF&color=%23EAECF0"></a>
+    <a href="https://discord.gg/V9HKBukSRp" target="_blank">
+        <img src="https://img.shields.io/discord/1215998670265127102?logo=discord"
+            alt="chat on Discord"></a>
+    <a href="https://twitter.com/intent/follow?screen_name=BotletIO" target="_blank">
+        <img src="https://img.shields.io/twitter/follow/BotletIO?style=social&logo=X"
+            alt="follow on Twitter"></a>
 <a href="https://app.snyk.io/test/github/Botlet-IO/botlet-docs" alt="FOSSA Status"><img src="https://snyk.io/test/github/Botlet-IO/botlet-docs/badge.svg"/></a>
 <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FBotlet-IO%2Fbotlet-docs?ref=badge_shield&issueType=license" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FBotlet-IO%2Fbotlet-docs.svg?type=shield&issueType=license"/></a>
 <a href="https://github.com/Botlet-IO/botlet-docs/issues">

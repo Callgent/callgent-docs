@@ -4,28 +4,33 @@ sidebar_position: 1
 
 # Introduction
 
-**User-as-a-Service redefined**. TODO more md widgets
+As AIGC advances, code generation[^1] is one of the most exciting areas of research and businesses.
 
-Botlet.io enables your users to be integrated into systems as normal functional services.
+Ideally, softwares could be developed in natural language and graphs, and the `AI Programmer`[^2] will generate the corresponding code.
 
-Based on this integration, system may call users asynchronously, with callback response;
+Yet in reality, even requirements is hard to be expressed clearly. So AI systems are more as an assistant or tool for programmers, like `copilot`[^3][^4], `UI Generator`[^5], `Bug Fixer`[^6][^7].
 
-Also users may call system services, just like chatting with friends.
+`Botlet.IO` is yet another AI tool, focusing on integrating existing systems or users into any native environments, based on the `Progressive function-calling`[^8] technique.
 
-## Benefits
+The main difference between `Botlet.IO` and other `function-calling` tools is that it does not just stand in chat-box. On the contrary, the `botlet` can enable a service or user to be embedded into any native scenarios, to be invoked:
 
-Bridge all traditional gaps between systems and users:
+- as a native service
+- as a webpage
+- as an email account
+- as on IM user, e.g. `Slack`, `WhatsApp`, ...
+- ...
 
-- Users are always reachable from system point of view:
-  - among business processes
-  - on business or system exceptions
-  - consistent programming experiences by including users as a service
-- Easy and intelligent interaction with system from users point of view:
-  - just like chatting with friends in a contextual group, powered by our progressing requesting technology
-  - zero code development by just botlets and users orchestration
-  - everyone may be a product manager
-- Orchestrated services may be exposed any where, by polymorphic interface plugins:
-  - as mail address
-  - in IM channels
-  - on generative web pages
-  - VR/AR, etc.
+Imaging your team members and customers can be easily invoked as a micro-service, or you can talk to `Amazon` ordering service as a new team member in your slack channel.  
+And you can even create an SOP[^9] for them, which is a new approach to AI programming.  
+
+All just in one place, `Botlet.IO` is a new way to integrate AI into your business.
+
+[^1]: https://paperswithcode.com/task/code-generation
+[^2]: https://www.cognition-labs.com/introducing-devin
+[^3]: https://github.com/features/copilot
+[^4]: https://copilot.microsoft.com/
+[^5]: https://v0.dev/
+[^6]: https://paperswithcode.com/task/bug-fixing
+[^7]: https://www.swebench.com/
+[^8]: https://platform.openai.com/docs/guides/function-calling
+[^9]: https://en.wikipedia.org/wiki/Standard_operating_procedure
