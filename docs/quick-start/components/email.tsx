@@ -20,7 +20,7 @@ const Email = () => {
     // 邮件操作
     const pushRouter = () => {
         if (botlet?.uuid) {
-            window.location.href = `mailto:botlet+${botlet.uuid}@call.botlet.io`;
+            window.location.href = `mailto:botlet+${botlet.uuid}@c.botlet.io`;
         } else {
             // 元素在mdx中，无法使用ref
             const element = document.querySelector('#create-the-botlet');
