@@ -27,7 +27,7 @@ const RestApi = () => {
     }'`
     const copyToClipboard = async () => {
         try {
-            const data = start + `-H 'Authorization: ${'Bearer ' + token} \\
+            const data = start + `-H 'Authorization: Bearer ${token}' \\
     ` + end
             await navigator.clipboard.writeText(data);
             setCopySuccess('Copied!');
@@ -40,8 +40,8 @@ const RestApi = () => {
     const toggleTokenVisibility = () => {
         setShowToken(!showToken);
     };
-    const Authorization = showToken ? `-H 'Authorization: ${token ? 'Bearer ' + token + ' \\' : 'Please Sign In first.'}
-    ` : <>-H 'Authorization:<button onClick={toggleTokenVisibility}>Show the API Token</button><br />    </>
+    const Authorization = showToken ? `-H 'Authorization: ${token ? 'Bearer ' + token + ' \\' : 'Please Sign In first.'}'
+    ` : <>-H 'Authorization:<button onClick={toggleTokenVisibility}>Show the API Token</button>'<br />    </>
     return (
         <>
             <div>

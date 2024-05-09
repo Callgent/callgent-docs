@@ -3,6 +3,8 @@ slug: nestjs+prisma-transaction-propagation-and-test-rollback-and-tenancy
 title: Nestjs + Prisma, transaction propagation & test rollback & multi-tenancy
 authors: jamesp
 tags: [Technology Stack, Prisma, NestJs, Tenancy, Transaction]
+keywords: [NestJS Prisma integration, Prisma transaction propagation, Multi-tenancy with PostgreSQL, Container managed transactions, Prisma rollback tests, Prisma interactive transactions, Transparent tenant isolation, Prisma multi-tenant architecture, NestJS transactional middleware, Prisma and NestJS best practices]
+description: Explore how to integrate NestJS with Prisma for robust transaction propagation, test rollbacks, and transparent multi-tenancy using PostgreSQL. Learn best practices for container managed transactions and setting up a multi-tenant architecture with our comprehensive guide.
 ---
 
 ## Prisma interactive transaction
