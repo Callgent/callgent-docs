@@ -9,6 +9,8 @@ description: f
 
 The MVC architectural pattern is a common approach to software development that separates the user interface from the business logic. It is a popular choice for web applications because it allows for separation of concerns and makes it easier to maintain and update the application.
 
+<!-- truncate -->
+
 Mapping: mapping among external systems or users,
 View: interacting natively, with native panel or generated/developed panel,
 Controller: accepting, routing, forwarding, and responding
