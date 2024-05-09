@@ -1,6 +1,6 @@
 ---
 slug: mvc-architectural-pattern-in-new-ai-paradigm
-title: The MVC architectural pattern in the new paradigm of AI
+title: 🏛️ The MVC architectural pattern in the new paradigm of AI
 authors: jamesp
 tags: [Industry Trends, Architecture Patterns, MVC]
 keywords: [Industry Trends, Architecture Patterns, MVC]
