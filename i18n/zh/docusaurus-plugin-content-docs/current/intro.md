@@ -6,7 +6,7 @@ sidebar_position: 1
 
 **User-as-a-Service redefined**.
 
-Botlet.io enables your users to be integrated into systems as normal functional services.
+callgent.com enables your users to be integrated into systems as normal functional services.
 
 Based on this integration, system may call users asynchronously, with callback response;
 
@@ -22,7 +22,7 @@ Bridge all traditional gaps between systems and users:
   - consistent programming experiences by including users as a service
 - Easy and intelligent interaction with system from users point of view:
   - just like chatting with friends in a contextual group, powered by our progressing requesting technology
-  - zero code development by just botlets and users orchestration
+  - zero code development by just callgents and users orchestration
   - everyone may be a product manager
 - Orchestrated services may be exposed any where, by polymorphic interface plugins:
   - as mail address

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCreateBotlet, fetchUserInfo } from "../thunk";
+import { fetchCreateCallgent, fetchUserInfo } from "../thunk";
 import { UserResponse, userSliceType } from "@site/src/types/user";
 import { getCookie } from "@site/src/util/cookie"
 
@@ -7,7 +7,7 @@ const userSlice = createSlice({
   name: "users",
   initialState: {
     userData: {},
-    botlet: {},
+    callgent: {},
     status: {},
     token: getCookie('jwt'),
     fetchState: {},
@@ -16,9 +16,9 @@ const userSlice = createSlice({
     setStatus: (state, data) => {
       state.status = { ...state.status, ...data.payload }
     },
-    setBotlet: (state) => {
-      const data = JSON.parse(localStorage.getItem('botlet'));
-      state.botlet = data;
+    setCallgent: (state) => {
+      const data = JSON.parse(localStorage.getItem('callgent'));
+      state.callgent = data;
     },
     setFetchState: (state, data) => {
       // state.fetchState = data;
@@ -26,12 +26,12 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     // 注册接口
-    builder.addCase(fetchCreateBotlet.fulfilled, (state, action) => {
+    builder.addCase(fetchCreateCallgent.fulfilled, (state, action) => {
       // console.log(action.payload.data);
 
-      state.botlet = action.payload.data
+      state.callgent = action.payload.data
     });
-    builder.addCase(fetchCreateBotlet.pending, (state, action) => {
+    builder.addCase(fetchCreateCallgent.pending, (state, action) => {
       // state.loading = true;
     });
     // 用户详情
@@ -42,5 +42,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setStatus, setBotlet,setFetchState } = userSlice.actions;
+export const { setStatus, setCallgent,setFetchState } = userSlice.actions;
 export default userSlice.reducer;

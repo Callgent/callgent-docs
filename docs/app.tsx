@@ -37,7 +37,7 @@ const Setting = ({ children }) => {
                 <div className={styles.modalContent} onClick={handleContentClick}>
                     <p>
                         Please&nbsp;
-                        <a href={`${siteConfig.url}"/en/signin?redirect=/docs/quick-start/create-a-new-botlet"`}>Sign In</a>
+                        <a href={`${siteConfig.url}"/en/signin?redirect=/docs/quick-start/create-a-new-callgent"`}>Sign In</a>
                         &nbsp;first.
                     </p>
                 </div>

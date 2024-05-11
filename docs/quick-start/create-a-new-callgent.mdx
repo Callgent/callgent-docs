@@ -1,0 +1,78 @@
+---
+sidebar_position: 2
+description: Explanation of the difference between components and blocks on a practical example
+tags: [Demo, Getting started]
+---
+
+# Create a New Callgent
+
+import App from "@site/docs/app"
+import CreateCallgent from "./components/CreateCallgent"
+import Email from "./components/email"
+import RestApi from "./components/restApi"
+
+Now you can create your own callgents, to connect to your personal APPs or company infrastructures.
+
+## Create the Callgent
+
+Create with the callgent name, which will be appeared in the connected systems, representing it's main responsibilities:
+
+<pre> 
+<App>
+    <CreateCallgent />
+</App>
+</pre>
+
+:::tip
+You may also create the callgent from the [Callgent Hub](../advanced-topics/callgent-hub.md). Just following it's instructions to fill in your own authentication tokens to enable it.
+:::
+
+## Call the Callgent
+
+Now you may request the callgent for a task, in the following ways.
+
+### Email
+
+You may directly send an email to：<App><Email /></App> 
+ 
+then wait for reply from the [Callgent Receiver](#connect-the-callgent-to-a-receiver).
+
+:::tip
+The email address and API url below, contains callgent UUID, which is available after you'v [created the callgent](#create-a-new-callgent).
+:::
+
+### REST API
+
+You may also invoke the callgent via REST API:
+<App><RestApi/></App>
+
+
+:::info
+- `callback` parameter is essensial if you need to receive asyncronous response from callgent receiver.
+:::
+
+### Web Page
+
+You may also generate a web page with a form or button to send a task to the callgent.
+
+### Integrate with other systems
+
+For example, you may connect the callgent to `Slack`, `Jira`, ..., Apps, so that colleagues can interact with the callgent in the channels;  
+Or connect it to your personal Apps like `WhatsApp`, `Instagram`, to let the callgent assist you anywhere seamlessly.
+
+This is achieved by adding a `Callable Plugin` to the callgent, then do some neccessary configurations. You may learn more in the [Client Endpoint](../advanced-topics/callgent-endpoints/client-endpoint) section.
+
+:::tip 
+Each calling task will be responded by the callgent **assignee**, configured as below.
+:::
+
+## Connect the Callgent to a Receiver
+
+
+
+2. connect the callgent to a push-able system, email by default: API, app, oauth, jwt, RPA, etc.
+3. assign the callgent owner account from system, to receive requesting tasks
+4. make the callgent callable: API, from system, pages: auth settings
+5. request for a task job, and get response
+
+Imaging how exciting things we can do with the **Callgents**.
