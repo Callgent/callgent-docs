@@ -4,13 +4,13 @@ import "dotenv/config";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
-  title: "Botlet.IO",
+  title: "Callgent",
   tagline: "Break the silos between Users & Systems<br/> User-as-a-Service v.v., Service-as-a-User",
   favicon: "img/favicon.ico",
 
   customFields: {
-    homeTitle: "botlet",
-    homeDescription: "docsbotlet",
+    homeTitle: "Callgent Documentations",
+    homeDescription: "The documentaions for Callgent - Service as a Callable Agent",
     signupUrl: process.env.SITE_SIGNUP_URL,
     apiSiteUrl: process.env.API_SITE_URL,
     cookieDomain: process.env.SITE_URL_DOMAIN,
@@ -24,8 +24,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "botlet-io", // Usually your GitHub org/user name.
-  projectName: "botlet-doc", // Usually your repo name.
+  organizationName: "Callgent", // Usually your GitHub org/user name.
+  projectName: "callgent-docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -49,14 +49,14 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/Botlet-IO/botlet-docs/edit/blog/",
+            "https://github.com/Callgent/callgent-docs/edit/blog/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/Botlet-IO/botlet-docs/edit/blog/",
+            "https://github.com/Callgent/callgent-docs/edit/blog/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -73,9 +73,9 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "Botlet",
+      title: "Callgent",
       logo: {
-        alt: "Botlet Logo",
+        alt: "Callgent Logo",
         src: "img/logo.svg",
         srcDark: 'img/logo_dark.svg',
         href: process.env.SITE_URL,
@@ -92,7 +92,7 @@ const config: Config = {
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {
-          href: "https://github.com/Botlet-IO/botlet-docs",
+          href: "https://github.com/Callgent/callgent-docs",
           label: "GitHub",
           position: "right",
         },
@@ -119,7 +119,7 @@ const config: Config = {
           items: [
             {
               label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/botlet",
+              href: "https://stackoverflow.com/questions/tagged/callgent",
             },
             {
               label: "Discord",
@@ -127,7 +127,7 @@ const config: Config = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/BotletIO",
+              href: "https://twitter.com/Callgent",
             },
           ],
         },
@@ -140,12 +140,12 @@ const config: Config = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/Botlet-IO/botlet-docs",
+              href: "https://github.com/Callgent/callgent-docs",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Botlet.IO. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Callgent. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -14,14 +14,14 @@ export type UserResponse = {
     avatar?: string
 }
 
-export type BotletResponse = {
+export type CallgentResponse = {
     name?: string;
     createdAt?: string;
     uuid?: string;
     updatedAt?: string;
 }
 
-export type BotletState = {
+export type CallgentState = {
     isCreate?: boolean;
 }
 
@@ -32,9 +32,9 @@ export type FetchStateType = {
 
 export type userSliceType = {
     userData: UserResponse,
-    botlet: BotletResponse,
+    callgent: CallgentResponse,
     token: string | null,
-    status: BotletState;
+    status: CallgentState;
     fetchState: FetchStateType;
 }
 

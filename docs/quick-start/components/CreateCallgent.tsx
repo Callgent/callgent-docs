@@ -5,12 +5,12 @@ import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-const CreateBotlet = () => {
+const CreateCallgent = () => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) {
         return null;
     }
-    const { fetchCreateBotlet } = require('@site/src/store/thunk');
+    const { fetchCreateCallgent } = require('@site/src/store/thunk');
     const { setStatus } = require('@site/src/store/slices/userSlice');
     const { siteConfig } = useDocusaurusContext();
     // 控制显示隐藏
@@ -34,7 +34,7 @@ const CreateBotlet = () => {
         }
         const formData = new FormData(event.currentTarget);
         const formValues = Object.fromEntries(formData.entries()) as { name: string };
-        dispatch(fetchCreateBotlet(formValues)).then((req) => {
+        dispatch(fetchCreateCallgent(formValues)).then((req) => {
             if (req.payload === "Failed to fetch users") { return }
             setState(true);
             dispatch(setStatus({ isCreate: false }));
@@ -53,7 +53,7 @@ const CreateBotlet = () => {
                 <div className={styles.modalContent} onClick={handleContentClick}>
                     <p>
                         Please&nbsp;
-                        <a href={siteConfig.url + "/en/signin?redirect=/docs/quick-start/create-a-new-botlet"}>Sign In</a>
+                        <a href={siteConfig.url + "/en/signin?redirect=/docs/quick-start/create-a-new-callgent"}>Sign In</a>
                         &nbsp;first.
                     </p>
                 </div>
@@ -63,16 +63,16 @@ const CreateBotlet = () => {
                     type="text"
                     name="name"
                     required
-                    placeholder="Botlet Name"
+                    placeholder="Callgent Name"
                     className="input col col--4 margin--sm table-of-contents"
                 />
                 <button className="button col col--2 margin--sm button--info button--secondary">
                     Create
                 </button>
                 {state && <span className="margin--md text--success">Successfully created!</span>}
-                {status?.isCreate && <span className={styles.please}>Please create a botlet First!</span>}
+                {status?.isCreate && <span className={styles.please}>Please create a callgent First!</span>}
             </form>
         </>
     );
 };
-export default CreateBotlet;
+export default CreateCallgent;

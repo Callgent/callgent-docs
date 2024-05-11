@@ -152,7 +152,7 @@ describe('AppController (e2e)', () => {
 
 ## Transparent multi-tenancy based on postgreSQL
 
-We have a [multi-tenant application, Botlet.IO](https://botlet.io), tenants data are isolated based on the `tenant_id` column in db tables.
+We have a [multi-tenant application, Callgent](https://callgent.com), tenants data are isolated based on the `tenant_id` column in db tables.
 
 By design, we want tenant isolation **transparently** implemented, so we don't need to add `tenant_id` to every query.
 
@@ -178,15 +178,15 @@ RLS is only applicable in `postgreSQL`
 
 2. enable postgres row level security(RLS), so that we can filter data by `tenant_id` automatically:
    write SQL in prisma/migrations/01_row_level_security/migration.sql,
-   please refer this [real example](https://github.com/Botlet-IO/botlet-api/blob/main/prisma/migrations/row_level_security/migration.sql)
+   please refer this [real example](https://github.com/Callgent/callgent-api/blob/main/prisma/migrations/row_level_security/migration.sql)
 
-3. on each request, preset `tenant_id` into `cls` context, refer to [auth-logined.listener.ts](https://github.com/Botlet-IO/botlet-api/blob/main/src/users/listeners/auth-logined.listener.ts),
+3. on each request, preset `tenant_id` into `cls` context, refer to [auth-logined.listener.ts](https://github.com/Callgent/callgent-api/blob/main/src/users/listeners/auth-logined.listener.ts),
 
    ```typescript
    cls.set('TENANT_ID', curentUser.tenantId);
    ```
 
-4. extend `PrismaClient` to set `tenant_id` before any query, refer to [prisma-tenancy.provider.ts](https://github.com/Botlet-IO/botlet-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.provider.ts),
+4. extend `PrismaClient` to set `tenant_id` before any query, refer to [prisma-tenancy.provider.ts](https://github.com/Callgent/callgent-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.provider.ts),
 
    ```sql
    SELECT set_config('tenancy.tenantId', cls.get('TENANT_ID') ...
@@ -198,7 +198,7 @@ RLS is only applicable in `postgreSQL`
    CREATE POLICY bypass_rls_policy ON "User" USING (current_setting('tenancy.bypass_rls', TRUE)::text = 'on');
    ```
 
-   then when you want to bypass rls, you must set `tenancy.bypass_rls` to `on` before running the query, refer to [prisma-tenancy.service.ts](https://github.com/Botlet-IO/botlet-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.service.ts),
+   then when you want to bypass rls, you must set `tenancy.bypass_rls` to `on` before running the query, refer to [prisma-tenancy.service.ts](https://github.com/Callgent/callgent-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.service.ts),
 
    ```js
    await prisma.$executeRaw`SELECT set_config('tenancy.bypass_rls', 'on', TRUE)`;
@@ -247,4 +247,4 @@ As we extended `PrismaClient` to enable transparent multi-tenancy, now the wrapp
 1. [@nestjs-cls/transactional](https://papooch.github.io/nestjs-cls/plugins/available-plugins/transactional)
 2. [@chax-at/transactional-prisma-testing](https://github.com/chax-at/transactional-prisma-testing#readme)
 3. [prisma-client-extensions: RLS](https://github.com/prisma/prisma-client-extensions/tree/main/row-level-security)
-4. [Botlet.IO - multi-tenant application](https://github.com/Botlet-IO/botlet-api/blob/main/src/infra/repo/tenancy)
+4. [Callgent - multi-tenant application](https://github.com/Callgent/callgent-api/blob/main/src/infra/repo/tenancy)

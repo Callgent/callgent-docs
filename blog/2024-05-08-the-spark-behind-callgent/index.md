@@ -1,10 +1,10 @@
 ---
-slug: the-spark-behind-botlet-io
-title: 💥 The Spark Behind Botlet.IO - Simplifying Business Operations
+slug: the-spark-behind-callgent
+title: 💥 The Spark Behind Callgent - Simplifying Business Operations
 authors: jamesp
 tags: [Industry Trends, Architecture Patterns, Product Design]
 keywords: [Business Operations Platform, Enterprise Operation Solutions, Integration Platform as a Service, iPaaS, Business Process Automation Tools, AI-Powered Business Integration, No-Code Integration Solutions, Enterprise Ticket Management, Workflow Automation Software, Open-Source Business Tools, Slack Integration Solutions]
-description: Explore Botlet.IO, the revolutionary business operations platform designed for seamless integration and automation. Discover how Botlet.IO simplifies enterprise ticket management and system orchestration with no-code solutions, AI-powered data mapping, and effortless user experiences. Learn about its open-source development and how you can contribute or benefit from its advanced features
+description: Explore Callgent, the revolutionary business operations platform designed for seamless integration and automation. Discover how Callgent simplifies enterprise ticket management and system orchestration with no-code solutions, AI-powered data mapping, and effortless user experiences. Learn about its open-source development and how you can contribute or benefit from its advanced features
 ---
 
 ## The Challenge
@@ -35,12 +35,12 @@ To tackle these complex and dynamic business processes, we envisioned a tool wit
     - Progressive invocation
 - Natural language SOP orchestration
 
-This vision led to the conception of Botlet.IO, built on these core principles:
+This vision led to the conception of Callgent, built on these core principles:
 
-- No business logic within Botlet.IO, just invocation and orchestration
+- No business logic within Callgent, just invocation and orchestration
 - Systems and users function as equal services
 - AI-powered semantic data mapping
-- Seamless experience for all systems and users with embedded Botlet adaptors
+- Seamless experience for all systems and users with embedded Callgent adaptors
 
 ## The Journey So Far
 
@@ -52,6 +52,6 @@ We swiftly developed a proof of concept:
 - k8s exceptions are seamlessly integrated into our ticket processing platform
 - External customers experience no differences, as they're approached via Zendesk
 
-Now, we're in the exciting phase of developing Botlet.IO as an open-source product.
+Now, we're in the exciting phase of developing Callgent as an open-source product.
 
-We warmly invite you to [try it out](https://docs.botlet.io/docs/intro), [share your thoughts](https://botlet.canny.io), or even [contribute](http://github.com/Botlet-IO/botlet-api).
+We warmly invite you to [try it out](https://docs.callgent.com/docs/intro), [share your thoughts](https://callgent.canny.io), or even [contribute](http://github.com/Callgent/callgent-api).
