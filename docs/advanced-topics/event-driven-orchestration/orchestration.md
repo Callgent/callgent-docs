@@ -1,6 +1,6 @@
 # Event Driven Orchestration
 
-基于事件的botlet装配：
+基于事件的callgent装配：
 
 1. resp事件：on-response, on-error
    **flow方式**来编排，允许关键字：

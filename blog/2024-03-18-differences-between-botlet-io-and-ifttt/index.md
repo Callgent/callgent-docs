@@ -9,7 +9,7 @@ description: Explore the unique differences between Callgent and traditional aut
 
 In some scenarios, Callgent offers functionality similar to automation tools. It's often confusing why yet another tool is needed.
 
-Callgent goal is to break the silos between users and systems.
+Callgent goal is to break the silos among Users and systems.
 Let's take a look at the differences between Callgent and other automation tools.
 
 ## Major Automation Tools on the market
@@ -78,7 +78,6 @@ Callgent redefines collaboration, merging human intuition with digital efficienc
 
 Overall, our goal is to place everything on the same platform, especially emphasizing the seamless integration of the
 
-- "User-as-a-Service"
-- "Service-as-a-User"
+- "Service as a Callable Agent"
 
 concepts.

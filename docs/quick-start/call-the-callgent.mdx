@@ -1,0 +1,45 @@
+---
+sidebar_position: 3
+description: Explanation of the difference between components and blocks on a practical example
+tags: [Demo, Getting started]
+---
+
+# Call the Callgent
+
+import App from "@site/docs/app"
+import CreateCallgent from "./components/CreateCallgent"
+import Email from "./components/email"
+import RestApi from "./components/restApi"
+
+Now you may request the callgent for a task, in the following ways.
+
+## Email
+
+You may directly send an email to：<App><Email /></App> 
+
+then wait for reply from the callgent's [Service Endpoint](#connect-the-callgent-to-a-service-endpoint).
+
+:::tip
+The email address and API url below, contains callgent UUID, which is available after you've [created the callgent](#create-a-new-callgent).
+:::
+
+## REST API
+
+You may also invoke the callgent via REST API:
+<App><RestApi/></App>
+
+
+:::info
+- `callback` parameter is essensial if you need to receive asyncronous response from callgent service.
+:::
+
+## Web Page
+
+You may also generate a web page with a form or button to send a task to the callgent.
+
+## Embed into more systems
+
+For example, you may also want to connect the callgent to `Slack`, `Jira`, ..., Apps, so that colleagues can interact with the callgent in the channels;  
+Or connect it to your personal Apps like `WhatsApp`, `Instagram`, to let the callgent assist you anywhere seamlessly.
+
+This is achieved by adding more adaptive `Client Endpoint`s to the callgent, then do some neccessary configurations. You may learn more in the [Client Endpoint](../advanced-topics/callgent-endpoints/client-endpoint) section.

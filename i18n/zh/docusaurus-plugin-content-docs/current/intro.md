@@ -6,7 +6,7 @@ sidebar_position: 1
 
 **User-as-a-Service redefined**.
 
-callgent.com enables your users to be integrated into systems as normal functional services.
+Callgent.com enables your users to be integrated into systems as normal functional services.
 
 Based on this integration, system may call users asynchronously, with callback response;
 

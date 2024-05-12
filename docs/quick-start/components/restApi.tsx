@@ -15,19 +15,18 @@ const RestApi = () => {
 
     // 删除 `` 换行会导致不能对齐
     const start = `curl -X 'POST' \\
-    'http://localhost:3000/api/**jDsfXV-l6XjTTqhOqm7AV**/tasks' \\
-    -H 'accept: application/json' \\
+    'https://api.callgent.com/api/botlets/{uuid}//invoke/api/' \\
+    -H 'accept: */*' \\
     `
-    const end = `-H 'Content-Type: application/json' \\
+    const end = `-H 'x-callgent-callback: https://callback-url-to-receive-task-response--or-empty-if-neednt-reply' \\
     -d '{
     "brief": "task brief or description",
     "content": { "any task content in JSON format": 1 },
     "from": "api",
-    "callback": "https://callback-url-to-receive-task-response--or-empty-if-neednt-reply"
     }'`
     const copyToClipboard = async () => {
         try {
-            const data = start + `-H 'Authorization: Bearer ${token}' \\
+            const data = start + `-H 'x-callgent-authorization: Bearer ${token}' \\
     ` + end
             await navigator.clipboard.writeText(data);
             setCopySuccess('Copied!');
@@ -40,8 +39,8 @@ const RestApi = () => {
     const toggleTokenVisibility = () => {
         setShowToken(!showToken);
     };
-    const Authorization = showToken ? `-H 'Authorization: ${token ? 'Bearer ' + token + ' \\' : 'Please Sign In first.'}'
-    ` : <>-H 'Authorization:<button onClick={toggleTokenVisibility}>Show the API Token</button>'<br />    </>
+    const Authorization = showToken ? `-H 'x-callgent-authorization: ${token ? 'Bearer ' + token + ' \\' : 'Please Sign In first.'}'
+    ` : <>-H 'x-callgent-authorization:<button onClick={toggleTokenVisibility}>Show the API Token</button>'<br />    </>
     return (
         <>
             <div>

@@ -17,8 +17,9 @@ const userSlice = createSlice({
       state.status = { ...state.status, ...data.payload }
     },
     setCallgent: (state) => {
-      const data = JSON.parse(localStorage.getItem('callgent'));
-      state.callgent = data;
+      let userInfo: any = localStorage.getItem('userinfo');
+      userInfo = userInfo && JSON.parse(userInfo);
+      state.callgent = userInfo;
     },
     setFetchState: (state, data) => {
       // state.fetchState = data;

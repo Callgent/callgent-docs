@@ -5,12 +5,12 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
   title: "Callgent",
-  tagline: "Break the silos between Users & Systems<br/> User-as-a-Service v.v., Service-as-a-User",
+  tagline: "Service as a Callable Agent <br/> Break the silos among Users & Systems",
   favicon: "img/favicon.ico",
 
   customFields: {
     homeTitle: "Callgent Documentations",
-    homeDescription: "The documentaions for Callgent - Service as a Callable Agent",
+    homeDescription: "The documentations for Callgent - Service as a Callable Agent",
     signupUrl: process.env.SITE_SIGNUP_URL,
     apiSiteUrl: process.env.API_SITE_URL,
     cookieDomain: process.env.SITE_URL_DOMAIN,
