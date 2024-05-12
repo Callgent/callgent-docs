@@ -27,7 +27,7 @@ export const fetchUserInfo = createAsyncThunk<ApiResponse<UserResponse>>(
         try {
             
             const { data } = await axios.get('/api/users/info');
-            if (data.data !== null) {
+            if (data?.data) {
                 localStorage.setItem('userinfo', JSON.stringify(data.data));
             } else {
                 localStorage.removeItem('userinfo')
