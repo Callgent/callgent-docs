@@ -4,7 +4,8 @@ import "dotenv/config";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
-  title: "Callgent",
+  title: "Service as a Callgent",
+  titleDelimiter: '-',
   tagline: "Service as a Callable Agent <br/> Break the silos among Users & Systems",
   favicon: "img/favicon.ico",
 

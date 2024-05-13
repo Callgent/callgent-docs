@@ -5,15 +5,15 @@ Callgents endpoints are adaptors to collect callgent to external systems or user
 There are three types of endpoints:
 
 - [Server Endpoint](./server-endpoint)
-  Responsible for converting task into the encapsulated target system / user invocation, and updating task from invocation result.
+  Responsible for converting requests into the encapsulated target system invocation or user chatting, and retrieving invocation response.
 - [Client Endpoint](./client-endpoint)
-  Responsible for receiving requests into callgent task queue, and responding back to task owner when task has any progress.
+  Responsible for receiving requests into callgent task queue, and responding back to caller when task has any progress.
 - [Event Endpoint](./event-endpoint)
-  Responsible for listening to events from the encapsulated target system / user, and notifying registered event observers on callgent.
+  Responsible for listening to events from the encapsulated target system or user, and notifying registered event observers on callgent.
 
 ## Add a new endpoint to callgent
 
-When you want to collect your callgent to a new external system / user, you need to integrate them by adding a new endpoint.  
+When you want to connect your callgent to a new external system / user, you need to integrate them by adding a new endpoint.  
 You can add any number of endpoints to your callgent.
 
 ### choose a callgent

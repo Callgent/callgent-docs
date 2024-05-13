@@ -1,11 +1,13 @@
 ---
 sidebar_position: 1
+keywords: [callgent architecture explained, how callgent works, callgent system components, benefits of using callgent, how to connect services using callgent, asynchronous tasks with callgent, semantic invocation in callgent, diagram of callgent product architecture, callgent technology overview, explore callgent intelligent invocation, how callgent integrates into APIs, understanding callgent’s system flow, callgent adaptive communication methods, leveraging callgent for business efficiency, how callgent supports digital ecosystems, next-gen communication with callgent]
+description: Explore the innovative architecture of Callgent, where services and users are encapsulated behind callgents to seamlessly connect through web, chat, email, and APIs. Learn how semantic invocations enhance interactions.
 ---
 
 # Concepts and Architecture
 
 The core of the callgent architecture, is to encapsulate every **service** and **user** behind a `callgent`.  
-Then build various endpoints into third-party platforms, so that any users and services are naturally connected anywhere in their native ways: chatting, mail, APIs..  
+Then build various endpoints into third-party platforms, so that any users and services are naturally connected anywhere in their native ways: webpages, chatting, mail, APIs..  
 
 Above this, we add a layer of semantic invocations, empowered by large language models (LLMs), to make the callgent able to understand and react to any user/system's intents.
 
@@ -25,7 +27,7 @@ Each system service, and every user is encapsulated into a `Callgent`.
 
 ### Calling Anywhere
 
-Requesting a callgent is done through various `Calling Endpoint`, integrated into third-party platforms. So systems and users are naturally connected anywhere in their native ways: chatting, mail, APIs..
+Requesting a callgent is done through various `Calling Endpoint`, integrated into third-party platforms. So systems and users are naturally connected anywhere in their native ways: Webpages, chatting, mail, APIs..
 
 #### User-as-a-Service
 
