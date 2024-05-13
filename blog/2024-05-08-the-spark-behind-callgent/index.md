@@ -3,7 +3,7 @@ slug: the-spark-behind-callgent
 title: 💥 The Spark Behind Callgent - Simplifying Business Operations
 authors: jamesp
 tags: [Industry Trends, Architecture Patterns, Product Design]
-keywords: [Business Operations Platform, Enterprise Operation Solutions, Integration Platform as a Service, iPaaS, Business Process Automation Tools, AI-Powered Business Integration, No-Code Integration Solutions, Enterprise Ticket Management, Workflow Automation Software, Open-Source Business Tools, Slack Integration Solutions]
+keywords: [Business Operations Platform, Enterprise Operation Solutions, Integration Platform as a Service, iPaaS, AI-Powered Business Integration, No-Code Integration Solutions, Enterprise Ticket Management, Slack Integration Solutions]
 description: Explore Callgent, the revolutionary business operations platform designed for seamless integration and automation. Discover how Callgent simplifies enterprise ticket management and system orchestration with no-code solutions, AI-powered data mapping, and effortless user experiences. Learn about its open-source development and how you can contribute or benefit from its advanced features
 ---
 
