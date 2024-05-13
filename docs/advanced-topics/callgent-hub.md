@@ -54,9 +54,7 @@ You can add any server endpoint to your callgent. So that you can respond to the
 
 Your responses are automatically sent back to canny.io, to add comments or change status for the original interactions.
 
-拆分实现
-
 1. hub list/search
 2. pre-created callgent template
 3. creation/config process
-4. usage 跑通
+4. usage
