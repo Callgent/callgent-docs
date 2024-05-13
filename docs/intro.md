@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: Introduction to Callgent
 description: Callgent is yet another AI programming tool besides Copilot, UI generator, and bug fixer, etc.
-keywords: [Callgent AI integration tools, how to use Callgent for system integration, Callgent function-calling technique, AI tools for software development, integrate AI with email and Slack, Callgent vs Zapier functionality, automate systems with Callgent, Callgent for no-code automation, progressive function calling in AI, AI system integration tools, using Callgent as a native service, Callgent API integration examples, Callgent for business process automation, Callgent polymorphic interface, Callgent for asynchronous task management, Callgent for developers and businesses, Callgent user-system orchestration, Callgent seamless system integration, Callgent email integration, how to set up a Callgent, Callgent for effective task queues, Callgent for real-time collaboration, using Callgent in IM apps, natural language processing with Callgent, how Callgent changes software development, Callgent coding tools for non-coders, copilot, code generation, code generator, v0.dev, SWE-bench, AI programming tool]
+keywords: [Callgent function-calling technique, integrate AI with email and Slack, Callgent vs Zapier functionality,  Callgent for no-code automation, progressive function calling in AI, Callgent API integration examples, Callgent user-system orchestration, copilot, code generator, v0.dev, SWE-bench, iPaaS]
 ---
 
 # Introduction
