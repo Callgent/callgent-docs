@@ -15,8 +15,6 @@ Learn how AI & iPaaS are revolutionizing SaaS, paving the way for a future where
 
 Join us on a journey through the cutting-edge landscape of AI-powered technology.
 
-[toc]
-
 <!--truncate-->
 
 ## Unveiling Generative AI-Powered iPaaS
