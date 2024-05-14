@@ -19,7 +19,7 @@ Embark on a journey through the evolving landscape of AI technology.
 
 ## Introducing AI-Powered iPaaS at Callgent.com
 
-In today's digital era, AI-powered iPaaS is transforming business operations by enhancing productivity and efficiency. `Callgent.com` is leading this revolution with advanced, easy-to-integrate solutions that require no coding-eliminating the need to learn new APIs thanks to AI-driven service orchestration and user invocation. Key features include semantic data mapping, persistent asynchronous operations, and progressive invocation, all accessible through natural language commands.
+In today's digital era, AI-powered iPaaS is transforming business operations by enhancing productivity and efficiency. `Callgent.com` is leading this revolution with advanced, easy-to-integrate solutions that require no coding-eliminating the need to learn new APIs thanks to AI-driven service orchestration and user invocation. [Key features](/docs/developers/guide) include semantic data mapping, persistent asynchronous operations, and progressive invocation, all accessible through natural language commands.
 
 ### Seamless System Integration with No Coding Required
 
@@ -36,8 +36,6 @@ Callable agents are at the heart of `Callgent.com`'s offerings, providing a robu
 
 - **Natural Language SOP Orchestration**: Callable agents understand and execute standard operating procedures articulated in natural language, enhancing user interaction and operational accuracy.
 - **Seamless Integration Across Platforms**: By linking disparate systems, callable agents ensure cohesive data flow and functionality across your enterprise landscape.
-
-Learn more about enhancing your SaaS functionality with our [developer's guide to AI integration](/docs/developers/guide).
 
 ### The Strategic Advantage of AI-Enhanced iPaaS
 
