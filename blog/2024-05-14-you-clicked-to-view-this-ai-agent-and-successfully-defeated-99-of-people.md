@@ -1,5 +1,5 @@
 ---
-slug: nestjs+prisma-transaction-propagation-and-test-rollback-and-tenancy
+slug: you-clicked-to-view-this-ai-agent-and-successfully-defeated-99-of-people
 title: 🎉 You clicked to view this AI Agent and successfully defeated 99% of people!
 authors: jamesp
 tags: [Industry Trends, Architecture Patterns, Product Design]
