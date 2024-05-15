@@ -5,13 +5,15 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
   title: "Service as a Callgent",
-  titleDelimiter: '-',
-  tagline: "Service as a Callable Agent <br/> Break the silos among Users & Systems",
+  titleDelimiter: "-",
+  tagline:
+    "Service as a Callable Agent <br/> Break the silos among Users & Systems",
   favicon: "img/favicon.ico",
 
   customFields: {
     homeTitle: "Callgent Documentations",
-    homeDescription: "The documentations for Callgent - Service as a Callable Agent",
+    homeDescription:
+      "The documentations for Callgent - Service as a Callable Agent",
     signupUrl: process.env.SITE_SIGNUP_URL,
     apiSiteUrl: process.env.API_SITE_URL,
     cookieDomain: process.env.SITE_URL_DOMAIN,
@@ -49,23 +51,18 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/Callgent/callgent-docs/edit/blog/",
+          editUrl: "https://github.com/Callgent/callgent-docs/edit/blog/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/Callgent/callgent-docs/edit/blog/",
+          editUrl: "https://github.com/Callgent/callgent-docs/edit/blog/",
         },
         theme: {
           customCss: "./src/css/custom.css",
         },
-        gtag: {
-          trackingID: process.env.GOOGLE_GTAG,
-          anonymizeIP: true,
-        },
+        googleTagManager: { containerId: process.env.GTMID },
       } satisfies Preset.Options,
     ],
   ],
@@ -78,7 +75,7 @@ const config: Config = {
       logo: {
         alt: "Callgent Logo",
         src: "img/logo.svg",
-        srcDark: 'img/logo_dark.svg',
+        srcDark: "img/logo_dark.svg",
         href: process.env.SITE_URL,
         target: "_self",
       },
@@ -89,7 +86,7 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
-        { label: "Developers", to: '/docs/developers/guide' },
+        { label: "Developers", to: "/docs/developers/guide" },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {
@@ -156,7 +153,7 @@ const config: Config = {
       appId: process.env.ALGOLIA_APP_ID,
       apiKey: process.env.ALGOLIA_API_KEY,
       indexName: process.env.ALGOLIA_APP_INDEX,
-    }
+    },
   } satisfies Preset.ThemeConfig,
 };
 
