@@ -7,30 +7,37 @@ keywords: [Callgent function-calling technique, integrate AI with email and Slac
 
 # Introduction
 
-As AIGC advances, [code generation](https://paperswithcode.com/task/code-generation) is one of the most exciting areas of research and businesses.
+Welcome to the new era of AI software development! But what does that really mean? Let's break it down.
 
-Ideally, softwares could be developed in natural language and graphs, and the `AI Programmer`[^1] will generate the corresponding code.
+## The Core of AI Development
 
-Yet in reality, even requirements are hard to be expressed clearly. So AI systems are more as an assistant or tool for programmers, like `copilot`[^2][^3], `UI Generator`[^4], `Bug Fixer`[^5][^6].
+The hard core of software development is all about clearly describing **requirements**. Currently we don't think it's realistic to expect AI to generate an entire software project from scratch.
 
-`Callgent` is yet another AI agent tool, focusing on integrating existing systems or users into any native environments, based on the `progressive function-calling` technique.
+## Best Practices for AI Code Generation
 
-The main difference between `Callgent` and other [`function-calling`](https://platform.openai.com/docs/guides/function-calling) tools is that it does not just stand in chat-box. On the contrary, the `callgent` can enable a service or user to be embedded into any native scenarios, to be invoked:
+So, how do we leverage AI in software development? The best practice is to decide to what extent we want to auto-generate code by AI. Here are the levels to consider:
 
-- as a native service
-- as a webpage
-- as an email account
-- as an IM user, e.g. `Slack`, `WhatsApp`, `WeChat` ...
-- ...
+- Machine code/ASM level
+- C/Java/Python/.. language level
+- Service orchestration level
+- Function-calling level
+  - AI knows which and how to invoke an API
+- Callable Agent level
 
-Imaging your team members and customers can be easily invoked as a micro-service, or you can talk to `Amazon` ordering service as a new team member in your slack channel.  
-And you can even create an [`SOP`](https://en.wikipedia.org/wiki/Standard_operating_procedure) for them, which is a new approach to AI programming.  
+## Introducing Callgent.com - Callable Agent
 
-All just in one place, `Callgent` is the new way to integrate AI into your business.
+Similar to function-calling, Callgent.com - Callable Agent takes it a step further. We're not just stuck function-calling in a chatbox anymore; we're now in native scenarios.
 
-[^1]: https://www.cognition-labs.com/introducing-devin
-[^2]: https://github.com/features/copilot
-[^3]: https://copilot.microsoft.com/
-[^4]: https://v0.dev/
-[^5]: https://paperswithcode.com/task/bug-fixing
-[^6]: https://www.swebench.com/
+![Callgent.com - Callable Agent](https://docs.callgent.com/assets/images/callgent-architecture-a9ae93e8d6935d208536e2eb56a2a023.png)
+
+## The Real Meaning of the New Era of AI Development
+
+The true essence of this new era is to make AI more human-like and more human-friendly.
+
+With Callgent.com - Callable Agent, you can now:
+
+- **Interact with AI in a more natural way.** No more being confined to a chatbox. AI is now integrated into your native scenarios.
+- **Leverage AI for code generation.** Decide the level of code generation that suits your needs and let AI do the heavy lifting.
+- **Create software that is more human-friendly.** With AI that understands and interacts in a more human-like way, your software will be more intuitive and user-friendly.
+
+Welcome to the new era of AI software development with Callgent.com - Callable Agent!
