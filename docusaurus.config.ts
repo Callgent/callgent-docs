@@ -125,7 +125,7 @@ const config: Config = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/Callgent",
+              href: "https://twitter.com/callgent_com",
             },
           ],
         },
