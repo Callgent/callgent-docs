@@ -63,4 +63,4 @@ Callgent signifies a significant leap in business operation platforms, providing
 
 **Share Your Thoughts**: [Join the Callgent Community](https://callgent.canny.io)
 
-**Be Part of Callgent's Development**: [GitHub Repository](http://github.com/Callgent/callgent-api)
+**Be Part of Callgent's Development**: [GitHub Repository](https://github.com/Callgent/callgent-api)
