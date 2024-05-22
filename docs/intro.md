@@ -9,7 +9,7 @@ keywords: [Callgent function-calling technique, integrate AI with email and Slac
 
 Welcome to the new era of AI software development! But what does that really mean? Let's break it down.
 
-## The Core of Software Development
+## The Challenges of Software Development
 
 The hardest part of software development may be how to clearly describe the real **requirements**. Instead of writing code from scratch based on ambiguous and complex PRD, yet another approach we propose here, is to let real end users to interact with software more freely and intelligently.
 
