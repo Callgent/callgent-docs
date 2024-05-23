@@ -25,8 +25,6 @@ By using Callgent for AI software development, we're paving a **realistic and fe
 
 > A basic understanding of the services you're integrating is recommended.
 
-In the new era of AI development, Callgent is your reliable partner, making AI integration easier and more efficient.
-
 ## The Extents to AI Code Generation
 
 So, how do we leverage AI in software development?
@@ -48,5 +46,7 @@ To adhere to best practices, we may determine to what extent we want to auto-gen
 Similar to function-calling, Callgent takes it a step further. We're not just stuck function-calling in a chatbox, we put callgents in all native scenarios, to let users and systems to call it the most natural way.
 
 ![Callgent.com - Callable Agent](https://docs.callgent.com/assets/images/callgent-architecture-a9ae93e8d6935d208536e2eb56a2a023.png)
+
+In the new era of AI development, Callgent is your reliable partner, making AI integration easier and more efficient.
 
 Go ahead, give it a try [right now](./quick-start/register-an-account).
