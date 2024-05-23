@@ -16,7 +16,7 @@ In software development, AI's core value is lowering code generation barriers. B
 **Callgent** changes the game.
 
 :::tip
-Callgent significantly lowers the barriers to integrating existing services, making AI code generation accessible for all **non-developers**.
+Callgent significantly lowers the barriers to just integrating existing services, instead of building from scratch, making AI code generation accessible for all **non-developers**.
 :::
 
 Actually, all software development is essentially a series of integrations, e.g., integrating DBs, Redis, ES, APIs, and other middlewares.
