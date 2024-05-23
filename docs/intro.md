@@ -53,4 +53,4 @@ A basic understanding of the services you're integrating is recommended.
 
 In the new era of AI development, Callgent is your reliable partner, making AI integration easier and more efficient.
 
-Go ahead, give it a try [right now](/category/quick-start).
+Go ahead, give it a try [right now](./quick-start/register-an-account).
