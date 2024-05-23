@@ -37,12 +37,20 @@ Similar to function-calling, Callgent takes it a step further. We're not just st
 
 ## The Real Meaning of the New Era of AI Development
 
-The true essence of this new era is to make AI more human-like and more human-friendly.
+AI's core value is lowering code generation barriers. But, starting projects from scratch is complex due to ambiguous requirements.
 
-With Callgent, you can now:
+**Callgent** changes the game.
 
-- **Interact with services in a more natural way.** you needn't describe your requirements, and wait for some developers to build it for you, just talk to services directly.
-- **Leverage AI for code generation.** AI agents stand between you and services to help understand and interact with them.
-- **Free and native experiences.** just like group chatting, requirements are expressed in natural language, and the AI agent will generate calling code and execute it for you.
+:::tip
+Callgent significantly lowers the barriers to integrating existing services, making AI accessible for all **non-developers**.
+:::
 
-Welcome to the new era of AI software development with Callgent.com - Callable Agent!
+Actually, all software development is essentially a series of integrations, e.g., integrating DBs, Redis, ES, APIs, and other middlewares.
+
+By using Callgent for AI code generation, we're paving a **realistic and feasible path** forward. It simplifies the process, ensuring AI's benefits are within reach.
+
+> A basic understanding of the services you're integrating is recommended.
+
+In the new era of AI development, Callgent is your reliable partner, making AI integration easier and more efficient.
+
+Go ahead, give it a try [right now](./quick-start/register-an-account).
