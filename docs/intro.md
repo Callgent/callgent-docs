@@ -19,7 +19,7 @@ In software development, AI's core value is lowering code generation barriers. B
 Callgent significantly lowers the barriers to just integrating existing services, instead of building from scratch, making AI code generation accessible for all **non-developers**.
 :::
 
-Actually, all software development is essentially a series of integrations, e.g., integrating DBs, Redis, ES, APIs, and other middlewares.
+Actually, all software development is essentially a series of integrations, e.g., integrating DBs, Redis, ES, APIs, and other middlewares and libraries.
 
 By using Callgent for AI software development, we're paving a **realistic and feasible path** forward. It simplifies the process, ensuring AI's benefits are within reach.
 
