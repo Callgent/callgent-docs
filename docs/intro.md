@@ -47,7 +47,7 @@ Actually, software development is essentially a series of integrations, e.g., in
 
 By using Callgent for AI code generation, we're paving a **realistic and feasible path** forward. It simplifies the process, ensuring AI's benefits are within reach.
 
-:::Note
+:::note
 A basic understanding of the services you're integrating is recommended.
 :::
 
