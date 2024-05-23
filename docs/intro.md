@@ -42,7 +42,7 @@ AI's core value is lowering code generation barriers. But, starting projects fro
 **Callgent** changes the game.
 
 :::tip
-It significantly lowers the barriers to integrating existing services, making AI accessible for all **non-developers**.
+Callgent significantly lowers the barriers to integrating existing services, making AI accessible for all **non-developers**.
 :::
 
 Actually, all software development is essentially a series of integrations, e.g., integrating DBs, Redis, ES, APIs, and other middlewares.
