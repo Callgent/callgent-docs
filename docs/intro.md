@@ -11,7 +11,7 @@ Welcome to the new era of AI software development! But what does that really mea
 
 ## The Real Meaning of the New Era of AI Software Development
 
-AI's core value is lowering code generation barriers. But, starting projects from scratch is complex due to ambiguous and complex requirements.
+In software development, AI's core value is lowering code generation barriers. But, starting projects from scratch is complex due to ambiguous and complex requirements.
 
 **Callgent** changes the game.
 
