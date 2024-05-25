@@ -10,17 +10,17 @@ const CreateCallgent = () => {
     if (!isBrowser) {
         return null;
     }
-    const { fetchCreateCallgent, sendConfirmEmail } = require('@site/src/store/thunk');
+    const { fetchCreateCallgent } = require('@site/src/store/thunk');
     const { setStatus } = require('@site/src/store/slices/userSlice');
     const { siteConfig } = useDocusaurusContext();
-
+    // 控制显示隐藏
     const myElementRef = useRef(null);
     const [state, setState] = useState(false)
     const { status, token } = useSelector(
         (state: DocType) => state.user
     );
     const dispatch = useDispatch();
-
+    // 表单提交
     const [lastSubmitTime, setLastSubmitTime] = useState(0);
     const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -29,7 +29,7 @@ const CreateCallgent = () => {
             return;
         }
         if (!token) {
-            myElementRef.current.style.display = 'block';
+            myElementRef.current.style.display = 'block'; // 显示模态框
             return;
         }
         const formData = new FormData(event.currentTarget);
@@ -47,33 +47,15 @@ const CreateCallgent = () => {
     const handleContentClick = (event: { stopPropagation: () => void; }) => {
         event.stopPropagation();
     };
-    const onEmailSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const formData = new FormData(event.currentTarget);
-        const email = formData.get('email') as string;
-        dispatch(sendConfirmEmail({ email }))
-            .then((req) => {
-                if (req.payload !== "Failed to send confirmation email") {
-                    closeModel();
-                }
-            });
-    };
     return (
         <>
             <div id="myModal" onClick={closeModel} ref={myElementRef} className={styles.modal}>
                 <div className={styles.modalContent} onClick={handleContentClick}>
-                    <form onSubmit={(e) => onEmailSubmit(e)} className={styles.resForm}>
-                        <input
-                            type="email"
-                            name="email"
-                            required
-                            placeholder="Enter your email to register"
-                            className='input col table-of-contents'
-                        />
-                        <button className='button col button--info button--secondary'>
-                            Send Email
-                        </button>
-                    </form>
+                    <p>
+                        Please&nbsp;
+                        <a href={"/docs/quick-start/register-an-account"}>Sign up</a>
+                        &nbsp;first.
+                    </p>
                 </div>
             </div>
             <form onSubmit={onFormSubmit} className={styles.form}>

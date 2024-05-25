@@ -45,7 +45,9 @@ export const sendConfirmEmail = createAsyncThunk<ApiResponse<any>, { email: stri
     async (emailData, thunkAPI) => {
         try {
             const { data } = await axios.post('/api/users/send-confirm-email', {
-                email: emailData.email
+                email: emailData.email,
+                create: true,
+                resetPwd: true,
             });
             return data;
         } catch (error) {

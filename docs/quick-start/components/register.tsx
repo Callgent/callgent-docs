@@ -3,7 +3,6 @@ import styles from './index.module.css';
 import { DocType } from '@site/src/types/user';
 import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const CreateCallgent = () => {
     const isBrowser = useIsBrowser();
@@ -11,7 +10,7 @@ const CreateCallgent = () => {
         return null;
     }
     const { sendConfirmEmail } = require('@site/src/store/thunk');
-    const [state, setState] = useState(false);
+    const [state, setState] = useState(null);
     const dispatch = useDispatch();
     const onEmailSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -20,7 +19,9 @@ const CreateCallgent = () => {
         dispatch(sendConfirmEmail({ email }))
             .then((req) => {
                 if (req.payload !== "Failed to send confirmation email") {
-                    setState(true);
+                    setState('success');
+                } else {
+                    setState('error');
                 }
             });
     };
@@ -38,7 +39,8 @@ const CreateCallgent = () => {
                     Send Email
                 </button>
             </form>
-            {state && <div className="text--success margin--sm">Please go to your email to set up your account!</div>}
+            {state === 'success' && <div className="text--success margin--sm">Please go to your email to set up your account!</div>}
+            {state === 'error' && <div className="text--danger margin--sm">Failed to send confirmation email. Please try again later.</div>}
         </>
     );
 };
