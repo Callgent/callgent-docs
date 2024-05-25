@@ -4,15 +4,10 @@ sidebar_position: 1
 
 # Register an Account
 
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import IconExternalLink from '@theme/Icon/ExternalLink';
-export const SignupLink = () => {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-      <a href={siteConfig.customFields.signupUrl} target='_blank'>sign-up page<IconExternalLink /></a>
-  );
-};
+import App from "@site/docs/app"
+import SignupLink from "./components/register"
 
-Firstly register an account from the <SignupLink />.
+Firstly register an Account 
+<pre> <App><SignupLink /></App></pre> 
 
 Once you have registered, you can go to [Create the First Callgent](create-a-new-callgent) page.

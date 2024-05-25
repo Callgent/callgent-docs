@@ -13,14 +13,14 @@ const CreateCallgent = () => {
     const { fetchCreateCallgent, sendConfirmEmail } = require('@site/src/store/thunk');
     const { setStatus } = require('@site/src/store/slices/userSlice');
     const { siteConfig } = useDocusaurusContext();
-    
+
     const myElementRef = useRef(null);
     const [state, setState] = useState(false)
     const { status, token } = useSelector(
         (state: DocType) => state.user
     );
     const dispatch = useDispatch();
-    
+
     const [lastSubmitTime, setLastSubmitTime] = useState(0);
     const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -70,7 +70,7 @@ const CreateCallgent = () => {
                             placeholder="Enter your email to register"
                             className='input col table-of-contents'
                         />
-                        <button className='button col button--info button--secondary' style={{ marginTop: '10px' }}>
+                        <button className='button col button--info button--secondary'>
                             Send Email
                         </button>
                     </form>
