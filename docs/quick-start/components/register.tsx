@@ -34,7 +34,7 @@ const CreateCallgent = () => {
                     placeholder="Enter your email to register"
                     className='input col col--4 margin--sm table-of-contents'
                 />
-                <button className='button col col--4 margin--sm button--info button--secondary'>
+                <button className='button col col--3 margin--sm button--info button--secondary'>
                     Send Email
                 </button>
             </form>
