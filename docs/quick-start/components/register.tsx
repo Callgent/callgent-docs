@@ -39,7 +39,7 @@ const CreateCallgent = () => {
                     Send Email
                 </button>
             </form>
-            {state === 'success' && <div className="text--success margin--sm">Please go to your email to set up your account!</div>}
+            {state === 'success' && <div className="text--success margin--sm">Please check your email to confirm registration!</div>}
             {state === 'error' && <div className="text--danger margin--sm">Failed to send confirmation email. Please try again later.</div>}
         </>
     );
