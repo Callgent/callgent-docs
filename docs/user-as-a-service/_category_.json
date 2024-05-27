@@ -1,0 +1,8 @@
+{
+  "label": "User as a Service",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Now, let's encapsulate a user as a REST-API service. By default, the user may respond to invocations by email. And user can respond from Slack channels and other scenarios easily."
+  }
+}
