@@ -53,7 +53,7 @@ const CreateCallgent = () => {
                 <div className={styles.modalContent} onClick={handleContentClick}>
                     <p>
                         Please&nbsp;
-                        <a href={siteConfig.url + "/en/signin?redirect=/docs/quick-start/create-a-new-callgent"}>Sign In</a>
+                        <a href={"/docs/quick-start/register-an-account"}>Sign up</a>
                         &nbsp;first.
                     </p>
                 </div>

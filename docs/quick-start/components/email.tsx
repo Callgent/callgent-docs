@@ -4,7 +4,7 @@ import { DocType } from '@site/src/types/user';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 const Email = () => {
-    // 打包之后必须使用@docusaurus/useIsBrowser来限制浏览器渲染
+    
     const isBrowser = useIsBrowser();
     if (!isBrowser) {
         return null;
@@ -17,12 +17,11 @@ const Email = () => {
     useEffect(() => {
         // dispatch(setCallgent());
     }, [])
-    // 邮件操作
+    // Mail Operations
     const pushRouter = () => {
         if (callgent?.uuid) {
             window.location.href = `mailto:callgent+${callgent.uuid}@c.callgent.com`;
         } else {
-            // 元素在mdx中，无法使用ref
             const element = document.querySelector('#create-the-callgent');
             if (element instanceof HTMLElement) {
                 window.scrollTo({

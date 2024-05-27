@@ -10,14 +10,14 @@ const axios = axioshead.create({
 });
 axios.interceptors.request.use(
     (config) => {
-        const token = getCookie('jwt');
+        const token = getCookie('x-callgent-jwt');
         if (token) {
             config.headers.Authorization = 'Bearer ' + token;
         }
         return config;
     },
     (error) => {
-        console.error('错误：', error);
+        console.error('error', error);
         return error
     },
 );
@@ -27,11 +27,8 @@ axios.interceptors.response.use(
     },
     async error => {
         if (error.response && error.response.status === 401) {
-            deleteCookie('jwt')
-            console.error('401错误：请重新登录。');
-            // window.location.href = '/login';
+            deleteCookie('x-callgent-jwt')
         } else {
-            console.error('其他错误：', error);
         }
         return Promise.reject(error);
     }

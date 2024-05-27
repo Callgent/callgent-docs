@@ -25,31 +25,30 @@ This is the portal website of [Callgent](https://callgent.com), gratefully forke
 1. "node": ">=18.17.0"
 2. checkout the repository:
 
-    ```bash
-    
-    ```
-    
+   ```bash
+
+   ```
+
 3. rename `.env.example` to `.env`
 4. Start the Service
 
-    - Development Environment
+   - Development Environment
 
-        ```bash
-        # Modify the API_SITE_URL on line 7 of your package.json file to set your development server.
-        npm i -g pnpm
-        pnpm install
-        pnpm run start
-        ```
+     ```bash
+     # Modify the API_SITE_URL on line 7 of your package.json file to set your development server.
+     npm i -g pnpm
+     pnpm install
+     pnpm run start
+     ```
 
-    - Production Environment
+   - Production Environment
 
-        ```bash
-        # Modify the API_SITE_URL in your .env file to set your production environment server.
-        pnpm install
-        pnpm run build
-        pnpm run serve
-        ```
-        
+     ```bash
+     # Modify the API_SITE_URL in your .env file to set your production environment server.
+     pnpm install
+     pnpm run build
+     pnpm run serve
+     ```
 
 ## Contributing
 
