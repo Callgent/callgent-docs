@@ -20,12 +20,12 @@ export const fetchCreateCallgent = createAsyncThunk<ApiResponse<CallgentResponse
     }
 );
 
-// 用户详情
+// User details
 export const fetchUserInfo = createAsyncThunk<ApiResponse<UserResponse>>(
     'users/fetchUserInfo',
     async (user, thunkAPI) => {
         try {
-            
+
             const { data } = await axios.get('/api/users/info');
             if (data?.data) {
                 localStorage.setItem('userinfo', JSON.stringify(data.data));
@@ -35,6 +35,23 @@ export const fetchUserInfo = createAsyncThunk<ApiResponse<UserResponse>>(
             return data;
         } catch (error) {
             return thunkAPI.rejectWithValue('Failed to fetch users');
+        }
+    }
+);
+
+// Send a confirmation email
+export const sendConfirmEmail = createAsyncThunk<ApiResponse<any>, { email: string }>(
+    'users/sendConfirmEmail',
+    async (emailData, thunkAPI) => {
+        try {
+            const { data } = await axios.post('/api/users/send-confirm-email', {
+                email: emailData.email,
+                create: true,
+                resetPwd: true,
+            });
+            return data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue('Failed to send confirmation email');
         }
     }
 );

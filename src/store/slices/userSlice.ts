@@ -9,7 +9,7 @@ const userSlice = createSlice({
     userData: {},
     callgent: {},
     status: {},
-    token: getCookie('jwt'),
+    token: getCookie('x-callgent-jwt'),
     fetchState: {},
   } as userSliceType,
   reducers: {
@@ -26,22 +26,17 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // 注册接口
     builder.addCase(fetchCreateCallgent.fulfilled, (state, action) => {
-      // console.log(action.payload.data);
-
       state.callgent = action.payload.data
     });
     builder.addCase(fetchCreateCallgent.pending, (state, action) => {
       // state.loading = true;
     });
-    // 用户详情
     builder.addCase(fetchUserInfo.fulfilled, (state, action) => {
-      // console.log('用户详情', action);
 
     });
   },
 });
 
-export const { setStatus, setCallgent,setFetchState } = userSlice.actions;
+export const { setStatus, setCallgent, setFetchState } = userSlice.actions;
 export default userSlice.reducer;
