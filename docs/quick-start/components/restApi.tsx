@@ -15,7 +15,7 @@ const RestApi = () => {
 
     // 删除 `` 换行会导致不能对齐
     const start = `curl -X 'POST' \\
-    'https://api.callgent.com/api/botlets/{uuid}//invoke/api/' \\
+    'https://api.callgent.com/api/callgents/{uuid}//invoke/api/' \\
     -H 'accept: */*' \\
     `
     const end = `-H 'x-callgent-callback: https://callback-url-to-receive-task-response--or-empty-if-neednt-reply' \\
