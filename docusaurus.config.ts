@@ -86,6 +86,7 @@ const config: Config = {
           label: "Tutorials",
         },
         { label: "Developers", to: "/docs/developers/guide" },
+        { label: "API Reference", to: "/docs/user-as-a-service/import-user-api-into-callgent" },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {
