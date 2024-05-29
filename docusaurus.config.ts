@@ -80,7 +80,6 @@ const config: Config = {
         target: "_self",
       },
       items: [
-        { to: process.env.SITE_URL, target: "_self", label: "Home" },
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",

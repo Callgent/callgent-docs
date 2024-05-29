@@ -11,6 +11,7 @@ const userSlice = createSlice({
     status: {},
     token: getCookie('x-callgent-jwt'),
     fetchState: {},
+    showLogin: false,
   } as userSliceType,
   reducers: {
     setStatus: (state, data) => {
@@ -23,6 +24,9 @@ const userSlice = createSlice({
     },
     setFetchState: (state, data) => {
       // state.fetchState = data;
+    },
+    setShowLogin: (state, action) => {
+      state.showLogin = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -38,5 +42,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setStatus, setCallgent, setFetchState } = userSlice.actions;
+export const { setStatus, setCallgent, setShowLogin, setFetchState } = userSlice.actions;
 export default userSlice.reducer;

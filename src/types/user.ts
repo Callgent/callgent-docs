@@ -36,6 +36,7 @@ export type userSliceType = {
     token: string | null,
     status: CallgentState;
     fetchState: FetchStateType;
+    showLogin: boolean;
 }
 
 

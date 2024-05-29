@@ -4,16 +4,17 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 const { siteConfig } = useDocusaurusContext();
 const baseUrl = siteConfig.customFields;
 
+axioshead.defaults.withCredentials = true;
 const axios = axioshead.create({
     baseURL: baseUrl.apiSiteUrl as string,
-    timeout: 20 * 1000,
 });
+
 axios.interceptors.request.use(
     (config) => {
-        const token = getCookie('x-callgent-jwt');
-        if (token) {
-            config.headers.Authorization = 'Bearer ' + token;
-        }
+        // const token = getCookie('x-callgent-jwt');
+        // if (token) {
+        //     config.headers['x-callgent-authorization'] = 'Bearer ' + token;
+        // }
         return config;
     },
     (error) => {
@@ -26,11 +27,13 @@ axios.interceptors.response.use(
         return response;
     },
     async error => {
-        if (error.response && error.response.status === 401) {
+        if (error.response.status !== 502) {
+            return Promise.reject(error.response);
+        } else if (error.response && error.response.status === 401) {
             deleteCookie('x-callgent-jwt')
         } else {
+            return Promise.reject({ message: 'The server is abnormal, please try again later' });
         }
-        return Promise.reject(error);
     }
 );
 export default axios;

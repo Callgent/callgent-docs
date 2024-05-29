@@ -4,7 +4,7 @@ import { DocType } from '@site/src/types/user';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 const Email = () => {
-    
+
     const isBrowser = useIsBrowser();
     if (!isBrowser) {
         return null;
@@ -36,7 +36,6 @@ const Email = () => {
             return () => clearTimeout(timerId);
         }
     }
-    // console.log(callgent);
 
     return (
         <>
