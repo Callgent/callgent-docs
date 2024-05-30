@@ -80,13 +80,13 @@ const config: Config = {
         target: "_self",
       },
       items: [
-        { to: process.env.SITE_URL, target: "_self", label: "Home" },
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
         { label: "Developers", to: "/docs/developers/guide" },
+        { label: "API Reference", to: "/docs/user-as-a-service/import-user-api-into-callgent" },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {

@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './app.module.css';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import ShowLogin from '@site/src/components/module/login';
 const Setting = ({ children }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) {
@@ -33,6 +34,7 @@ const Setting = ({ children }) => {
     }, [fetchState])
     return (
         <>
+            <ShowLogin />
             <div id="myModal" onClick={closeModel} ref={myElementRef} className={styles.modal}>
                 <div className={styles.modalContent} onClick={handleContentClick}>
                     <p>

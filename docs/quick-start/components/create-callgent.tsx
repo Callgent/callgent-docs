@@ -1,9 +1,8 @@
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import styles from './index.module.css';
 import { DocType } from '@site/src/types/user';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const CreateCallgent = () => {
     const isBrowser = useIsBrowser();
@@ -12,15 +11,13 @@ const CreateCallgent = () => {
     }
     const { fetchCreateCallgent } = require('@site/src/store/thunk');
     const { setStatus } = require('@site/src/store/slices/userSlice');
-    const { siteConfig } = useDocusaurusContext();
-    // 控制显示隐藏
-    const myElementRef = useRef(null);
+
     const [state, setState] = useState(false)
     const { status, token } = useSelector(
         (state: DocType) => state.user
     );
     const dispatch = useDispatch();
-    // 表单提交
+
     const [lastSubmitTime, setLastSubmitTime] = useState(0);
     const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -29,7 +26,8 @@ const CreateCallgent = () => {
             return;
         }
         if (!token) {
-            myElementRef.current.style.display = 'block'; // 显示模态框
+            const { setShowLogin } = require('@site/src/store/slices/userSlice');
+            dispatch(setShowLogin(true));
             return;
         }
         const formData = new FormData(event.currentTarget);
@@ -41,38 +39,22 @@ const CreateCallgent = () => {
         });
         setLastSubmitTime(now);
     };
-    const closeModel = () => {
-        myElementRef.current.style.display = 'none';
-    }
-    const handleContentClick = (event: { stopPropagation: () => void; }) => {
-        event.stopPropagation();
-    };
+
     return (
-        <>
-            <div id="myModal" onClick={closeModel} ref={myElementRef} className={styles.modal}>
-                <div className={styles.modalContent} onClick={handleContentClick}>
-                    <p>
-                        Please&nbsp;
-                        <a href={"/docs/quick-start/register-an-account"}>Sign up</a>
-                        &nbsp;first.
-                    </p>
-                </div>
-            </div>
-            <form onSubmit={onFormSubmit} className={styles.form}>
-                <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Callgent Name"
-                    className="input col col--4 margin--sm table-of-contents"
-                />
-                <button className="button col col--2 margin--sm button--info button--secondary">
-                    Create
-                </button>
-                {state && <span className="margin--md text--success">Successfully created!</span>}
-                {status?.isCreate && <span className={styles.please}>Please create a callgent First!</span>}
-            </form>
-        </>
+        <form onSubmit={onFormSubmit} className={styles.form}>
+            <input
+                type="text"
+                name="name"
+                required
+                placeholder="Employee Leave Request"
+                className="input col col--4 margin--sm table-of-contents"
+            />
+            <button className="button col col--2 margin--sm button--info button--secondary">
+                Create
+            </button>
+            {state && <span className="margin--md text--success">Successfully created!</span>}
+            {status?.isCreate && <span className={styles.please}>Please create a callgent First!</span>}
+        </form>
     );
 };
 export default CreateCallgent;
