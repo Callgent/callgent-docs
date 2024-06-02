@@ -5,6 +5,7 @@ import isInternalUrl from "@docusaurus/isInternalUrl";
 import { isRegexpStringMatch } from "@docusaurus/theme-common";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import type { Props } from "@theme/NavbarItem/NavbarNavLink";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 
 export default function NavbarNavLink({
   activeBasePath,
@@ -17,6 +18,8 @@ export default function NavbarNavLink({
   prependBaseUrlToHref,
   ...props
 }: Props): JSX.Element {
+  const isBrowser = useIsBrowser();
+  if (!isBrowser) { return null; }
   // TODO all this seems hacky
   // {to: 'version'} should probably be forbidden, in favor of {to: '/version'}
   const toUrl = useBaseUrl(to);
@@ -39,11 +42,11 @@ export default function NavbarNavLink({
     };
 
   if (href && label === 'Login') {
-    const { uuid, avatar } = JSON.parse(localStorage.getItem('userinfo'));
+    const userinfo = JSON.parse(localStorage.getItem('userinfo'));
     return (
       <>
         {
-          uuid ? (<><img className="navbar-login-img teal-img" src={avatar ? avatar : '/img/logo-header.png'} /></>) :
+          userinfo?.uuid ? (<><img className="navbar-login-img teal-img" src={userinfo?.avatar ? userinfo.avatar : '/img/logo-header.png'} /></>) :
             (<Link href={prependBaseUrlToHref ? normalizedHref : href} {...props} {...linkContentProps} />)
         }
       </>

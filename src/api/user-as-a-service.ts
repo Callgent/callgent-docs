@@ -1,15 +1,13 @@
-import axios from 'axios';
+import axios from "@site/src/util/axios/index";
 
-export function uaas() {
+export function uaaService() {
     return {
         createEndpoints: (data: {
             "type": string,
-            "host": object,
-            "initParams": object,
-            "content": object,
+            "host": string,
             "callgentUuid": string
         }) => {
-            return axios.post('/api/endpoints/{adaptorKey}/callgents', data);
+            return axios.post('/api/endpoints/mail/callgents', data);
         },
     };
 }

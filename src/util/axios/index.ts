@@ -1,20 +1,11 @@
 import axioshead from "axios";
 import { getCookie, deleteCookie } from "../cookie";
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-const { siteConfig } = useDocusaurusContext();
-const baseUrl = siteConfig.customFields;
 
 axioshead.defaults.withCredentials = true;
-const axios = axioshead.create({
-    baseURL: baseUrl.apiSiteUrl as string,
-});
+const axios = axioshead.create({});
 
 axios.interceptors.request.use(
     (config) => {
-        // const token = getCookie('x-callgent-jwt');
-        // if (token) {
-        //     config.headers['x-callgent-authorization'] = 'Bearer ' + token;
-        // }
         return config;
     },
     (error) => {
