@@ -41,7 +41,7 @@ const config: Config = {
     locales: ["en", "zh"],
   },
 
-  plugins: [],
+  plugins: ['docusaurus-plugin-sass'],
 
   presets: [
     [
@@ -86,13 +86,19 @@ const config: Config = {
           label: "Tutorials",
         },
         { label: "Developers", to: "/docs/developers/guide" },
-        { label: "API Reference", to: "/docs/user-as-a-service/import-user-api-into-callgent" },
+        { label: "API Reference", to: process.env.API_SITE_DOC_URL },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {
           href: "https://github.com/Callgent/callgent-docs",
           label: "GitHub",
           position: "right",
+        },
+        {
+          href: process.env.SITE_URL + "/signin",
+          position: "right",
+          label: "Login",
+          className: "navbar-login-btn internal teal-btn",
         },
       ],
     },

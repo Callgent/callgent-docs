@@ -26,12 +26,14 @@
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
     "clsx": "^2.0.0",
+    "docusaurus-plugin-sass": "^0.2.5",
     "dotenv": "^16.4.5",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^9.1.0",
-    "react-social-login-buttons": "^3.9.1"
+    "react-social-login-buttons": "^3.9.1",
+    "sass": "^1.77.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.0",
