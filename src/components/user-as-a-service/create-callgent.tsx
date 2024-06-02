@@ -13,16 +13,16 @@ const CreateCallgent = () => {
     const { fetchCreateCallgent } = require('@site/src/store/thunk');
     const { setStatus } = require('@site/src/store/slices/userSlice');
 
-    const [state, setState] = useState(false);
+    const [state, setState] = useState(false)
     const { status, token } = useSelector(
         (state: DocType) => state.user
     );
     const dispatch = useDispatch();
 
-    const [lastSubmitTime, setLastSubmitTime] = useState(0);
     const [isSubmitting, handleSubmit] = useSubmit();
 
-    const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const [lastSubmitTime, setLastSubmitTime] = useState(0);
+    const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const now = Date.now();
         if (now - lastSubmitTime < 5000) {
@@ -35,16 +35,12 @@ const CreateCallgent = () => {
         }
         const formData = new FormData(event.currentTarget);
         const formValues = Object.fromEntries(formData.entries()) as { name: string };
-
-        await handleSubmit(async () => {
-            const req = await dispatch(fetchCreateCallgent(formValues));
-            if (req.payload === "Failed to fetch users") {
-                return;
-            }
-            setState(true);
-            dispatch(setStatus({ isCreate: false }));
-        });
-
+        console.log(formValues);
+        // dispatch(fetchCreateCallgent(formValues)).then((req) => {
+        //     if (req.payload === "Failed to fetch users") { return }
+        //     setState(true);
+        //     dispatch(setStatus({ isCreate: false }));
+        // });
         setLastSubmitTime(now);
     };
 
@@ -57,11 +53,7 @@ const CreateCallgent = () => {
                 placeholder="Employee Leave Request"
                 className="input col col--4 margin--sm table-of-contents"
             />
-            <button
-                type="submit"
-                className="button col col--2 margin--sm button--info button--secondary"
-                disabled={isSubmitting}
-            >
+            <button className="button col col--2 margin--sm button--info button--secondary">
                 Create
             </button>
             {state && <span className="margin--md text--success">Successfully created!</span>}
@@ -69,5 +61,4 @@ const CreateCallgent = () => {
         </form>
     );
 };
-
 export default CreateCallgent;

@@ -3,6 +3,7 @@ import styles from './index.module.css';
 import { DocType } from '@site/src/types/user';
 import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import useSubmit from '@site/src/hooks/button';
 
 const CreateCallgent = () => {
     const isBrowser = useIsBrowser();
@@ -12,18 +13,20 @@ const CreateCallgent = () => {
     const { sendConfirmEmail } = require('@site/src/store/thunk');
     const [state, setState] = useState(null);
     const dispatch = useDispatch();
-    const onEmailSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const [isSubmitting, handleSubmit] = useSubmit();
+    const onEmailSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
         const email = formData.get('email') as string;
-        dispatch(sendConfirmEmail({ email }))
-            .then((req) => {
-                if (req.payload !== "Failed to send confirmation email") {
-                    setState('success');
-                } else {
-                    setState('error');
-                }
-            });
+
+        await handleSubmit(async () => {
+            const req = await dispatch(sendConfirmEmail({ email }));
+            if (req.payload !== "Failed to send confirmation email") {
+                setState('success');
+            } else {
+                setState('error');
+            }
+        });
     };
     return (
         <>
@@ -35,7 +38,11 @@ const CreateCallgent = () => {
                     placeholder="Enter your email to register"
                     className='input col col--4 margin--sm table-of-contents'
                 />
-                <button className='button col col--3 margin--sm button--info button--secondary'>
+                <button
+                    type="submit"
+                    className='button col col--3 margin--sm button--info button--secondary'
+                    disabled={isSubmitting}
+                >
                     Send Email
                 </button>
             </form>
