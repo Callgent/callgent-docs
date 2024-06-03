@@ -50,6 +50,7 @@ const config: Config = {
         path: "devevloper",
         routeBasePath: "developer",
         sidebarPath: "./sidebars.ts",
+        sidebarCollapsible: false,
         // ... other options
       },
     ],
@@ -60,6 +61,7 @@ const config: Config = {
         path: "showcase",
         routeBasePath: "showcase",
         sidebarPath: "./sidebars.ts",
+        sidebarCollapsible: false,
         // ... other options
       },
     ],
@@ -71,6 +73,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          sidebarCollapsible: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/Callgent/callgent-docs/edit/blog/",
