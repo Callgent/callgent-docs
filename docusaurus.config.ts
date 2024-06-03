@@ -110,7 +110,7 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
-        { label: "Showcase", to: "/showcase" },
+        { label: "Showcase", to: "/showcase/intro" },
         { label: "Developers", to: "/developer/guide" },
         { label: "API Reference", to: process.env.API_SITE_DOC_URL },
         { to: "/blog", label: "Blog", position: "left" },
