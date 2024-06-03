@@ -41,7 +41,29 @@ const config: Config = {
     locales: ["en", "zh"],
   },
 
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "developer",
+        path: "devevloper",
+        routeBasePath: "developer",
+        sidebarPath: "./sidebars.ts",
+        // ... other options
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "showcase",
+        path: "showcase",
+        routeBasePath: "showcase",
+        sidebarPath: "./sidebars.ts",
+        // ... other options
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -85,7 +107,8 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
-        { label: "Developers", to: "/docs/developers/guide" },
+        { label: "Showcase", to: "/showcase" },
+        { label: "Developers", to: "/developer/guide" },
         { label: "API Reference", to: process.env.API_SITE_DOC_URL },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
@@ -114,7 +137,7 @@ const config: Config = {
             },
             {
               label: "Developers",
-              to: "/docs/developers/guide",
+              to: "/developer/guide",
             },
           ],
         },
