@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-title: Introduction to Callgent
-description: Callgent is yet another AI programming tool besides Copilot, UI generator, and bug fixer, etc.
+title: Showcase
+description: Provide to users some showcases to get to know how to use callgent.
 keywords: [Callgent function-calling technique, integrate AI with email and Slack, Callgent vs Zapier functionality,  Callgent for no-code automation, progressive function calling in AI, Callgent API integration examples, Callgent user-system orchestration, copilot, code generator, v0.dev, SWE-bench, iPaaS]
 ---
 
@@ -9,7 +9,7 @@ keywords: [Callgent function-calling technique, integrate AI with email and Slac
 
 Welcome to the new era of AI software development! But what does that really mean? Let's break it down.
 
-## The Real Meaning of the New Era of AI Software Development
+## User as a service
 
 In software development, AI's core value is lowering code generation barriers. But, starting projects from scratch is complex due to ambiguous and complex requirements.
 
@@ -25,7 +25,7 @@ By using Callgent for AI software development, we're paving a **realistic and fe
 
 > A basic understanding of the services you're integrating is recommended.
 
-## The Extents to AI Code Generation
+## Webhook
 
 So, how do we leverage AI in software development?
 
@@ -41,12 +41,5 @@ To adhere to best practices, we may determine to what extent we want to auto-gen
 - Callable Agent level
   - function-calling outside of chatbox
 
-## Introducing Callgent.com - Callable Agent
-
-Similar to function-calling, Callgent takes it a step further. We're not just stuck function-calling in a chatbox, we put callgents in all native scenarios, to let users and systems to call it the most natural way.
-
-![Callgent.com - Callable Agent](https://docs.callgent.com/assets/images/callgent-architecture-a9ae93e8d6935d208536e2eb56a2a023.png)
-
-In the new era of AI development, Callgent is your reliable partner, making AI integration easier and more efficient.
-
-Go ahead, give it a try [right now](./quick-start/register-an-account).
+## Glue Code
+balabalabla
