@@ -41,13 +41,39 @@ const config: Config = {
     locales: ["en", "zh"],
   },
 
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "developer",
+        path: "devevloper",
+        routeBasePath: "developer",
+        sidebarPath: "./sidebars.ts",
+        sidebarCollapsible: false,
+        // ... other options
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "showcase",
+        path: "showcase",
+        routeBasePath: "showcase",
+        sidebarPath: "./sidebars.ts",
+        sidebarCollapsible: false,
+        // ... other options
+      },
+    ],
+  ],
+
   presets: [
     [
       "classic",
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          sidebarCollapsible: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/Callgent/callgent-docs/edit/blog/",
@@ -89,7 +115,8 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
-        { label: "Developers", to: "/docs/developers/guide" },
+        { label: "Showcase", to: "/showcase/intro" },
+        { label: "Developers", to: "/developer/guide" },
         { label: "API Reference", to: process.env.API_SITE_DOC_URL },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
@@ -118,7 +145,7 @@ const config: Config = {
             },
             {
               label: "Developers",
-              to: "/docs/developers/guide",
+              to: "/developer/guide",
             },
           ],
         },

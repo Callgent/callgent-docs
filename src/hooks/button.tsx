@@ -20,7 +20,6 @@ function useSubmit(): [boolean, (submitFunction: () => Promise<void>, requireLog
             setIsSubmitting(false);
         }
     }, [isSubmitting, setShowLogin]);
-
     return [isSubmitting, handleSubmit];
 }
 

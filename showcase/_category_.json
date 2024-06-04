@@ -1,0 +1,8 @@
+{
+  "label": "Introduction to showcases",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Provide to users some showcases to get to know how to use callgent"
+  }
+}
