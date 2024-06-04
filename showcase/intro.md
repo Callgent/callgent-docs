@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Showcase
+title: Introduction
 description: Provide to users some showcases to get to know how to use callgent.
 keywords: [Callgent function-calling technique, integrate AI with email and Slack, Callgent vs Zapier functionality,  Callgent for no-code automation, progressive function calling in AI, Callgent API integration examples, Callgent user-system orchestration, copilot, code generator, v0.dev, SWE-bench, iPaaS]
 ---
