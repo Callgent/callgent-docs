@@ -42,7 +42,6 @@ const config: Config = {
   },
 
   plugins: ['docusaurus-plugin-sass'],
-
   presets: [
     [
       "classic",
@@ -68,6 +67,11 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
