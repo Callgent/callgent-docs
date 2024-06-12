@@ -6,10 +6,9 @@ keywords: [Callgent function-calling technique, integrate AI with email and Slac
 ---
 
 # Introduction
+There are some kind of showcases for you to get familiar with how to use callgent.
 
-Welcome to the new era of AI software development! But what does that really mean? Let's break it down.
-
-## User as a service
+## User as a Service
 
 In software development, AI's core value is lowering code generation barriers. But, starting projects from scratch is complex due to ambiguous and complex requirements.
 
