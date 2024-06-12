@@ -1,19 +1,16 @@
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import styles from './index.module.css';
-import { DocType } from "@site/src/types/user";
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { getCookie } from '@site/src/util/cookie';
+
 const RestApi = () => {
     const isBrowser = useIsBrowser();
-    if (!isBrowser) {
-        return null;
-    }
-    const { token } = useSelector((state: DocType) => state.user);
+    if (!isBrowser) { return null; }
+    const token = getCookie('x-callgent-jwt');
 
     const [copySuccess, setCopySuccess] = useState('');
     const [showToken, setShowToken] = useState(false);
 
-    // 删除 `` 换行会导致不能对齐
     const start = `curl -X 'POST' \\
     'https://api.callgent.com/api/callgents/{uuid}//invoke/api/' \\
     -H 'accept: */*' \\
@@ -56,19 +53,3 @@ const RestApi = () => {
     );
 };
 export default RestApi;
-
-
-// // 返回模板
-// ```shell
-// curl -X 'POST' \
-//   'http://localhost:3000/api/**jDsfXV-l6XjTTqhOqm7AV**/tasks' \
-//   -H 'accept: application/json' \
-//   -H 'Authorization: Bearer <button>Show the API Token</button>' \
-//   -H 'Content-Type: application/json' \
-//   -d '{
-//   "brief": "task brief or description",
-//   "content": { "any task content in JSON format": 1 },
-//   "from": "api",
-//   "callback": "https://callback-url-to-receive-task-response--or-empty-if-neednt-reply"
-// }'
-// ```

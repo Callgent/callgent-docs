@@ -47,7 +47,7 @@ const config: Config = {
       "@docusaurus/plugin-content-docs",
       {
         id: "developer",
-        path: "devevloper",
+        path: "developer",
         routeBasePath: "developer",
         sidebarPath: "./sidebars.ts",
         sidebarCollapsible: false,
@@ -57,9 +57,9 @@ const config: Config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "showcase",
-        path: "showcase",
-        routeBasePath: "showcase",
+        id: "solutions",
+        path: "solutions",
+        routeBasePath: "solutions",
         sidebarPath: "./sidebars.ts",
         sidebarCollapsible: false,
         // ... other options
@@ -93,6 +93,11 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
@@ -110,9 +115,9 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
-        { label: "Showcase", to: "/showcase/intro" },
+        { label: "Solutions", to: "/solutions/category/showcases" },
         { label: "Developers", to: "/developer/guide" },
-        { label: "API Reference", to: process.env.API_SITE_DOC_URL },
+        { label: "API Reference", href: process.env.API_SITE_DOC_URL },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {

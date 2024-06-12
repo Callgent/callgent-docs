@@ -1,57 +1,47 @@
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import styles from './index.module.css';
-import { DocType } from '@site/src/types/user';
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import useSubmit from '@site/src/hooks/button';
+import axios from 'axios';
 
 const CreateEndpoints = () => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const userinfo = JSON.parse(localStorage.getItem('userinfo'));
-    const callgent = JSON.parse(localStorage.getItem('callgent'));
-    const [state, setState] = useState(false)
-    const { status, token } = useSelector(
-        (state: DocType) => state.user
-    );
-    const dispatch = useDispatch();
-
+    const [callgent, setCallgent] = useState(JSON.parse(localStorage.getItem('callgent')));
     const [isSubmitting, handleSubmit] = useSubmit();
     const [importState, setImportState] = useState<boolean | string | null>(null);
-    const [lastSubmitTime, setLastSubmitTime] = useState(0);
-    const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const submitFunction = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const now = Date.now();
-        if (now - lastSubmitTime < 5000) {
-            return;
-        }
-        if (!token) {
-            const { setShowLogin } = require('@site/src/store/slices/userSlice');
-            dispatch(setShowLogin(true));
-            return;
-        }
         const formData = new FormData(event.currentTarget);
         const formValues = Object.fromEntries(formData.entries()) as { email: string };
-        await handleSubmit(async () => {
-            const data = {
-                "type": 'SERVER',
-                "host": formValues.email,
-                "callgentUuid": callgent.uuid
-            }
-            const { uaaService } = require('@site/src/api/user-as-a-service');
-            const api = uaaService();
-            const req = await api.createEndpoints(data);
-            if (req.message) {
-                setImportState(req.message);
-            } else {
-                setImportState(true);
-            }
+        const data = {
+            "type": 'SERVER',
+            "host": formValues.email,
+            "callgentUuid": callgent.uuid
+        }
+        await axios.post('/api/endpoints/mail/callgents', data).then(req => {
+            setImportState(true);
+            localStorage.removeItem('callgent');
+        }).catch(error => {
+            const { data } = error.response;
+            setImportState(data.message);
         });
-        setLastSubmitTime(now);
     };
 
+    useEffect(() => {
+        const handleStorageChange = () => {
+            const updatedCallgent = JSON.parse(localStorage.getItem('callgent'));
+            setCallgent(updatedCallgent);
+        };
+        window.addEventListener('localStorageChange', handleStorageChange);
+        return () => {
+            window.removeEventListener('localStorageChange', handleStorageChange);
+        };
+    }, []);
+
     return (
-        <form onSubmit={onFormSubmit} className={styles.form}>
+        <form onSubmit={(e) => handleSubmit(() => submitFunction(e))} className={styles.form}>
             <input
                 type="text"
                 name="email"
