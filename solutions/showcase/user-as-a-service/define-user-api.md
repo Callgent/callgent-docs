@@ -9,7 +9,7 @@ Assuming you are developing an `employee leave request` API service.
 
 ## Define the API
 
-Firstly, let's generate the OpenAPI documentation using [Mistral](https://chat.mistral.ai),
+Firstly, generate the OpenAPI documentation using [Mistral](https://chat.mistral.ai),
 
 <details>
 <summary>Click to view employee-leave-api.yaml</summary>
