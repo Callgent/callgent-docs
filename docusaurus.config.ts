@@ -61,7 +61,6 @@ const config: Config = {
         path: "solutions",
         routeBasePath: "solutions",
         sidebarPath: "./sidebars.ts",
-        sidebarCollapsible: false,
         // ... other options
       },
     ],
@@ -142,6 +141,10 @@ const config: Config = {
             {
               label: "Tutorial",
               to: "/docs/intro",
+            },
+            {
+              label: "Showcases",
+              to: "/solutions/category/showcases",
             },
             {
               label: "Developers",
