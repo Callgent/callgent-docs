@@ -4,5 +4,6 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "."
-  }
+  },
+  "types": ["docusaurus-plugin-sass"]
 }

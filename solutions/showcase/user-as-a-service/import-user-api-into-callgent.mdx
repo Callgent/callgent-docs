@@ -1,0 +1,38 @@
+---
+sidebar_position: 2
+title: Import API definition into Callgent
+description: .
+keywords: [user as a service]
+---
+
+import CreateEndpoints from "@site/src/components/user-as-a-service/create-endpoints"
+import CreateCallgent from "@site/src/components/user-as-a-service/create-callgent"
+import ImportApi from "@site/src/components/user-as-a-service/import-api"
+import Email from "@site/src/components/quick-start/email"
+
+Now let's create the `employee leave request` callgent, and import the API definition into the callgent.
+
+## Create a new callgent
+
+<pre><CreateCallgent /></pre>
+
+## Create a new Endpoints
+
+<pre><CreateEndpoints /></pre>
+
+:::info
+You may view all your callgents in the [Callgent Dashboard](https://app.callgent.com/dashboard) page.
+:::
+
+## Create a service-endpoint
+This callgent will be assigned an email address which is used to comunicate with the services for you, you can get the callgent email adress just like <Email />,
+later you can send an email as a request to this address to accomplish your taks. And meanwhile a SEP(service-endpoint) will be created to connected to the your authorised services 
+
+## Import API definition into the callgent
+
+<pre><ImportApi /></pre>
+
+Paste the API documentation below, and click the `Import` button.
+
+
+<pre>widget to invoke `https://api.callgent.com/docs/api#/CallgentFunctions/CallgentFunctionsController_importBatch`</pre>

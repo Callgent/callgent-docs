@@ -41,7 +41,30 @@ const config: Config = {
     locales: ["en", "zh"],
   },
 
-  plugins: [],
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "developer",
+        path: "developer",
+        routeBasePath: "developer",
+        sidebarPath: "./sidebars.ts",
+        sidebarCollapsible: false,
+        // ... other options
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "solutions",
+        path: "solutions",
+        routeBasePath: "solutions",
+        sidebarPath: "./sidebars.ts",
+        // ... other options
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -49,6 +72,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          sidebarCollapsible: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/Callgent/callgent-docs/edit/blog/",
@@ -68,6 +92,11 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
@@ -85,14 +114,21 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Tutorials",
         },
-        { label: "Developers", to: "/docs/developers/guide" },
-        { label: "API Reference", to: "/docs/user-as-a-service/import-user-api-into-callgent" },
+        { label: "Solutions", to: "/solutions/category/showcases" },
+        { label: "Developers", to: "/developer/guide" },
+        { label: "API Reference", href: process.env.API_SITE_DOC_URL },
         { to: "/blog", label: "Blog", position: "left" },
         { type: "localeDropdown", position: "right" },
         {
           href: "https://github.com/Callgent/callgent-docs",
           label: "GitHub",
           position: "right",
+        },
+        {
+          href: process.env.SITE_URL + "/signin",
+          position: "right",
+          label: "Login",
+          className: "navbar-login-btn internal teal-btn",
         },
       ],
     },
@@ -107,8 +143,12 @@ const config: Config = {
               to: "/docs/intro",
             },
             {
+              label: "Showcases",
+              to: "/solutions/category/showcases",
+            },
+            {
               label: "Developers",
-              to: "/docs/developers/guide",
+              to: "/developer/guide",
             },
           ],
         },
