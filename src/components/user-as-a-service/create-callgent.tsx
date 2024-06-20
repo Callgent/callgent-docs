@@ -32,7 +32,7 @@ const CreateCallgent = () => {
             <input
                 type="text"
                 name="name"
-                placeholder="ddd"
+                defaultValue="Webhook Demo"
                 className="input col col--4 margin--sm table-of-contents"
             />
             <button
