@@ -32,6 +32,7 @@ const CreateCallgent = ({ name }: { name: string }) => {
             <input
                 type="text"
                 name="name"
+                placeholder="Callgent name"
                 defaultValue={name}
                 className="input col col--4 margin--sm table-of-contents"
             />
