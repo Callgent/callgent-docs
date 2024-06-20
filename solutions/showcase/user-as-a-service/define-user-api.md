@@ -168,7 +168,7 @@ paths:
 ```
 </details>
 
-:::tip
+:::info
 This specification file defines three endpoints: /positions, /positions/```{positionId}```/apply, and /applications/```{applicationId}```/reply.
 
 The /positions endpoint supports the POST method for publishing a new position. The request body includes the title, description, and location of the position. The response includes the id of the newly created position, along with the title, description, and location.
