@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Import API definition into Callgent
+title: Create Callgent
 description: .
 keywords: [user as a service]
 ---
@@ -14,11 +14,21 @@ Now let's create the `employee leave request` callgent, and import the API defin
 
 ## Create a new callgent
 
+We can use the following widget to create a new callgent. A callgent contains a list of client endpoints and a list of server endpoints.
+
+A **client endpoint** defines a method that can be invoked by the user, we can have multiple client endpoints, like email type, restapi type, web type, etc.
+1. The email type of client endpoint generates an email address for the user to send an email to in order to send the business request.
+2. For the restapi type of client endpoint, you need to provide a predefined restful API definition which uses the OpenAPI specification. Then, you can invoke the restapi to send the business request.
+3. The web type of client endpoint generates a web page for the user to send a web request to provide the business request.
+
+A **server endpoint** defines a method that can be invoked by the system, which gives reply to the user request.
+
 <pre><CreateCallgent /></pre>
 
+{/* 
 ## Create a new Endpoints
 
-<pre><CreateEndpoints /></pre>
+<pre><CreateEndpoints /></pre> 
 
 :::info
 You may view all your callgents in the [Callgent Dashboard](https://app.callgent.com/dashboard) page.
@@ -33,6 +43,7 @@ later you can send an email as a request to this address to accomplish your taks
 <pre><ImportApi /></pre>
 
 Paste the API documentation below, and click the `Import` button.
+*/}
 
 
 <pre>widget to invoke `https://api.callgent.com/docs/api#/CallgentFunctions/CallgentFunctionsController_importBatch`</pre>
