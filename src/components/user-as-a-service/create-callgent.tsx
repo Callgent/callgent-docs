@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
-const CreateCallgent = () => {
+const CreateCallgent = ({ name }: { name: string }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const [importState, setImportState] = useState<boolean | string | null>(null);
@@ -32,7 +32,7 @@ const CreateCallgent = () => {
             <input
                 type="text"
                 name="name"
-                placeholder="ddd"
+                defaultValue={name}
                 className="input col col--4 margin--sm table-of-contents"
             />
             <button
