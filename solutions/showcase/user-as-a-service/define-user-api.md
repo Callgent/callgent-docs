@@ -10,6 +10,10 @@ Assuming you are building a `recruit` tool for your company, you need to define 
 2. apply a position
 3. reply the application
 
+<figure>
+![Recruit use cases](./recruit-use-cases.jpg)
+</figure>
+
 ## Define the API
 
 Firstly, generate the OpenAPI documentation using [Mistral](https://chat.mistral.ai), we can use a prompt like this:
