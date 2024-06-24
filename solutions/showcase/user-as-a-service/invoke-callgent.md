@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Invoke Callgent by REST API
+title: Invoke Callgent
 description: .
 keywords: [user as a service]
 ---
@@ -23,3 +23,8 @@ As we mentioned in the previous section, we have three cases in this recruit exa
 3. reply the application
 
 ## invoke Callgent by REST API
+1. publish a position
+   
+2. apply a position
+
+3. reply the application
