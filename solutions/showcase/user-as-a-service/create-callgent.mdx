@@ -11,21 +11,27 @@ import ImportApi from "@site/src/components/user-as-a-service/import-api"
 import Email from "@site/src/components/quick-start/email"
 import CascadingMenu from "@site/src/components/tree"
 
-Now let's create the `employee leave request` callgent, and import the API definition into the callgent.
+Now let's create the `recruit` callgent, and import the API definition into the callgent.
 
 ## Create a new callgent
 
 We can use the following widget to create a new callgent. A callgent contains a list of client endpoints and a list of server endpoints.
 
-A **client endpoint** defines a method that can be invoked by the user, we can have multiple client endpoints, like email type, restapi type, web type, etc.
+<pre><CreateCallgent /></pre>
+<CascadingMenu />
+
+A **client endpoint** defines a method that can be invoked by the user, we can have multiple client endpoints, like email type, restapi type, web type etc.
 1. The email type of client endpoint generates an email address for the user to send an email to in order to send the business request.
 2. For the restapi type of client endpoint, you need to provide a predefined restful API definition which uses the OpenAPI specification. Then, you can invoke the restapi to send the business request.
 3. The web type of client endpoint generates a web page for the user to send a web request to provide the business request.
 
-A **server endpoint** defines a method that can be invoked by the system, which gives reply to the user request.
+A **server endpoint** defines a method that can be invoked by the system, which gives reply to the user request. We can have multiple server endpoints, they can also be of different types:
+1. Email type
+2. Restapi type
+3. Webhook type
+4. Glue code type
 
-<pre><CreateCallgent /></pre>
-<CascadingMenu />
+
 {/* 
 ## Create a new Endpoints
 

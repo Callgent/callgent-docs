@@ -5,10 +5,10 @@ description: Callgent is yet another AI programming tool besides Copilot, UI gen
 keywords: [user as a service]
 ---
 
-Assuming you are building a `recruit` tool for your company, you need to define the API for your users to interact with your tool. We just take 3 cases in `recruit` process for example:
-1. publish a position
-2. apply a position
-3. reply the application
+Assuming you are building a `recruit` tool for your company for hiring process, first you need to define the API for your users to interact with your tool. We just take 3 cases in `recruit` process for example: 
+1. Publish a position
+2. Apply a position
+3. Reply the application
 
 <figure>
 ![Recruit use cases](./recruit-use-cases.jpg)
@@ -16,9 +16,9 @@ Assuming you are building a `recruit` tool for your company, you need to define 
 
 ## Define the API
 
-Firstly, generate the OpenAPI documentation using [Mistral](https://chat.mistral.ai), we can use a prompt like this:
+Firstly, generate the OpenAPI documentation, you can use a AI tool like [Mistral](https://chat.mistral.ai) to help you to do the definition, we can use a prompt like this:
 ```text
-generate a OpenAPI documentation for 'Publish a position', 'apply a position' and 'reply to the applicant' in 'recruit' process
+generate a OpenAPI documentation for 'Publish a position', 'Apply a position' and 'Reply to the applicant' in 'recruit' process
 ```
 
 Then we can get a OpenAPI documentation like this:
@@ -182,7 +182,7 @@ The /positions/```{positionId}```/apply endpoint supports the POST method for su
 The /applications/```{applicationId}```/reply endpoint supports the POST method for replying to an application. The applicationId parameter is required to specify the application for which the reply is being sent. The request body includes the status of the application (either accepted or rejected) and any feedback for the applicant. The response includes the id of the application, along with the applicant's name, email, resume, the position details, the status of the application, and any feedback.
 :::
 
-We are not going to implement the service from code. Actually we will create a `callgent` to forward all service requests to a human being by email, to execute the logic.
+We are not going to implement the service from code. Actually we will create a `callgent` to forward all the service requests to a human being by email or by a rest api request, to execute the logic.
 
 :::tip
 The purpose of doing this is to quickly define a service and be able to connect it to other systems via RestAPI. The specific execution can be a person instead of a piece of code, which makes the person a part of the system.
