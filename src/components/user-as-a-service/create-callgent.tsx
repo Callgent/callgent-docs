@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
-const CreateCallgent = ({ name }: { name: string }) => {
+const CreateCallgent = ({ name }: { name?: string }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const [importState, setImportState] = useState<boolean | string | null>(null);

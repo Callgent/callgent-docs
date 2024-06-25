@@ -1,6 +1,6 @@
 // CascadingMenu
 .CascadingMenu {
-    padding: 10px;
+    padding: 10px 10px 5px 10px;
     border-radius: 5px;
     margin-bottom: 10px;
     background: var(--cascadingmenu-bg-color);
@@ -111,7 +111,7 @@
         border-radius: 8px;
         width: 500px;
         max-height: 500px;
-        max-width: 100%;
+        max-width: 90%;
         padding: 20px;
         box-shadow: 0 2px 10px var(--modal-shadow-color);
         transform: translateY(-50px);
