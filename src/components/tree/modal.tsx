@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './index.scss';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import { GlobalContext } from '@site/src/context/GlobalContext';
+import { getCookie } from '@site/src/util/cookie';
 
 interface ModalProps {
     title: string;
@@ -13,6 +15,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const [isClosing, setIsClosing] = useState(false);
+    const { setShowLogin } = useContext(GlobalContext);
 
     const handleClose = () => {
         setIsClosing(true);
@@ -23,7 +26,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
     };
 
     if (!isOpen && !isClosing) return null;
-
+    if (!getCookie('x-callgent-jwt')) {
+        setShowLogin(true);
+        onClose();
+        return null;
+    }
     return (
         <div className={`modal-overlay ${isClosing ? 'fade-out' : ''}`}>
             <div className={`modal ${isClosing ? 'fade-out' : ''}`}>

@@ -7,13 +7,12 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 
 interface TreeNodeProps {
     nodes: TreeNodeType[];
-    onAdd: (id: string) => void;
-    onEdit: (id: string) => void;
-    onDelete: (id: string) => void;
-    onNodeClick: (id: string, level: number) => void;
+    onAdd: (id: string, level: number) => void;
+    onEdit: (item: TreeNodeType, level: number) => void;
+    onDelete: (id: string, level: number) => void;
 }
 
-export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onDelete, onNodeClick }) => {
+export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onDelete }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set());
@@ -28,12 +27,9 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onDele
             }
             return newSet;
         });
-        onNodeClick(id, level);
     };
 
     const renderNodes = (nodes: TreeNodeType[], level: number = 1) => {
-        console.log(nodes);
-        
         return nodes.map((node) => (
             <div key={node.id} className="tree-node">
                 <div className="node-content">
@@ -46,17 +42,17 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onDele
                         </button>
                     </div>
                     <div className="node-right">
-                        <div onClick={() => onAdd(node.id)}>
+                        <div onClick={() => onAdd(node.id, level)}>
                             {node?.add && <Add />}
                         </div>
-                        <div onClick={() => onEdit(node.id)}>
+                        <div onClick={() => onEdit(node, level)}>
                             {node?.edit && <Edit />}
                         </div>
                         {
                             node?.delete && <Popconfirm
                                 title="Delete the node"
                                 description="Are you sure you want to delete this node?"
-                                onConfirm={() => onDelete(node.id)}
+                                onConfirm={() => onDelete(node.id, level)}
                                 onCancel={() => { }}
                                 okText="Yes"
                                 cancelText="No"

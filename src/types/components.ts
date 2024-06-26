@@ -12,9 +12,5 @@ export interface ModalType {
     id?: string;
     callgent?: boolean;
     endpoint?: boolean;
-    initialData?: {
-        adaptor: string;
-        definition: string;
-        host: string
-    }
+    initialData?: TreeNodeType;
 }

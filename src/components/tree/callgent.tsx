@@ -5,50 +5,57 @@ import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 
 interface ModalFormProps {
-    initialData?: { adaptor: string; definition: string; host: string };
+    initialData?: TreeNodeType;
+    treeData?: TreeNodeType;
     setTreeData: (data: TreeNodeType[]) => void;
     onClose: () => void;
-    treeData: TreeNodeType[];
 }
 
-const Callgent: React.FC<ModalFormProps> = ({ initialData, setTreeData, treeData, onClose }) => {
+const Callgent: React.FC<ModalFormProps> = ({ initialData, treeData, setTreeData, onClose }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const formRef = useRef<HTMLFormElement>(null);
     const [importState, setImportState] = useState<boolean | string | null>(null);
     const [isSubmitting, handleSubmit] = useSubmit();
-    // useEffect(() => {
-
-    // }, [initialData]);
-
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
-        const formValues = Object.fromEntries(formData.entries());
+        const formValues = Object.fromEntries(formData.entries()) as { name: string };
         try {
-            const req = await axios.post('/api/bff/callgent-endpoints', formValues);
+            const req = initialData ?
+                await axios.put('/api/callgents/' + initialData.id, formValues)
+                :
+                await axios.post('/api/bff/callgent-endpoints', formValues);
+            setImportState(true);
+            setTimeout(() => {
+                onClose();
+            }, 350);
             let { data } = req.data;
+            console.log(treeData);
+            
+            initialData && setTreeData([{ ...treeData, name: formValues.name }])
             data = {
                 ...data, edit: true, delete: true,
                 children: data.children.map((item: TreeNodeType) => (
-                    { ...item, add: true }
+                    {
+                        ...item, add: true,
+                        children: item.children.map((child: TreeNodeType) => (
+                            { ...child, edit: true, delete: true, }
+                        ))
+                    }
                 ))
             }
-            setTreeData([data])
-            setImportState(true);
+            !initialData && setTreeData([data])
         } catch (error) {
             const { data } = error.response;
             setImportState(data.message);
         }
-        setTimeout(() => {
-            onClose();
-        }, 350);
     };
 
     return (
         <form ref={formRef}>
             <div className="form-group">
                 <label htmlFor="name"> name</label>
-                <input type="text" id='name' name="name" defaultValue="" />
+                <input type="text" id='name' name="name" defaultValue={initialData?.name} />
             </div>
             <div>
                 {importState === true && <span className="margin--md text--success">Successfully created!</span>}

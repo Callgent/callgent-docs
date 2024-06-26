@@ -1,14 +1,12 @@
 import { ModalType, TreeNodeType } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import React, { Children, useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Endpoints from './endpoints';
 import { TreeNode } from './tree';
 import Modal from './modal';
 import './index.scss';
-import useSubmit from '@site/src/hooks/button';
-import axios from 'axios';
 import Callgent from './callgent';
-import CreateCallgent from '../user-as-a-service/create-callgent';
+import axios from 'axios';
 
 const CascadingMenu: React.FC = () => {
     const isBrowser = useIsBrowser();
@@ -16,16 +14,29 @@ const CascadingMenu: React.FC = () => {
     // tree
     const [modalData, setModalData] = useState<ModalType | null>(null);
     const [treeData, setTreeData] = useState<TreeNodeType[]>([]);
-
-    const handleAdd = (id: string) => {
+    const [importState, setImportState] = useState<boolean | string | null>(null);
+    const handleAdd = (id: string, level: number) => {
         setModalData({ ...modalData, id, type: 'Create', endpoint: true });
     };
 
-    const handleEdit = (id: string) => {
-        setModalData({ ...modalData, id, type: 'Edit', endpoint: true, initialData: { adaptor: 'RestAPI', definition: '', host: '' } });
+    const handleEdit = (item: TreeNodeType, level: number) => {
+        const { id } = item;
+        if (level === 1) {
+            setModalData({ ...modalData, id, type: 'Edit', callgent: true, initialData: item });
+        } else {
+            setModalData({ ...modalData, id, type: 'Edit', endpoint: true, initialData: item });
+        }
     };
 
-    const handleDelete = (id: string) => {
+    const handleDelete = (id: string, level: number) => {
+        if (level === 1) {
+            axios.delete('/api/callgents/' + id).then((req) => {
+                setTreeData([]);
+            }).catch((error) => {
+
+            })
+            return null;
+        }
         const newTreeData = [...treeData];
         const deleteNode = (nodes: TreeNodeType[], parent: TreeNodeType[]) => {
             nodes.forEach((node, index) => {
@@ -83,9 +94,8 @@ const CascadingMenu: React.FC = () => {
         <div className='CascadingMenu'>
             {treeData?.length === 0 && (
                 <button
-                    type="submit"
-                    className="button col col--3 margin--sm button--info button--secondary"
-                    onClick={addCallgent}
+                    type="submit" onClick={addCallgent}
+                    className="button margin--sm button--info button--secondary"
                 >
                     Create a new callgent
                 </button>
@@ -95,9 +105,6 @@ const CascadingMenu: React.FC = () => {
                 onAdd={handleAdd}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
-                onNodeClick={(id, level) => {
-                    console.log(`Node clicked: ${id}, Level: ${level}`);
-                }}
             />
             <Modal isOpen={modalData?.endpoint} onClose={() => setModalData({ ...modalData, endpoint: false })} title={modalData?.type + " Endpoint"}>
                 <Endpoints
@@ -109,7 +116,7 @@ const CascadingMenu: React.FC = () => {
             <Modal isOpen={modalData?.callgent} onClose={() => setModalData({ ...modalData, callgent: false })} title={modalData?.type + " Callgent"}>
                 <Callgent
                     initialData={modalData?.initialData}
-                    treeData={treeData}
+                    treeData={treeData[0]}
                     setTreeData={setTreeData}
                     onClose={() => setModalData({ ...modalData, endpoint: false })}
                 />
