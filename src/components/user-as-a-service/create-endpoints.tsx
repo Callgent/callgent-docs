@@ -20,7 +20,7 @@ const CreateEndpoints = () => {
             "host": formValues.email,
             "callgentUuid": callgent.uuid
         }
-        await axios.post('/api/endpoints/mail/callgents', data).then(req => {
+        await axios.post('/api/endpoints/email/callgents', data).then(req => {
             setImportState(true);
             localStorage.removeItem('callgent');
         }).catch(error => {

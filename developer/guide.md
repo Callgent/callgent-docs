@@ -7,7 +7,7 @@ description: Explore the innovative architecture of Callgent, where services and
 # Concepts and Architecture
 
 The core of the callgent architecture, is to encapsulate every **service** and **user** behind a `callgent`.  
-Then build various endpoints into third-party platforms, so that any users and services are naturally connected anywhere in their native ways: webpages, chatting, mail, APIs..  
+Then build various endpoints into third-party platforms, so that any users and services are naturally connected anywhere in their native ways: webpages, chatting, email, APIs..  
 
 Above this, we add a layer of semantic invocations, empowered by large language models (LLMs), to make the callgent able to understand and react to any user/system's intents.
 
@@ -27,7 +27,7 @@ Each system service, and every user is encapsulated into a `Callgent`.
 
 ### Calling Anywhere
 
-Requesting a callgent is done through various `Calling Endpoint`, integrated into third-party platforms. So systems and users are naturally connected anywhere in their native ways: Webpages, chatting, mail, APIs..
+Requesting a callgent is done through various `Calling Endpoint`, integrated into third-party platforms. So systems and users are naturally connected anywhere in their native ways: Webpages, chatting, email, APIs..
 
 #### User-as-a-Service
 

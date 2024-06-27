@@ -1,28 +1,30 @@
-import React, { useState } from 'react';
-import './index.scss';
+import React, { useContext, useState } from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-
-interface ModalProps {
-    title: string;
-    isOpen: boolean;
-    onClose: () => void;
-    children: React.ReactNode;
-}
+import { GlobalContext } from '@site/src/context/GlobalContext';
+import { getCookie } from '@site/src/util/cookie';
+import { ModalProps } from '@site/src/types/components';
+import './index.scss';
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const [isClosing, setIsClosing] = useState(false);
+    const { setShowLogin } = useContext(GlobalContext);
 
     const handleClose = () => {
         setIsClosing(true);
         setTimeout(() => {
             setIsClosing(false);
             onClose();
-        }, 300); // Duration of the closing animation
+        }, 300);
     };
 
     if (!isOpen && !isClosing) return null;
+    if (!getCookie('x-callgent-jwt')) {
+        setShowLogin(true);
+        onClose();
+        return null;
+    }
 
     return (
         <div className={`modal-overlay ${isClosing ? 'fade-out' : ''}`}>
