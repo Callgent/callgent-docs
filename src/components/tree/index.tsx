@@ -1,12 +1,12 @@
 import { ModalType, TreeNodeType } from '@site/src/types/components';
+import CreateCallgent from '../user-as-a-service/create-callgent';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState } from 'react';
 import Endpoints from './endpoints';
 import { TreeNode } from './tree';
+import Callgent from './callgent';
 import Modal from './modal';
 import './index.scss';
-import Callgent from './callgent';
-import axios from 'axios';
 
 const CascadingMenu: React.FC = ({ adaptorKey }: { adaptorKey?: string }) => {
     const isBrowser = useIsBrowser();
@@ -14,46 +14,17 @@ const CascadingMenu: React.FC = ({ adaptorKey }: { adaptorKey?: string }) => {
     // tree
     const [modalData, setModalData] = useState<ModalType | null>(null);
     const [treeData, setTreeData] = useState<TreeNodeType[]>([]);
-    const [importState, setImportState] = useState<boolean | string | null>(null);
     const handleAdd = (item: TreeNodeType, level: number) => {
         const { id } = item;
-        setModalData({ ...modalData, id, type: 'Create', endpoint: true, initialData: item });
+        setModalData({ ...modalData, title: id, id, type: 'Create', endpoint: true, initialData: item });
     };
 
     const handleEdit = (item: TreeNodeType, level: number) => {
         const { id } = item;
         if (level === 1) {
-            setModalData({ ...modalData, id, type: 'Edit', callgent: true, initialData: item });
+            setModalData({ ...modalData, title: item.title, id, type: 'Edit', callgent: true, initialData: item });
         } else {
-            setModalData({ ...modalData, id, type: 'Edit', endpoint: true, initialData: item });
-        }
-    };
-
-    const handleDelete = (id: string, level: number) => {
-        if (level === 1) {
-            axios.delete('/api/callgents/' + id).then((req) => {
-                setTreeData([]);
-            }).catch((error) => {
-
-            })
-            return null;
-        } else if (level === 3) {
-            axios.delete('/api/endpoints/' + id).then((req) => {
-                const newTreeData = [...treeData];
-                const deleteNode = (nodes: TreeNodeType[], parent: TreeNodeType[]) => {
-                    nodes.forEach((node, index) => {
-                        if (node.id === id) {
-                            parent.splice(index, 1);
-                        } else if (node.children) {
-                            deleteNode(node.children, node.children);
-                        }
-                    });
-                };
-                deleteNode(newTreeData, newTreeData);
-                setTreeData(newTreeData);
-            }).catch((error) => {
-
-            })
+            setModalData({ ...modalData, title: item.title, id, type: 'Edit', endpoint: true, initialData: item });
         }
     };
 
@@ -87,28 +58,39 @@ const CascadingMenu: React.FC = ({ adaptorKey }: { adaptorKey?: string }) => {
         }
     };
 
-    // Create a new callgent
-    const addCallgent = () => {
-        setModalData({ ...modalData, type: 'Create', callgent: true });
+    const onDataReceived = (data: TreeNodeType) => {
+        if (!data) return;
+        const enhancedData = enhanceNode(data, 1);
+        setTreeData([enhancedData]);
+    };
+
+    const enhanceNode = (node: TreeNodeType, level: number): TreeNodeType => {
+        let enhancedNode = { ...node };
+        if (level === 1 || level === 3) {
+            enhancedNode = { ...enhancedNode, edit: true, delete: true };
+        }
+        if (level === 2) {
+            enhancedNode = { ...enhancedNode, add: true };
+        }
+        if (node.children) {
+            enhancedNode.children = node.children.map(child => enhanceNode(child, level + 1));
+        }
+        return enhancedNode;
     };
 
     return (
         <div className='CascadingMenu'>
             {treeData?.length === 0 && (
-                <button
-                    type="submit" onClick={addCallgent}
-                    className="button margin--sm button--info button--secondary"
-                >
-                    Create a new callgent
-                </button>
+                <CreateCallgent onDataReceived={onDataReceived} />
             )}
             <TreeNode
                 nodes={treeData}
                 onAdd={handleAdd}
                 onEdit={handleEdit}
-                onDelete={handleDelete}
+                treeData={treeData[0]}
+                setTreeData={setTreeData}
             />
-            <Modal isOpen={modalData?.endpoint} onClose={() => setModalData({ ...modalData, endpoint: false })} title={modalData?.type + " Server Endpoint"}>
+            <Modal isOpen={modalData?.endpoint} onClose={() => setModalData({ ...modalData, endpoint: false })} title={modalData?.type + " " + modalData?.title + " Endpoint"}>
                 <Endpoints
                     adaptorKey={adaptorKey}
                     treeData={treeData[0]}

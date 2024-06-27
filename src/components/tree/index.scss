@@ -24,12 +24,14 @@
         white-space: nowrap;
         animation: fadeIn 0.3s forwards;
     }
+
     @media (max-width: 1000px) {
         .popconfirm {
             left: 100%;
             transform: translateX(-100%);
         }
     }
+
     .popconfirm-title {
         font-weight: bold;
         margin-bottom: 5px;
@@ -74,6 +76,10 @@
         }
     }
 
+    .popconfirm.fade-out {
+        animation: fadeOut 0.3s forwards;
+    }
+
     @keyframes fadeOut {
         from {
             opacity: 1;
@@ -84,10 +90,6 @@
             opacity: 0;
             transform: translateY(-10px) translateX(-50%);
         }
-    }
-
-    .popconfirm.fade-out {
-        animation: fadeOut 0.3s forwards;
     }
 }
 
@@ -275,6 +277,17 @@
     .node-right {
         display: flex;
         align-items: center;
+    }
+
+    .node-left {
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .node-left:hover {
+        .toggle {
+            color: #007bff;
+        }
     }
 
     .node-right div {

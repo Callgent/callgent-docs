@@ -1,17 +1,8 @@
+import { ModalFormProps } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import React, { useState, useRef } from 'react';
 import useSubmit from '@site/src/hooks/button';
-import { TreeNodeType } from '@site/src/types/components';
 import axios from 'axios';
-import React, { useState, useEffect, useRef } from 'react';
-
-interface ModalFormProps {
-    initialData?: TreeNodeType;
-    treeData: TreeNodeType;
-    adaptorKey?: string;
-    type: string;
-    onSubmit: (data: TreeNodeType) => void;
-    onClose: () => void;
-}
 
 const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeData, onSubmit, onClose }) => {
     const isBrowser = useIsBrowser();
@@ -19,13 +10,10 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
     const formRef = useRef<HTMLFormElement>(null);
     const [isSubmitting, handleSubmit] = useSubmit();
     const [importState, setImportState] = useState<boolean | string | null>(null);
-    const userinfo = JSON.parse(localStorage.getItem('userinfo') || '{}');
-
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
         const formValues = Object.fromEntries(formData.entries()) as { type: string, host: any, callgentUuid: string };
         formValues.callgentUuid = treeData.id;
-        // formValues.host = { email: formValues.host };
         formValues.type = initialData.id;
         formValues.type = 'CLIENT';
         type === 'Edit' ?
@@ -42,7 +30,7 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 setImportState(data.message);
             })
             :
-            await axios.post('/api/endpoints/' + adaptorKey.toLowerCase() + '/create', formValues).then(req => {
+            await axios.post('/api/endpoints/' + adaptorKey + '/create', formValues).then(req => {
                 setImportState(true);
                 setTimeout(() => { onClose(); }, 350);
                 let { data } = req.data;
@@ -62,17 +50,18 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 <div className="form-group">
                     <label htmlFor="adaptor">Server Endpoint adaptor</label>
                     <select id="adaptor" name='adaptor' >
-                        <option value="Email">Email</option>
-                        <option value="RestAPI">RestAPI</option>
+                        <option value="email">Email</option>
+                        <option value="restapi">RestAPI</option>
                     </select>
                 </div>
             )}
             <div className="form-group">
-                <label htmlFor="host">Server Address</label>
+                <label htmlFor="host">{adaptorKey ? `Host Address for ${adaptorKey}` : 'Server Address'}</label>
                 <input
                     type="text"
                     name='host'
                     id="host"
+                    defaultValue={typeof initialData?.host === 'string' ? initialData?.host : JSON.stringify(initialData?.host)}
                 />
             </div>
             <div>

@@ -1,15 +1,9 @@
 import React, { useContext, useState } from 'react';
-import './index.scss';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { GlobalContext } from '@site/src/context/GlobalContext';
 import { getCookie } from '@site/src/util/cookie';
-
-interface ModalProps {
-    title: string;
-    isOpen: boolean;
-    onClose: () => void;
-    children: React.ReactNode;
-}
+import { ModalProps } from '@site/src/types/components';
+import './index.scss';
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
     const isBrowser = useIsBrowser();
@@ -22,7 +16,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
         setTimeout(() => {
             setIsClosing(false);
             onClose();
-        }, 300); // Duration of the closing animation
+        }, 300);
     };
 
     if (!isOpen && !isClosing) return null;
@@ -31,6 +25,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
         onClose();
         return null;
     }
+
     return (
         <div className={`modal-overlay ${isClosing ? 'fade-out' : ''}`}>
             <div className={`modal ${isClosing ? 'fade-out' : ''}`}>

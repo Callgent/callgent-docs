@@ -1,15 +1,8 @@
+import { ModalFormProps } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import React, { useState, useRef } from 'react';
 import useSubmit from '@site/src/hooks/button';
-import { TreeNodeType } from '@site/src/types/components';
 import axios from 'axios';
-import React, { useState, useEffect, useRef } from 'react';
-
-interface ModalFormProps {
-    initialData?: TreeNodeType;
-    treeData?: TreeNodeType;
-    setTreeData: (data: TreeNodeType[]) => void;
-    onClose: () => void;
-}
 
 const Callgent: React.FC<ModalFormProps> = ({ initialData, treeData, setTreeData, onClose }) => {
     const isBrowser = useIsBrowser();
@@ -21,26 +14,10 @@ const Callgent: React.FC<ModalFormProps> = ({ initialData, treeData, setTreeData
         const formData = new FormData(formRef.current);
         const formValues = Object.fromEntries(formData.entries()) as { name: string };
         try {
-            const req = initialData ?
-                await axios.put('/api/callgents/' + initialData.id, formValues)
-                :
-                await axios.post('/api/bff/callgent-endpoints', formValues);
+            await axios.put('/api/callgents/' + initialData.id, formValues)
             setImportState(true);
             setTimeout(() => { onClose(); }, 350);
-            let { data } = req.data;
-            initialData && setTreeData([{ ...treeData, name: formValues.name }])
-            data = {
-                ...data, edit: true, delete: true,
-                children: data.children.map((item: TreeNodeType) => (
-                    {
-                        ...item, add: true,
-                        children: item.children.map((child: TreeNodeType) => (
-                            { ...child, edit: true, delete: true, }
-                        ))
-                    }
-                ))
-            }
-            !initialData && setTreeData([data])
+            setTreeData([{ ...treeData, name: formValues.name }])
         } catch (error) {
             const { data } = error.response;
             setImportState(data.message);
