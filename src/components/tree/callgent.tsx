@@ -26,12 +26,8 @@ const Callgent: React.FC<ModalFormProps> = ({ initialData, treeData, setTreeData
                 :
                 await axios.post('/api/bff/callgent-endpoints', formValues);
             setImportState(true);
-            setTimeout(() => {
-                onClose();
-            }, 350);
+            setTimeout(() => { onClose(); }, 350);
             let { data } = req.data;
-            console.log(treeData);
-            
             initialData && setTreeData([{ ...treeData, name: formValues.name }])
             data = {
                 ...data, edit: true, delete: true,
@@ -58,14 +54,14 @@ const Callgent: React.FC<ModalFormProps> = ({ initialData, treeData, setTreeData
                 <input type="text" id='name' name="name" defaultValue={initialData?.name} />
             </div>
             <div>
-                {importState === true && <span className="margin--md text--success">Successfully created!</span>}
+                {importState === true && <span className="margin--md text--success">Successfully {initialData ? 'Edit' : 'Create'}!</span>}
                 {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
             </div>
             <div className="modal-footer">
                 <button type="button" className="cancel-button" onClick={onClose}>
                     Cancel
                 </button>
-                <button type="button" onClick={() => handleSubmit(submitFunction)} disabled={isSubmitting} className="button button--info button--secondary create-button">
+                <button type="submit" onClick={() => handleSubmit(submitFunction)} disabled={isSubmitting} className="button button--info button--secondary create-button">
                     {initialData ? 'Save' : 'Create'}
                 </button>
             </div>

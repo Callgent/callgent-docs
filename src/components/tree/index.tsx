@@ -8,15 +8,16 @@ import './index.scss';
 import Callgent from './callgent';
 import axios from 'axios';
 
-const CascadingMenu: React.FC = () => {
+const CascadingMenu: React.FC = ({ adaptorKey }: { adaptorKey?: string }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     // tree
     const [modalData, setModalData] = useState<ModalType | null>(null);
     const [treeData, setTreeData] = useState<TreeNodeType[]>([]);
     const [importState, setImportState] = useState<boolean | string | null>(null);
-    const handleAdd = (id: string, level: number) => {
-        setModalData({ ...modalData, id, type: 'Create', endpoint: true });
+    const handleAdd = (item: TreeNodeType, level: number) => {
+        const { id } = item;
+        setModalData({ ...modalData, id, type: 'Create', endpoint: true, initialData: item });
     };
 
     const handleEdit = (item: TreeNodeType, level: number) => {
@@ -36,32 +37,33 @@ const CascadingMenu: React.FC = () => {
 
             })
             return null;
+        } else if (level === 3) {
+            axios.delete('/api/endpoints/' + id).then((req) => {
+                const newTreeData = [...treeData];
+                const deleteNode = (nodes: TreeNodeType[], parent: TreeNodeType[]) => {
+                    nodes.forEach((node, index) => {
+                        if (node.id === id) {
+                            parent.splice(index, 1);
+                        } else if (node.children) {
+                            deleteNode(node.children, node.children);
+                        }
+                    });
+                };
+                deleteNode(newTreeData, newTreeData);
+                setTreeData(newTreeData);
+            }).catch((error) => {
+
+            })
         }
-        const newTreeData = [...treeData];
-        const deleteNode = (nodes: TreeNodeType[], parent: TreeNodeType[]) => {
-            nodes.forEach((node, index) => {
-                if (node.id === id) {
-                    parent.splice(index, 1);
-                } else if (node.children) {
-                    deleteNode(node.children, node.children);
-                }
-            });
-        };
-        deleteNode(newTreeData, newTreeData);
-        setTreeData(newTreeData);
     };
 
-    const handleModalSubmit = (data: { adaptor: string; definition: string; host: string }) => {
+    const handleModalSubmit = (data: TreeNodeType) => {
         if (modalData?.type === 'Create') {
             const newTreeData = [...treeData];
             const addNode = (nodes: TreeNodeType[]) => {
                 nodes.forEach((node) => {
                     if (node.id === modalData.id) {
-                        node.children.push({
-                            id: 'new-id',
-                            name: data.adaptor,
-                            children: [],
-                        });
+                        node.children.push(data);
                     } else if (node.children) {
                         addNode(node.children);
                     }
@@ -74,7 +76,7 @@ const CascadingMenu: React.FC = () => {
             const editNode = (nodes: TreeNodeType[]) => {
                 nodes.forEach((node) => {
                     if (node.id === modalData.id) {
-                        node.name = data.adaptor;
+                        node.name = data?.host as string;
                     } else if (node.children) {
                         editNode(node.children);
                     }
@@ -106,10 +108,13 @@ const CascadingMenu: React.FC = () => {
                 onEdit={handleEdit}
                 onDelete={handleDelete}
             />
-            <Modal isOpen={modalData?.endpoint} onClose={() => setModalData({ ...modalData, endpoint: false })} title={modalData?.type + " Endpoint"}>
+            <Modal isOpen={modalData?.endpoint} onClose={() => setModalData({ ...modalData, endpoint: false })} title={modalData?.type + " Server Endpoint"}>
                 <Endpoints
+                    adaptorKey={adaptorKey}
+                    treeData={treeData[0]}
                     initialData={modalData?.initialData}
                     onSubmit={handleModalSubmit}
+                    type={modalData?.type}
                     onClose={() => setModalData({ ...modalData, endpoint: false })}
                 />
             </Modal>

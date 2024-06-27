@@ -1,13 +1,13 @@
 import { TreeNodeType } from '@site/src/types/components';
-import React, { useState } from 'react';
-import './index.scss';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import { Add, Delete, Edit } from './icon';
 import Popconfirm from './confirm-delete';
-import useIsBrowser from '@docusaurus/useIsBrowser';
+import React, { useState, useEffect } from 'react';
+import './index.scss';
 
 interface TreeNodeProps {
     nodes: TreeNodeType[];
-    onAdd: (id: string, level: number) => void;
+    onAdd: (item: TreeNodeType, level: number) => void;
     onEdit: (item: TreeNodeType, level: number) => void;
     onDelete: (id: string, level: number) => void;
 }
@@ -15,7 +15,23 @@ interface TreeNodeProps {
 export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onDelete }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
+
     const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set());
+
+    useEffect(() => {
+        const expandAllNodes = (nodes: TreeNodeType[], expandedSet: Set<string>) => {
+            nodes.forEach(node => {
+                expandedSet.add(node.id);
+                if (node.children) {
+                    expandAllNodes(node.children, expandedSet);
+                }
+            });
+        };
+
+        const initialExpandedNodes = new Set<string>();
+        expandAllNodes(nodes, initialExpandedNodes);
+        setExpandedNodes(initialExpandedNodes);
+    }, [nodes]);
 
     const handleToggle = (id: string, level: number) => {
         setExpandedNodes((prev) => {
@@ -36,13 +52,13 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onDele
                     <div className="node-left">
                         <button className="toggle" onClick={() => handleToggle(node.id, level)}>
                             <span className='toggle_button'>
-                                {expandedNodes.has(node.id) ? '-' : '+'}
+                                {level !== 3 ? (expandedNodes.has(node.id) ? '-' : '+') : null}
                             </span>
-                            {node.name}
+                            {node?.name}
                         </button>
                     </div>
                     <div className="node-right">
-                        <div onClick={() => onAdd(node.id, level)}>
+                        <div onClick={() => onAdd(node, level)}>
                             {node?.add && <Add />}
                         </div>
                         <div onClick={() => onEdit(node, level)}>
