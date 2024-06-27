@@ -5,7 +5,7 @@ description: Callgent is yet another AI programming tool besides Copilot, UI gen
 keywords: [user as a service]
 ---
 
-Assuming you are building a `recruit` tool for your company for hiring process, first you need to define the API for your users to interact with your tool. We just take 3 cases in `recruit` process for example: 
+Assuming you are building a `recruiting` tool for your company for hiring process, first you need to define the API for your users to interact with your tool. We just take 3 cases in `recruiting` process for example: 
 1. Publish a position
 2. Apply a position
 3. Reply the application
@@ -18,10 +18,10 @@ Assuming you are building a `recruit` tool for your company for hiring process, 
 
 Firstly, generate the OpenAPI documentation, you can use a AI tool like [Mistral](https://chat.mistral.ai) to help you to do the definition, we can use a prompt like this:
 ```text
-generate a OpenAPI documentation for 'Publish a position', 'Apply a position' and 'Reply to the applicant' in 'recruit' process
+generate an OpenAPI documentation for 'Publish a position', 'Apply a position' and 'Reply to the applicant' in 'recruiting' process
 ```
 
-Then we can get a OpenAPI documentation like this:
+Then we can get an OpenAPI documentation like this:
 <details>
 <summary>Click to view apply-a-position.yaml</summary>
 
