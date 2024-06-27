@@ -314,4 +314,13 @@
         display: inline-block;
         width: 16px;
     }
+
+    .icon-text {
+        display: flex;
+        align-items: center;
+    }
+
+    .icon-text svg {
+        margin-right: 8px;
+    }
 }
