@@ -8,7 +8,7 @@ import Callgent from './callgent';
 import Modal from './modal';
 import './index.scss';
 
-const CascadingMenu: React.FC = ({ adaptorKey }: { adaptorKey?: string }) => {
+const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, name?: string }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     // tree
@@ -81,7 +81,7 @@ const CascadingMenu: React.FC = ({ adaptorKey }: { adaptorKey?: string }) => {
     return (
         <div className='CascadingMenu'>
             {treeData?.length === 0 && (
-                <CreateCallgent onDataReceived={onDataReceived} />
+                <CreateCallgent onDataReceived={onDataReceived} name={name} />
             )}
             <TreeNode
                 nodes={treeData}

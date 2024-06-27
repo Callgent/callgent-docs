@@ -56,7 +56,7 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 </div>
             )}
             <div className="form-group">
-                <label htmlFor="host">{adaptorKey ? `Host Address for ${adaptorKey}` : 'Server Address'}</label>
+                <label htmlFor="host">{initialData.adaptorKey ? `${initialData.adaptorKey} Host Address` : 'Server Address'}</label>
                 <input
                     type="text"
                     name='host'
