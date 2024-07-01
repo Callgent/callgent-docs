@@ -11,6 +11,7 @@ import './index.scss';
 const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, name?: string }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
+
     // tree
     const [modalData, setModalData] = useState<ModalType | null>(null);
     const [treeData, setTreeData] = useState<TreeNodeType[]>([]);

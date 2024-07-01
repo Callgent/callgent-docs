@@ -41,10 +41,12 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, treeDa
                 <div className="node-content">
                     <div className="node-left" onClick={() => handleToggle(node.id, level)}>
                         <button className="toggle" title={node?.hint} >
-                            <span className='toggle_button'>
-                                {level !== 3 ? (expandedNodes.has(node.id) ? '-' : '+') : null}
+                            <span className="icon-text">
+                                {level === 1 && <img src='/icons/Recruitment.svg' />}
+                                {level === 2 && <img src={'/icons/' + node?.id + '.svg'} />}
+                                {level === 3 && <img src={'/icons/' + node?.adaptorKey + '.svg'} />}
+                                {node?.name}
                             </span>
-                            {node?.name}
                         </button>
                     </div>
                     <div className="node-right">
