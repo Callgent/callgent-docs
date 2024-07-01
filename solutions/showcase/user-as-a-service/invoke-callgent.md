@@ -14,21 +14,21 @@ As we mentioned in the previous section, we have three cases in this recruit exa
 2. apply a position
 3. reply the application
 ::: -->
-We can get an email like ```callgent+{xxx}@my.callgent.com```that represent the callgent client endpoint and a restapi location from the previous section.
+We can get an email address like ```callgent+{xxx}@my.callgent.com```that represent the callgent client endpoint and a restapi location from the previous section.
 
-## invoke Callgent by Email
+## Invoke Callgent by Email
 <!-- ### publish a position
 1. **Publish a position.** HR user send an email to the callgent email type client endpoint which have a unique email address just like 'callgent-```{uinique-id}```@callgent.com';
 2. Callgent will reply to the user with an email indicating whether the request is successful or has failed, and meanwhile the successful email contains a link to the position detail page.
 3. **Apply a position.** Applicant user can visit that page via the link. On that position detail page, user can see the position detail and apply for the position. After click the apply button, it calls a email sending service to send an email to the user，in fact it use a 'mailto' protocol on that page.
 4. **Reply the application.** After the applicant user apply for the position, the callgent will redirect the application to the HR user. And hr can reply the application by email, then the applicant user will receive the email which is replied by the HR user. -->
-We send an email to ```callgent+{xxx}@my.callgent.com``` to publish a position. And we can get a successing reply instantly.
+We send an email to ```callgent+{xxx}@my.callgent.com``` to publish a position by an email client. And we can get a successing reply instantly.
 
 <figure>
-TODO: Here is spnapshot of the email and auto reply content.
+@TODO: Here is spnapshot of the email and auto reply content.
 </figure>
 
-## invoke Callgent by REST API
+## Invoke Callgent by REST API
 <!-- 
 1. **Publish a position.** HR user send an email to the callgent email type client endpoint which have a unique email address just like 'callgent-```{uinique-id}```@callgent.com';
 2. Callgent will reply to the user with an email indicating whether the request is successful or has failed, and meanwhile the successful email contains a link to the position detail page.
@@ -42,5 +42,5 @@ curl --location --request POST 'https://api.callgent.com/v1/callgent/recruiting/
 ```
 
 <figure>
-TODO: Here is spnapshot of the restapi invoke and result shown.
+@TODO: Here is spnapshot of the restapi invoke and result shown.
 </figure>
