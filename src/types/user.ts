@@ -15,6 +15,8 @@ export type UserResponse = {
 }
 
 export type CallgentResponse = {
+    avatar?: string;
+    email?: string;
     name?: string;
     createdAt?: string;
     uuid?: string;
