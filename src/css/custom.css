@@ -23,6 +23,8 @@
   --modal-bg-color: white;
   --modal-border-color: #eaeaea;
   --modal-shadow-color: rgba(0, 0, 0, 0.1);
+  --default: rgba(0, 0, 0);
+  --icon-invert: invert(0);
 }
 
 [data-theme='dark'] {
@@ -43,6 +45,8 @@
   --modal-bg-color: #444;
   --modal-border-color: #555;
   --modal-shadow-color: rgba(0, 0, 0, 0.5);
+  --default: rgba(255, 255, 255);
+  --icon-invert: invert(1);
 }
 
 .teal-img,

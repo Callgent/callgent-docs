@@ -78,9 +78,9 @@ const Popconfirm: React.FC<PopconfirmProps> = ({ title, description, initialData
 
     return (
         <div className="popconfirm-container">
-            <div ref={triggerRef} onClick={handleTriggerClick}>
+            <span ref={triggerRef} onClick={handleTriggerClick}>
                 {children}
-            </div>
+            </span>
             {visible && <div ref={popconfirmRef} className={`popconfirm ${fadeOut ? 'fade-out' : ''}`}>
                 <div className="popconfirm-title">{title}</div>
                 <div className="popconfirm-description">{description}</div>

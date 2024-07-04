@@ -8,6 +8,7 @@ export interface TreeNodeType {
     add?: boolean;
     edit?: boolean;
     delete?: boolean;
+    import?: boolean;
     adaptorKey?: string;
     children: TreeNodeType[];
 }
@@ -17,11 +18,12 @@ export interface HostType {
 }
 
 export interface ModalType {
-    type: 'Create' | 'Edit';
+    type: string;
     title?: string;
     id?: string;
     callgent?: boolean;
     endpoint?: boolean;
+    import?: boolean;
     initialData?: TreeNodeType;
 }
 

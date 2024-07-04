@@ -1,7 +1,7 @@
 import { TreeNodeProps, TreeNodeType } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState, useEffect } from 'react';
-import { Add, Delete, Edit } from './icon';
+import { Add, Delete, Edit, Import } from './icon';
 import Popconfirm from './confirm-delete';
 import './index.scss';
 
@@ -35,38 +35,64 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, treeDa
         });
     };
 
+    const getIconSrc = (level: number, node: TreeNodeType) => {
+        switch (level) {
+            case 1:
+                return '/icons/Recruitment.svg';
+            case 2:
+                return `/icons/${node?.id}.svg`;
+            case 3:
+                return `/icons/${node?.adaptorKey}.svg`;
+            case 4:
+                return `/icons/api.svg`;
+            default:
+                return '/icons/default.svg';
+        }
+    };
+
     const renderNodes = (nodes: TreeNodeType[], level: number = 1, parentId: string | null = null) => {
         return nodes.map((node) => (
             <div key={node.id} className="tree-node">
                 <div className="node-content">
-                    <div className="node-left" onClick={() => handleToggle(node.id, level)}>
+                    <div className="node-left" title={node?.name} onClick={() => handleToggle(node.id, level)}>
                         <button className="toggle" title={node?.hint} >
                             <span className="icon-text">
-                                {level === 1 && <img src='/icons/Recruitment.svg' />}
-                                {level === 2 && <img src={'/icons/' + node?.id + '.svg'} />}
-                                {level === 3 && <img src={'/icons/' + node?.adaptorKey + '.svg'} />}
-                                {node?.name}
+                                <img src={getIconSrc(level, node)} />
+                                <div className='left-text'>
+                                    {node?.name}
+                                </div>
                             </span>
                         </button>
                     </div>
                     <div className="node-right">
-                        <div onClick={() => onAdd(node, level)}>
-                            {node?.add && <Add />}
-                        </div>
-                        <div onClick={() => onEdit({ ...node, title: parentId }, level)}>
-                            {node?.edit && <Edit />}
-                        </div>
-                        {
-                            node?.delete && <Popconfirm
-                                title={level === 1 ? 'Delete the callgent' : 'Delete the endpoint'}
-                                description="Are you sure you want to delete this content?"
-                                initialData={{ id: node.id, level }}
-                                onCancel={() => { }}
-                                treeData={treeData}
-                                setTreeData={setTreeData}
-                            >
-                                <Delete />
-                            </Popconfirm>
+                        {node?.add &&
+                            <div onClick={() => onAdd(node, level)}>
+                                <Add />
+                            </div>
+                        }
+                        {node?.import &&
+                            <div onClick={() => onAdd(node, level)}>
+                                {node?.type === "SERVER" && <Import />}
+                            </div>
+                        }
+                        {node?.edit &&
+                            <div onClick={() => onEdit({ ...node, title: parentId }, level)}>
+                                <Edit />
+                            </div>
+                        }
+                        {node?.delete &&
+                            <div>
+                                <Popconfirm
+                                    title={level === 1 ? 'Delete the callgent' : 'Delete the endpoint'}
+                                    description="Are you sure you want to delete this content?"
+                                    initialData={{ id: node.id, level }}
+                                    onCancel={() => { }}
+                                    treeData={treeData}
+                                    setTreeData={setTreeData}
+                                >
+                                    <Delete />
+                                </Popconfirm>
+                            </div>
                         }
                     </div>
                 </div>

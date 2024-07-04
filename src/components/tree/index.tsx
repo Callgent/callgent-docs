@@ -7,6 +7,7 @@ import { TreeNode } from './tree';
 import Callgent from './callgent';
 import Modal from './modal';
 import './index.scss';
+import Import from './import';
 
 const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, name?: string }) => {
     const isBrowser = useIsBrowser();
@@ -17,20 +18,26 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
     const [treeData, setTreeData] = useState<TreeNodeType[]>([]);
     const handleAdd = (item: TreeNodeType, level: number) => {
         const { id } = item;
-        setModalData({ ...modalData, title: id, id, type: 'Create', endpoint: true, initialData: item });
+        if (level === 2) {
+            setModalData({ ...modalData, title: id, id, type: 'Create', endpoint: true, initialData: item });
+        } else if (level === 3) {
+            setModalData({ ...modalData, title: id, id, type: 'Import', import: true, initialData: item });
+        }
+
     };
 
     const handleEdit = (item: TreeNodeType, level: number) => {
         const { id } = item;
         if (level === 1) {
             setModalData({ ...modalData, title: item.title, id, type: 'Edit', callgent: true, initialData: item });
-        } else {
+        } else if (level === 3) {
             setModalData({ ...modalData, title: item.title, id, type: 'Edit', endpoint: true, initialData: item });
+        } else if (level === 4) {
+            setModalData({ ...modalData, title: item.title, id, type: 'Edit', import: true, initialData: item });
         }
     };
-
     const handleModalSubmit = (data: TreeNodeType) => {
-        if (modalData?.type === 'Create') {
+        if (modalData?.type === 'Create' || modalData?.type === 'Import') {
             const newTreeData = [...treeData];
             const addNode = (nodes: TreeNodeType[]) => {
                 nodes.forEach((node) => {
@@ -69,8 +76,7 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
         let enhancedNode = { ...node };
         if (level === 1 || level === 3) {
             enhancedNode = { ...enhancedNode, edit: true, delete: true };
-        }
-        if (level === 2) {
+        } else if (level === 2) {
             enhancedNode = { ...enhancedNode, add: true };
         }
         if (node.children) {
@@ -107,6 +113,16 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
                     treeData={treeData[0]}
                     setTreeData={setTreeData}
                     onClose={() => setModalData({ ...modalData, endpoint: false })}
+                />
+            </Modal>
+            <Modal isOpen={modalData?.import} onClose={() => setModalData({ ...modalData, import: false })} title={modalData?.type + " Api"}>
+                <Import
+                    initialData={modalData?.initialData}
+                    treeData={treeData[0]}
+                    type={modalData?.type}
+                    onSubmit={handleModalSubmit}
+                    setTreeData={setTreeData}
+                    onClose={() => setModalData({ ...modalData, import: false })}
                 />
             </Modal>
         </div>

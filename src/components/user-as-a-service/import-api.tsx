@@ -43,16 +43,17 @@ const ImportApi = () => {
     return (
         <div className={styles.importSection}>
             <textarea className={styles.customTextarea} ref={textareaRef}></textarea>
-            <button
+            {/* <button
                 style={{ textAlign: 'center' }}
                 onClick={() => handleSubmit(submitFunction)}
                 className="button col col--2 button--info button--secondary"
                 disabled={isSubmitting}
             >
-                Import
+            </button> */}
+            {/* Import
             </button>
             {importState === true && <span className="margin--md text--success">Import successful!</span>}
-            {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
+            {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>} */}
         </div>
     );
 };

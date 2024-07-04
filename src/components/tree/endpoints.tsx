@@ -15,7 +15,6 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
         const formValues = Object.fromEntries(formData.entries()) as { type: string, host: any, callgentUuid: string };
         formValues.callgentUuid = treeData.id;
         formValues.type = initialData.id;
-        formValues.type = 'CLIENT';
         type === 'Edit' ?
             await axios.put('/api/endpoints/' + initialData.id, { host: formValues.host }).then(req => {
                 setImportState(true);
@@ -24,6 +23,7 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 data.id = data.uuid;
                 data.edit = true;
                 data.delete = true;
+                data.import = formValues?.type === 'SERVER' ? true : false;
                 onSubmit(data)
             }).catch(error => {
                 const { data } = error.response;
@@ -37,6 +37,8 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 data.id = data.uuid;
                 data.edit = true;
                 data.delete = true;
+                data.children = [];
+                data.import = formValues?.type === 'SERVER' ? true : false;
                 onSubmit(data)
             }).catch(error => {
                 const { data } = error.response;

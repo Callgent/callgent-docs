@@ -8,7 +8,7 @@
 
 .popconfirm-container {
     position: relative;
-    display: inline-block;
+    right: -5px;
 
     .popconfirm {
         position: absolute;
@@ -150,6 +150,7 @@
 
     .modal-body .form-group {
         margin-bottom: 15px;
+        max-height: 200px;
     }
 
     .modal-body .form-group label {
@@ -167,8 +168,8 @@
     .modal-body .form-group select {
         width: 100%;
         padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        border: 1px solid var(--default);
+        border-radius: 3px;
         box-sizing: border-box;
     }
 
@@ -260,8 +261,10 @@
     }
 }
 
-// Tree
+/* Tree */
 .tree-node {
+    width: 100%;
+
     .children {
         margin-left: 20px;
     }
@@ -270,44 +273,69 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 5px;
-    }
-
-    .node-left,
-    .node-right {
-        display: flex;
-        align-items: center;
-    }
-
-    .node-left {
+        padding: 8px;
         cursor: pointer;
-        width: 100%;
-    }
+        border-radius: 4px;
+        margin-bottom: 5px;
 
-    .node-left:hover {
-        .toggle {
-            color: #007bff;
+        &:hover {
+            background-color: var(--popconfirm-border-color);
+
+            .toggle {
+                color: var(--ifm-color-primary-lightest);
+            }
         }
     }
 
-    .node-right div {
-        cursor: pointer;
-        margin: 0 3px;
-    }
-
-    button {
-        border: none;
-    }
-
     .toggle {
+        width: 95%;
+        text-align: left;
         background-color: transparent;
         cursor: pointer;
         border: none;
         font-size: 16px;
+    }
 
-        &:hover {
-            color: #007bff;
+    .node-left {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .icon-text {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .icon-text img {
+        margin-right: 8px;
+    }
+
+    .left-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .node-right {
+        display: flex;
+        align-items: center;
+
+        div {
+            cursor: pointer;
+            margin: 0 3px;
         }
+    }
+
+    button {
+        border: none;
+        background: none;
+        cursor: pointer;
     }
 
     .toggle_button {
@@ -322,5 +350,6 @@
 
     .icon-text img {
         margin-right: 8px;
+        filter: var(--icon-invert);
     }
 }
