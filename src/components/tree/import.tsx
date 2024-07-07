@@ -48,7 +48,7 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
     return (
         <form ref={formRef}>
             <div className="form-group">
-                <label htmlFor="text">Import API</label>
+                <label htmlFor="text">Import SEP Functions</label>
                 <textarea className="customTextarea" name='text' id='text' style={{ maxHeight: '180px', }}></textarea>
             </div>
             <div>
