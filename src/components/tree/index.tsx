@@ -74,10 +74,12 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
 
     const enhanceNode = (node: TreeNodeType, level: number): TreeNodeType => {
         let enhancedNode = { ...node };
-        if (level === 1 || level === 3) {
-            enhancedNode = { ...enhancedNode, edit: true, delete: true };
-        } else if (level === 2) {
+        if (level === 2) {
             enhancedNode = { ...enhancedNode, add: true };
+        } else if (level === 3 && node?.type === "SERVER") {
+            enhancedNode = { ...enhancedNode, edit: true, delete: true, import: true };
+        } else if (level === 1 || level === 3) {
+            enhancedNode = { ...enhancedNode, edit: true, delete: true };
         }
         if (node.children) {
             enhancedNode.children = node.children.map(child => enhanceNode(child, level + 1));
