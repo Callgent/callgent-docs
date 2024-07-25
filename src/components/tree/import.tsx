@@ -31,12 +31,13 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
             // });
             null
             :
-            await axios.post('/api/callgent-functions/import', formValues).then(req => {
+            await axios.post('/api/bff/callgent-functions/import', formValues).then(req => {
                 setImportState(true);
                 setTimeout(() => { onClose(); }, 350);
                 let { data } = req.data;
                 data.id = data.uuid;
                 data.type = "Import";
+                data.name = formValues?.text
                 onSubmit(data);
             }).catch(error => {
                 const { data } = error.response;
