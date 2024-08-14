@@ -4,7 +4,6 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -15,9 +14,19 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --popconfirm-bg-color: white;
+  --popconfirm-border-color: #ededed;
+  --popconfirm-button-bg-color: #25c2a0;
+  --popconfirm-button-text-color: white;
+  --popconfirm-cancel-button-bg-color: #ccc;
+  --cascadingmenu-bg-color: #f6f7f8;
+  --modal-bg-color: white;
+  --modal-border-color: #eaeaea;
+  --modal-shadow-color: rgba(0, 0, 0, 0.1);
+  --default: rgba(0, 0, 0);
+  --icon-invert: invert(0);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
@@ -27,6 +36,17 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --popconfirm-bg-color: #333;
+  --popconfirm-border-color: #555;
+  --popconfirm-button-bg-color: #25c2a0;
+  --popconfirm-button-text-color: white;
+  --popconfirm-cancel-button-bg-color: #777;
+  --cascadingmenu-bg-color: #323234;
+  --modal-bg-color: #444;
+  --modal-border-color: #555;
+  --modal-shadow-color: rgba(0, 0, 0, 0.5);
+  --default: rgba(255, 255, 255);
+  --icon-invert: invert(1);
 }
 
 .teal-img,

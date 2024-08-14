@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import { isRegexpStringMatch } from "@docusaurus/theme-common";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import type { Props } from "@theme/NavbarItem/NavbarNavLink";
+import { CallgentResponse } from "@site/src/types/user";
 
 export default function NavbarNavLink({
   activeBasePath,
@@ -37,12 +38,16 @@ export default function NavbarNavLink({
     };
 
   if (href && label === 'Login') {
-    const userinfo = JSON.parse(localStorage.getItem('userinfo'));
+    const [userinfo, setUserInfo] = useState<CallgentResponse | null>();
+    window.addEventListener('localStorageChange', () => {
+      const info = JSON.parse(localStorage.getItem('userinfo'));
+      setUserInfo(info);
+    });
     return (
       <>
         {
           userinfo?.uuid ? (<><img className="navbar-login-img teal-img" src={userinfo?.avatar ? userinfo.avatar : '/img/logo-header.png'} /></>) :
-            (<Link href={prependBaseUrlToHref ? normalizedHref : href} {...props} {...linkContentProps} />)
+            (<Link href={prependBaseUrlToHref ? normalizedHref : href + window.location.href} {...props} {...linkContentProps} />)
         }
       </>
     );

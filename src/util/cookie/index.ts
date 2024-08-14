@@ -14,3 +14,9 @@ export function deleteCookie(name: string) {
     const domain = window.location.hostname;
     document.cookie = name + '=; Path=/; Domain=' + domain + '; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
+
+export function setLocalStorageItem(key: string, value: string) {
+    localStorage.setItem(key, value);
+    const event = new Event('localStorageChange');
+    window.dispatchEvent(event);
+}

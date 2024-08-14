@@ -11,11 +11,13 @@ AI Large Language Models (LLMs) are ushering in a new golden age of [Home-Cooked
 
 ## What is Generative UI?
 
-From now on, forget the traditional software paradigm.
+From now on, forget about the traditional software paradigm.
 
 Imagine if we treated every interaction between a user and an app as a chat, with the only difference being that the content of the chat is not text, but rather a collection of widgets.
 
+<figure>
 ![textual chat => widget chat](./generative-app.png)
+</figure>
 
 <!-- truncate -->
 
@@ -33,7 +35,9 @@ How does callgent leverage generative UI, as we name it `Callgentive UI`.
 
 A picture is worth a thousand words:
 
+<figure>
 ![Callgentive UI](./callgentive-ui.png)
+</figure>
 
 With predefined business services and standard widgets, the `Home-Cooked Software` works as follows,
 

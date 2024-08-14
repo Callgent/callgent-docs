@@ -2,7 +2,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React, { useContext, useEffect } from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import ShowLogin from '../components/module/login';
-import { deleteCookie } from '../util/cookie';
+import { deleteCookie, setLocalStorageItem } from '../util/cookie';
 import { GlobalProvider } from '../context/GlobalContext';
 import axios from 'axios';
 
@@ -21,7 +21,7 @@ export default function Root({ children }) {
         axios.get('/api/users/info').then(req => {
             const { data } = req.data;
             if (data) {
-                localStorage.setItem('userinfo', JSON.stringify(data));
+                setLocalStorageItem('userinfo', JSON.stringify(data));
             } else {
                 localStorage.removeItem('userinfo');
                 deleteCookie('x-callgent-jwt')

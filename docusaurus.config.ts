@@ -125,10 +125,11 @@ const config: Config = {
           position: "right",
         },
         {
-          href: process.env.SITE_URL + "/signin",
+          href: process.env.SITE_URL + "/signin?redirect=",
           position: "right",
           label: "Login",
           className: "navbar-login-btn internal teal-btn",
+          target: "_self",
         },
       ],
     },
