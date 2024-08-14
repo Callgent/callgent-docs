@@ -4,7 +4,6 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -15,9 +14,19 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --popconfirm-bg-color: white;
+  --popconfirm-border-color: #ededed;
+  --popconfirm-button-bg-color: #25c2a0;
+  --popconfirm-button-text-color: white;
+  --popconfirm-cancel-button-bg-color: #ccc;
+  --cascadingmenu-bg-color: #f6f7f8;
+  --modal-bg-color: white;
+  --modal-border-color: #eaeaea;
+  --modal-shadow-color: rgba(0, 0, 0, 0.1);
+  --default: rgba(0, 0, 0);
+  --icon-invert: invert(0);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
@@ -27,4 +36,91 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --popconfirm-bg-color: #333;
+  --popconfirm-border-color: #555;
+  --popconfirm-button-bg-color: #25c2a0;
+  --popconfirm-button-text-color: white;
+  --popconfirm-cancel-button-bg-color: #777;
+  --cascadingmenu-bg-color: #323234;
+  --modal-bg-color: #444;
+  --modal-border-color: #555;
+  --modal-shadow-color: rgba(0, 0, 0, 0.5);
+  --default: rgba(255, 255, 255);
+  --icon-invert: invert(1);
+}
+
+.teal-img,
+.teal-btn {
+  width: 70px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: Barlow;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  text-align: center;
+  color: white;
+}
+
+.teal-btn {
+  background-color: #16a394;
+  border: 1px solid rgb(22, 163, 148);
+}
+
+.teal-btn:hover {
+  border: 1px solid rgb(24, 115, 103);
+  background-color: rgb(24, 115, 103);
+  color: white;
+}
+
+.menu__link:not(.navbar-login-btn):hover {
+  background: none;
+}
+
+.navbar-login-btn,
+.navbar-login-img {
+  position: absolute;
+  margin-bottom: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navbar-login-img {
+  border-radius: 100%;
+}
+
+@media (max-width: 996px) {
+  .navbar-login-btn {
+    top: unset;
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+    width: calc(100% - 16px);
+    font-family: Barlow !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+    letter-spacing: 0em !important;
+    justify-content: center;
+  }
+
+  .navbar-login-img {
+    display: none;
+  }
+}
+
+.navbar-login-btn:hover {
+  color: white;
+}
+
+.navbar-login-btn svg {
+  display: none;
+}
+
+.navbar__items--right {
+  padding-right: 90px;
+  position: relative;
 }

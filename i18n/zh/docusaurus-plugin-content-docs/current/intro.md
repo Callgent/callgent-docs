@@ -25,7 +25,7 @@ Bridge all traditional gaps between systems and users:
   - zero code development by just callgents and users orchestration
   - everyone may be a product manager
 - Orchestrated services may be exposed any where, by polymorphic interface plugins:
-  - as mail address
+  - as email address
   - in IM channels
   - on generative web pages
   - VR/AR, etc.

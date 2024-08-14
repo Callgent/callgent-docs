@@ -15,6 +15,8 @@ export type UserResponse = {
 }
 
 export type CallgentResponse = {
+    avatar?: string;
+    email?: string;
     name?: string;
     createdAt?: string;
     uuid?: string;
@@ -36,6 +38,7 @@ export type userSliceType = {
     token: string | null,
     status: CallgentState;
     fetchState: FetchStateType;
+    showLogin: boolean;
 }
 
 

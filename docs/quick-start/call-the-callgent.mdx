@@ -6,16 +6,15 @@ tags: [Demo, Getting started]
 
 # Call the Callgent
 
-import App from "@site/docs/app"
-import CreateCallgent from "./components/create-callgent"
-import Email from "./components/email"
-import RestApi from "./components/restApi"
+import CreateCallgent from "@site/src/components/user-as-a-service/create-callgent"
+import Email from "@site/src/components/quick-start/email"
+import RestApi from "@site/src/components/quick-start/restApi"
 
 Now you may request the callgent for a task, in the following ways.
 
 ## Email
 
-You may directly send an email to：<App><Email /></App> 
+You may directly send an email to：<Email />
 
 then wait for reply from the callgent's [Service Endpoint](#connect-the-callgent-to-a-service-endpoint).
 
@@ -26,7 +25,7 @@ The email address and API url below, contains callgent UUID, which is available 
 ## REST API
 
 You may also invoke the callgent via REST API:
-<App><RestApi/></App>
+<RestApi/>
 
 
 :::info

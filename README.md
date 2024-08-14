@@ -18,37 +18,29 @@
 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" height="20px">
 </p>
 
-This is the portal website of [Callgent](https://callgent.com), gratefully forked from [NextJSTemplates](https://github.com/NextJSTemplates/startup-nextjs).
+This is the documentation site for [Callgent](https://docs.callgent.com), built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## Development
+### Installation
 
-1. "node": ">=18.17.0"
-2. checkout the repository:
+```shell
+$ pnpm
+```
 
-   ```bash
+### Local Development
 
-   ```
+```shell
+$ pnpm start
+```
 
-3. rename `.env.example` to `.env`
-4. Start the Service
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-   - Development Environment
+### Build
 
-     ```bash
-     # Modify the API_SITE_URL on line 7 of your package.json file to set your development server.
-     npm i -g pnpm
-     pnpm install
-     pnpm run start
-     ```
+```shell
+$ pnpm build
+```
 
-   - Production Environment
-
-     ```bash
-     # Modify the API_SITE_URL in your .env file to set your production environment server.
-     pnpm install
-     pnpm run build
-     pnpm run serve
-     ```
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ## Contributing
 
