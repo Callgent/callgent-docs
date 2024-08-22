@@ -18,7 +18,7 @@ const CreateEndpoints = () => {
         const data = {
             "type": 'SERVER',
             "host": formValues.email,
-            "callgentUuid": callgent.uuid
+            "callgentUuid": callgent.id
         }
         await axios.post('/api/endpoints/email/callgents', data).then(req => {
             setImportState(true);
@@ -50,12 +50,12 @@ const CreateEndpoints = () => {
                 placeholder="Please enter your email"
                 className="input col col--4 margin--sm table-of-contents"
             />
-            <button className="button col col--2 margin--sm button--info button--secondary" disabled={isSubmitting || !callgent?.uuid}>
+            <button className="button col col--2 margin--sm button--info button--secondary" disabled={isSubmitting || !callgent?.id}>
                 Create
             </button>
             {importState === true && <span className="margin--md text--success">Successfully created!</span>}
             {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
-            {!callgent?.uuid && <span className={styles.please}>Please create a callgent First!</span>}
+            {!callgent?.id && <span className={styles.please}>Please create a callgent First!</span>}
         </form>
     );
 };

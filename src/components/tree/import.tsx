@@ -20,7 +20,7 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
             //     setImportState(true);
             //     setTimeout(() => { onClose(); }, 350);
             //     let { data } = req.data;
-            //     data.id = data.uuid;
+            //     data.id = data.id;
             //     data.edit = true;
             //     data.delete = true;
             //     data.import = formValues?.type === 'SERVER' ? true : false;
@@ -35,7 +35,7 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
                 setImportState(true);
                 setTimeout(() => { onClose(); }, 350);
                 let { data } = req.data;
-                data.id = data.uuid;
+                data.id = data.id;
                 data.type = "Import";
                 data.name = formValues?.text
                 onSubmit(data);
