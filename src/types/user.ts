@@ -19,7 +19,7 @@ export type CallgentResponse = {
     email?: string;
     name?: string;
     createdAt?: string;
-    uuid?: string;
+    id?: string;
     updatedAt?: string;
 }
 

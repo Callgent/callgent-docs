@@ -46,7 +46,7 @@ export default function NavbarNavLink({
     return (
       <>
         {
-          userinfo?.uuid ? (<><img className="navbar-login-img teal-img" src={userinfo?.avatar ? userinfo.avatar : '/img/logo-header.png'} /></>) :
+          userinfo?.id ? (<><img className="navbar-login-img teal-img" src={userinfo?.avatar ? userinfo.avatar : '/img/logo-header.png'} /></>) :
             (<Link href={prependBaseUrlToHref ? normalizedHref : href + window.location.href} {...props} {...linkContentProps} />)
         }
       </>
