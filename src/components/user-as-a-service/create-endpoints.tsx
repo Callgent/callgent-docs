@@ -18,7 +18,7 @@ const CreateEndpoints = () => {
         const data = {
             "type": 'SERVER',
             "host": formValues.email,
-            "callgentUuid": callgent.id
+            "callgentId": callgent.id
         }
         await axios.post('/api/endpoints/email/callgents', data).then(req => {
             setImportState(true);

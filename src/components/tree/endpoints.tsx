@@ -12,8 +12,8 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
     const [importState, setImportState] = useState<boolean | string | null>(null);
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
-        const formValues = Object.fromEntries(formData.entries()) as { type: string, host: any, callgentUuid: string };
-        formValues.callgentUuid = treeData.id;
+        const formValues = Object.fromEntries(formData.entries()) as { type: string, host: any, callgentId: string };
+        formValues.callgentId = treeData.id;
         formValues.type = initialData.id;
         type === 'Edit' ?
             await axios.put('/api/endpoints/' + initialData.id, { host: formValues.host }).then(req => {
