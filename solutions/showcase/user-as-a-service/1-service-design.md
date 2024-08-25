@@ -167,6 +167,6 @@ components:
 
 </details>
 
-3 APIs are designed in `recruiting-service-api.yaml`.
+There are 3 APIs are designed in `recruiting-service-api.yaml`.
 
 Next we'll import this API definition into a new callgent,
