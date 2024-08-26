@@ -1,4 +1,4 @@
-import { ModalFormProps } from '@site/src/types/components';
+import { ModalFormProps, TreeNodeType } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState, useRef } from 'react';
 import useSubmit from '@site/src/hooks/button';
@@ -31,14 +31,18 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
             // });
             null
             :
-            await axios.post('/api/bff/callgent-functions/import', formValues).then(req => {
+            await axios.post('/api/bff/callgent-functions/import', formValues).then((req) => {
+                const { data } = req.data;
                 setImportState(true);
-                setTimeout(() => { onClose(); }, 350);
-                let { data } = req.data;
-                data.id = data.id;
-                data.type = "Import";
-                data.name = formValues?.text
-                onSubmit(data);
+                setTimeout(onClose, 350);
+                data
+                    .filter((item: TreeNodeType) =>
+                        !initialData.children.some((oldItem: TreeNodeType) => oldItem.name === item.name)
+                    )
+                    .forEach((item: TreeNodeType) => {
+                        item.type = "Import";
+                        onSubmit(item);
+                    });
             }).catch(error => {
                 const { data } = error.response;
                 setImportState(data.message);
