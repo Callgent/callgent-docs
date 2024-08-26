@@ -26,9 +26,9 @@ including the following functions:
  - `Apply for a position`
 ```
 
-Then the `recruiting-service-api.yaml` is generated:
+Then the `recruiting-service-api.json` is generated:
 <details>
-<summary>Click to view <i>recruiting-service-api.yaml</i></summary>
+<summary>Click to view <i>recruiting-service-api.json</i></summary>
 
 ```json {15-17,50-52,76-78}
 {
@@ -224,6 +224,6 @@ Then the `recruiting-service-api.yaml` is generated:
 
 </details>
 
-There are 3 APIs are designed in `recruiting-service-api.yaml`.
+There are 3 APIs are designed in `recruiting-service-api.json`.
 
 Next we'll import this API definition into a new callgent,
