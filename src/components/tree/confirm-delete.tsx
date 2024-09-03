@@ -12,8 +12,7 @@ const Popconfirm: React.FC<PopconfirmProps> = ({ title, description, initialData
     const [fadeOut, setFadeOut] = useState(false);
     const triggerRef = useRef<HTMLDivElement>(null);
     const popconfirmRef = useRef<HTMLDivElement>(null);
-    const [isSubmitting, handleSubmit] = useSubmit();
-    const [importState, setImportState] = useState<boolean | string | null>(null);
+    const [isSubmitting, handleSubmit, message] = useSubmit();
     const handleClickOutside = (event: MouseEvent) => {
         if (popconfirmRef.current && !popconfirmRef.current.contains(event.target as Node) &&
             triggerRef.current && !triggerRef.current.contains(event.target as Node)) {
@@ -43,7 +42,7 @@ const Popconfirm: React.FC<PopconfirmProps> = ({ title, description, initialData
                 }, 500);
             }).catch((error) => {
                 const { data } = error.response;
-                setImportState(data.message);
+                throw new Error(JSON.stringify(data.message));
             })
             return null;
         } else if (level === 3) {
@@ -66,7 +65,7 @@ const Popconfirm: React.FC<PopconfirmProps> = ({ title, description, initialData
                 }, 500);
             }).catch((error) => {
                 const { data } = error.response;
-                setImportState(data.message);
+                throw new Error(JSON.stringify(data.message));
             })
         }
     };
@@ -85,8 +84,8 @@ const Popconfirm: React.FC<PopconfirmProps> = ({ title, description, initialData
                 <div className="popconfirm-title">{title}</div>
                 <div className="popconfirm-description">{description}</div>
                 <div>
-                    {importState === true && <span className="margin--md text--success">Successfully!</span>}
-                    {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
+                    {message === true && <span className="margin--md text--success">Successfully!</span>}
+                    {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
                 </div>
                 <div className="popconfirm-buttons">
                     <button onClick={handleCancel}>{cancelText}</button>

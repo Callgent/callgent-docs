@@ -13,10 +13,9 @@ interface CreateCallgentProps {
 const CreateCallgent: React.FC<CreateCallgentProps> = ({ name, onDataReceived }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
-    const [importState, setImportState] = useState<boolean | string | null>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
-    const [isSubmitting, handleSubmit] = useSubmit();
+    const [isSubmitting, handleSubmit, message] = useSubmit();
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
         const formValues = Object.fromEntries(formData.entries()) as { name: string };
@@ -25,10 +24,9 @@ const CreateCallgent: React.FC<CreateCallgentProps> = ({ name, onDataReceived })
             if (onDataReceived) {
                 onDataReceived(data.data);
             }
-            setImportState(true);
         } catch (error) {
             const { data } = error.response;
-            setImportState(data.message);
+            throw new Error(JSON.stringify(data.message));
         }
     };
 
@@ -49,8 +47,8 @@ const CreateCallgent: React.FC<CreateCallgentProps> = ({ name, onDataReceived })
             >
                 Create
             </button>
-            {importState === true && <span className="margin--md text--success">Successfully created!</span>}
-            {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
+            {message === true && <span className="margin--md text--success">Successfully created!</span>}
+            {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
         </form>
     );
 };

@@ -10,7 +10,7 @@ const ImportApi = () => {
     if (!isBrowser) { return null; }
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [importState, setImportState] = useState<boolean | string | null>(null);
-    const [isSubmitting, handleSubmit] = useSubmit();
+    const [isSubmitting, handleSubmit, message] = useSubmit();
 
     const submitFunction = async () => {
         const body = {
@@ -22,7 +22,7 @@ const ImportApi = () => {
             setImportState(true);
         }).catch(error => {
             const { data } = error.response;
-            setImportState(data.message);
+            throw new Error(JSON.stringify(data.message));
         });
     };
 

@@ -8,19 +8,17 @@ const Callgent: React.FC<ModalFormProps> = ({ initialData, treeData, setTreeData
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const formRef = useRef<HTMLFormElement>(null);
-    const [importState, setImportState] = useState<boolean | string | null>(null);
-    const [isSubmitting, handleSubmit] = useSubmit();
+    const [isSubmitting, handleSubmit, message] = useSubmit();
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
         const formValues = Object.fromEntries(formData.entries()) as { name: string };
         try {
             await axios.put('/api/callgents/' + initialData.id, formValues)
-            setImportState(true);
             setTimeout(() => { onClose(); }, 350);
             setTreeData([{ ...treeData, name: formValues.name }])
         } catch (error) {
             const { data } = error.response;
-            setImportState(data.message);
+            throw new Error(JSON.stringify(data.message));
         }
     };
 
@@ -31,8 +29,8 @@ const Callgent: React.FC<ModalFormProps> = ({ initialData, treeData, setTreeData
                 <input type="text" id='name' name="name" defaultValue={initialData?.name} />
             </div>
             <div>
-                {importState === true && <span className="margin--md text--success">Successfully {initialData ? 'Edit' : 'Create'}!</span>}
-                {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
+                {message === true && <span className="margin--md text--success">Successfully {initialData ? 'Edit' : 'Create'}!</span>}
+                {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
             </div>
             <div className="modal-footer">
                 <button type="button" className="cancel-button" onClick={onClose}>
