@@ -170,10 +170,10 @@ RLS is only applicable in `postgreSQL`
 
 ### How to implement
 
-1. in `schema.prisma` file, set db column `tenant_id` default value to context variable `tenancy.tenantId`,
+1. in `schema.prisma` file, set db column `tenant_id` default value to context variable `tenancy.tenantPk`,
 
    ```prisma
-   tenant_id Int  @default(dbgenerated("(current_setting('tenancy.tenantId'))::int"))
+   tenant_id Int  @default(dbgenerated("(current_setting('tenancy.tenantPk'))::int"))
    ```
 
 2. enable postgres row level security(RLS), so that we can filter data by `tenant_id` automatically:
@@ -183,13 +183,13 @@ RLS is only applicable in `postgreSQL`
 3. on each request, preset `tenant_id` into `cls` context, refer to [auth-logined.listener.ts](https://github.com/Callgent/callgent-api/blob/main/src/users/listeners/auth-logined.listener.ts),
 
    ```typescript
-   cls.set('TENANT_ID', curentUser.tenantId);
+   cls.set('TENANT_ID', curentUser.tenantPk);
    ```
 
 4. extend `PrismaClient` to set `tenant_id` before any query, refer to [prisma-tenancy.provider.ts](https://github.com/Callgent/callgent-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.provider.ts),
 
    ```sql
-   SELECT set_config('tenancy.tenantId', cls.get('TENANT_ID') ...
+   SELECT set_config('tenancy.tenantPk', cls.get('TENANT_ID') ...
    ```
 
 5. if you want to bypass rls, for example, by admin, or looking up the logon user to determine their tenant ID:
@@ -206,10 +206,10 @@ RLS is only applicable in `postgreSQL`
 
 ### how it works
 
-1. `tenantId` is set into `cls` context on each request from current user.
-2. `PrismaClient` is extended on `$allOperations` to set `tenantId` into db variable `tenancy.tenantId` before any query.
-3. postgreSQL RLS is enabled, so that all queries will be filtered by `tenancy.tenantId` automatically.
-4. on db `insert` operation, `tenancy.tenantId` is set into `tenant_id` column as default value.
+1. `tenantPk` is set into `cls` context on each request from current user.
+2. `PrismaClient` is extended on `$allOperations` to set `tenantPk` into db variable `tenancy.tenantPk` before any query.
+3. postgreSQL RLS is enabled, so that all queries will be filtered by `tenancy.tenantPk` automatically.
+4. on db `insert` operation, `tenancy.tenantPk` is set into `tenant_id` column as default value.
 
 ## Integrate them all
 

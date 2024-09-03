@@ -7,8 +7,7 @@ import axios from 'axios';
 const RegisterAccount = () => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
-    const [isSubmitting, handleSubmit] = useSubmit();
-    const [importState, setImportState] = useState<boolean | string | null>(null);
+    const [isSubmitting, handleSubmit, message] = useSubmit();
 
     const submitFunction = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -22,10 +21,9 @@ const RegisterAccount = () => {
         await axios.post('/api/users/send-confirm-email', body).then(req => {
             const { data } = req;
             localStorage.setItem('callgent', JSON.stringify(data))
-            setImportState(true);
         }).catch(error => {
             const { data } = error.response;
-            setImportState(data.message);
+            throw new Error(JSON.stringify(data.message));
         });
     }
 
@@ -47,8 +45,8 @@ const RegisterAccount = () => {
                     Send Email
                 </button>
             </form>
-            {importState === true && <span className="margin--md text--success">Please check your email to confirm registration!</span>}
-            {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
+            {message === true && <span className="margin--md text--success">Please check your email to confirm registration!</span>}
+            {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
         </>
     );
 };

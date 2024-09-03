@@ -1,4 +1,4 @@
-import { ModalFormProps } from '@site/src/types/components';
+import { ModalFormProps, TreeNodeType } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState, useRef } from 'react';
 import useSubmit from '@site/src/hooks/button';
@@ -8,12 +8,11 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const formRef = useRef<HTMLFormElement>(null);
-    const [isSubmitting, handleSubmit] = useSubmit();
-    const [importState, setImportState] = useState<boolean | string | null>(null);
+    const [isSubmitting, handleSubmit, message] = useSubmit();
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
-        const formValues = Object.fromEntries(formData.entries()) as { endpoint: string, text: any, format: string };
-        formValues.endpoint = initialData.id;
+        const formValues = Object.fromEntries(formData.entries()) as { endpointId: string, text: any, format: string };
+        formValues.endpointId = initialData.id;
         formValues.format = "openAPI";
         type === 'Edit' ?
             // await axios.post('/api/endpoints/' + adaptorKey + '/create', formValues).then(req => {
@@ -27,24 +26,26 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
             //     onSubmit(data)
             // }).catch(error => {
             //     const { data } = error.response;
-            //     setImportState(data.message);
+            //     throw new Error(JSON.stringify(data.message));
             // });
             null
             :
-            await axios.post('/api/bff/callgent-functions/import', formValues).then(req => {
-                setImportState(true);
-                setTimeout(() => { onClose(); }, 350);
-                let { data } = req.data;
-                data.id = data.id;
-                data.type = "Import";
-                data.name = formValues?.text
-                onSubmit(data);
+            await axios.post('/api/bff/callgent-functions/import', formValues).then((req) => {
+                const { data } = req.data;
+                setTimeout(onClose, 350);
+                data
+                    .filter((item: TreeNodeType) =>
+                        !initialData.children.some((oldItem: TreeNodeType) => oldItem.name === item.name)
+                    )
+                    .forEach((item: TreeNodeType) => {
+                        item.type = "Import";
+                        onSubmit(item);
+                    });
             }).catch(error => {
                 const { data } = error.response;
-                setImportState(data.message);
+                throw new Error(JSON.stringify(data.message));
             });
     };
-
     return (
         <form ref={formRef}>
             <div className="form-group">
@@ -52,8 +53,8 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
                 <textarea className="customTextarea" name='text' id='text' style={{ maxHeight: '180px', }}></textarea>
             </div>
             <div>
-                {importState === true && <span className="margin--md text--success">Successfully {type}!</span>}
-                {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
+                {message === true && <span className="margin--md text--success">Successfully {type}!</span>}
+                {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
             </div>
             <div className="modal-footer">
                 <button type="button" className="cancel-button" onClick={onClose}>

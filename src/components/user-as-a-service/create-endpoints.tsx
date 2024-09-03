@@ -9,8 +9,7 @@ const CreateEndpoints = () => {
     if (!isBrowser) { return null; }
     const userinfo = JSON.parse(localStorage.getItem('userinfo'));
     const [callgent, setCallgent] = useState(JSON.parse(localStorage.getItem('callgent')));
-    const [isSubmitting, handleSubmit] = useSubmit();
-    const [importState, setImportState] = useState<boolean | string | null>(null);
+    const [isSubmitting, handleSubmit, message] = useSubmit();
     const submitFunction = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
@@ -21,11 +20,10 @@ const CreateEndpoints = () => {
             "callgentId": callgent.id
         }
         await axios.post('/api/endpoints/email/callgents', data).then(req => {
-            setImportState(true);
             localStorage.removeItem('callgent');
         }).catch(error => {
             const { data } = error.response;
-            setImportState(data.message);
+            throw new Error(JSON.stringify(data.message));
         });
     };
 
@@ -53,8 +51,8 @@ const CreateEndpoints = () => {
             <button className="button col col--2 margin--sm button--info button--secondary" disabled={isSubmitting || !callgent?.id}>
                 Create
             </button>
-            {importState === true && <span className="margin--md text--success">Successfully created!</span>}
-            {importState !== true && importState !== null && <span className="margin--md text--danger">{importState}</span>}
+            {message === true && <span className="margin--md text--success">Successfully created!</span>}
+            {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
             {!callgent?.id && <span className={styles.please}>Please create a callgent First!</span>}
         </form>
     );
