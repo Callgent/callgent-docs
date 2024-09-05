@@ -13,7 +13,7 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
         const formData = new FormData(formRef.current);
         const formValues = Object.fromEntries(formData.entries()) as { endpointId: string, text: any, format: string };
         formValues.endpointId = initialData.id;
-        formValues.format = "openAPI";
+        // formValues.format = "json";
         type === 'Edit' ?
             // await axios.post('/api/endpoints/' + adaptorKey + '/create', formValues).then(req => {
             //     setImportState(true);
