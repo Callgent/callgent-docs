@@ -17,10 +17,6 @@
         transition: color 0.3s;
     }
 
-    .tab-button.active {
-        color: #333;
-    }
-
     .tab-button.active::after {
         content: '';
         position: absolute;
