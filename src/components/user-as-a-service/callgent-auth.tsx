@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Tabs from '../tree/component/tabs';
 import NewAuth from './component/create-auth';
 
-const Auth: React.FC<ModalFormProps> = ({ treeData, onClose, setTreeData, initialData = null }) => {
+const Auth: React.FC<ModalFormProps> = ({ treeData, onClose, setTreeData, onSubmit, initialData = null }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
 
@@ -32,24 +32,24 @@ const Auth: React.FC<ModalFormProps> = ({ treeData, onClose, setTreeData, initia
                         callgentId={treeData?.id}
                         initialData={item}
                         onClose={onClose}
+                        onSubmit={onSubmit}
                         securities={initialData}
                         updateRealms={updateRealms}
                     />
                 )
             };
         });
-        if (!initialData) {
-            tabs.push({
-                label: '+',
-                content: (
-                    <NewAuth
-                        callgentId={treeData?.id}
-                        onClose={onClose}
-                        updateRealms={updateRealms}
-                    />
-                )
-            });
-        }
+        tabs.push({
+            label: '+',
+            content: (
+                <NewAuth
+                    callgentId={treeData?.id}
+                    onClose={onClose}
+                    onSubmit={onSubmit}
+                    updateRealms={updateRealms}
+                />
+            )
+        });
         setTabsData(tabs);
     };
 

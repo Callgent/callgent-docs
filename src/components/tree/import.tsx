@@ -38,7 +38,7 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
                         !initialData.children.some((oldItem: TreeNodeType) => oldItem.name === item.name)
                     )
                     .forEach((item: TreeNodeType) => {
-                        item.type = "Import";
+                        item.lock = true;
                         onSubmit(item);
                     });
             }).catch(error => {

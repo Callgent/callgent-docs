@@ -21,6 +21,7 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 data.id = data.id;
                 data.edit = true;
                 data.delete = true;
+                data.lock = true;
                 data.import = formValues?.type === 'SERVER' ? true : false;
                 onSubmit(data)
             }).catch(error => {
@@ -34,6 +35,7 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 data.id = data.id;
                 data.edit = true;
                 data.delete = true;
+                data.lock = true;
                 data.children = [];
                 data.import = formValues?.type === 'SERVER' ? true : false;
                 onSubmit(data)

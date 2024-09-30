@@ -29,7 +29,7 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
     const handleLock = (item: TreeNodeType, level: number) => {
         const { id } = item;
         if (level === 1) {
-            setModalData({ ...modalData, title: "Manage", id, type: '', auth: true });
+            setModalData({ ...modalData, title: "Manage", id, type: '', auth: true, initialData: null });
         } else {
             setModalData({ ...modalData, title: "Quote", id, type: '', auth: true, initialData: item });
         }
@@ -46,6 +46,8 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
         }
     };
     const handleModalSubmit = (data: TreeNodeType) => {
+        console.log(data);
+        
         if (modalData?.type === 'Create' || modalData?.type === 'Import') {
             const newTreeData = [...treeData];
             const addNode = (nodes: TreeNodeType[]) => {
@@ -115,6 +117,7 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
                 <Auth
                     initialData={modalData?.initialData}
                     treeData={treeData[0]}
+                    onSubmit={handleModalSubmit}
                     setTreeData={setTreeData}
                     onClose={() => setModalData({ ...modalData, endpoint: false })}
                 />
