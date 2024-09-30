@@ -46,8 +46,6 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
         }
     };
     const handleModalSubmit = (data: TreeNodeType) => {
-        console.log(data);
-        
         if (modalData?.type === 'Create' || modalData?.type === 'Import') {
             const newTreeData = [...treeData];
             const addNode = (nodes: TreeNodeType[]) => {
