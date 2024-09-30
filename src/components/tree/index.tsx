@@ -5,9 +5,10 @@ import React, { useState } from 'react';
 import Endpoints from './endpoints';
 import { TreeNode } from './tree';
 import Callgent from './callgent';
-import Modal from './modal';
+import Modal from './component/modal';
 import './index.scss';
 import Import from './import';
+import Auth from '../user-as-a-service/callgent-auth';
 
 const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, name?: string }) => {
     const isBrowser = useIsBrowser();
@@ -23,7 +24,15 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
         } else if (level === 3) {
             setModalData({ ...modalData, title: id, id, type: 'Import', import: true, initialData: item });
         }
+    };
 
+    const handleLock = (item: TreeNodeType, level: number) => {
+        const { id } = item;
+        if (level === 1) {
+            setModalData({ ...modalData, title: "Manage", id, type: '', auth: true });
+        } else {
+            setModalData({ ...modalData, title: "Quote", id, type: '', auth: true, initialData: item });
+        }
     };
 
     const handleEdit = (item: TreeNodeType, level: number) => {
@@ -77,9 +86,11 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
         if (level === 2) {
             enhancedNode = { ...enhancedNode, add: true };
         } else if (level === 3 && node?.type === "SERVER") {
-            enhancedNode = { ...enhancedNode, edit: true, delete: true, import: true };
-        } else if (level === 1 || level === 3) {
-            enhancedNode = { ...enhancedNode, edit: true, delete: true };
+            enhancedNode = { ...enhancedNode, edit: true, delete: true, import: true, lock: true };
+        } else if (level === 3 || level === 1) {
+            enhancedNode = { ...enhancedNode, edit: true, delete: true, lock: true };
+        } else if (level === 4) {
+            enhancedNode = { ...enhancedNode, lock: true };
         }
         if (node.children) {
             enhancedNode.children = node.children.map(child => enhanceNode(child, level + 1));
@@ -96,9 +107,18 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
                 nodes={treeData}
                 onAdd={handleAdd}
                 onEdit={handleEdit}
+                onLock={handleLock}
                 treeData={treeData[0]}
                 setTreeData={setTreeData}
             />
+            <Modal isOpen={modalData?.auth} onClose={() => setModalData({ ...modalData, auth: false })} title={modalData?.type + " " + modalData?.title + " Auth"}>
+                <Auth
+                    initialData={modalData?.initialData}
+                    treeData={treeData[0]}
+                    setTreeData={setTreeData}
+                    onClose={() => setModalData({ ...modalData, endpoint: false })}
+                />
+            </Modal>
             <Modal isOpen={modalData?.endpoint} onClose={() => setModalData({ ...modalData, endpoint: false })} title={modalData?.type + " " + modalData?.title + " Endpoint"}>
                 <Endpoints
                     adaptorKey={adaptorKey}

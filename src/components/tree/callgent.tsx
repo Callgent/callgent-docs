@@ -1,6 +1,6 @@
 import { ModalFormProps } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import useSubmit from '@site/src/hooks/button';
 import axios from 'axios';
 

@@ -1,11 +1,11 @@
 import { TreeNodeProps, TreeNodeType } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState, useEffect } from 'react';
-import { Add, Delete, Edit, Import } from './icon';
+import { Add, Delete, Edit, Import, Lock } from './icon';
 import Popconfirm from './confirm-delete';
 import './index.scss';
 
-export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, treeData, setTreeData }) => {
+export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onLock, treeData, setTreeData }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set());
@@ -49,7 +49,6 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, treeDa
                 return '/icons/default.svg';
         }
     };
-
     const renderNodes = (nodes: TreeNodeType[], level: number = 1, parentId: string | null = null) => {
         return nodes.map((node) => (
             <div key={node.id} className="tree-node">
@@ -65,6 +64,11 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, treeDa
                         </button>
                     </div>
                     <div className="node-right">
+                        {node?.lock &&
+                            <div onClick={() => onLock(node, level)}>
+                                <Lock data={{ level, realms: treeData?.realms, securities: node?.securities }} />
+                            </div>
+                        }
                         {node?.add &&
                             <div onClick={() => onAdd(node, level)}>
                                 <Add />

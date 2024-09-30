@@ -1,7 +1,7 @@
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import useSubmit from '@site/src/hooks/button';
 import styles from './index.module.css';
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import axios from 'axios';
 import { TreeNodeType } from '@site/src/types/components';
 
@@ -18,7 +18,7 @@ const CreateCallgent: React.FC<CreateCallgentProps> = ({ name, onDataReceived })
     const [isSubmitting, handleSubmit, message] = useSubmit();
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
-        const formValues = Object.fromEntries(formData.entries()) as { name: string };
+        const formValues = Object.fromEntries(formData.entries());
         try {
             const { data } = await axios.post('/api/bff/callgent-endpoints', formValues);
             if (onDataReceived) {
