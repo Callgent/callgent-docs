@@ -12,7 +12,7 @@ const RestApi = () => {
     const [showToken, setShowToken] = useState(false);
 
     const start = `curl -X 'POST' \\
-    'https://api.callgent.com/api/callgents/{id}//invoke/api/' \\
+    'https://api.callgent.com/api/rest/invoke/{callgentId}//' \\
     -H 'accept: */*' \\
     `
     const end = `-H 'x-callgent-callback: https://callback-url-to-receive-task-response--or-empty-if-neednt-reply' \\
