@@ -50,6 +50,6 @@ With predefined business services and standard widgets, the `Home-Cooked Softwar
 
 Callgent's core functionality is to do native function-calling to orchestrate business services.
 
-Callgent has server endpoints and client endpoints to adapt various invocation scenarios.
+Callgent has server entries and client entries to adapt various invocation scenarios.
 
-Specifically, widget based User Interface, is just one more type of client endpoints, to adapt human interactions.
+Specifically, widget based User Interface, is just one more type of client entries, to adapt human interactions.

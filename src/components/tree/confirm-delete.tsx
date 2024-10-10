@@ -46,7 +46,7 @@ const Popconfirm: React.FC<PopconfirmProps> = ({ title, description, initialData
             })
             return null;
         } else if (level === 3) {
-            await axios.delete('/api/endpoints/' + id).then((req) => {
+            await axios.delete('/api/entries/' + id).then((req) => {
                 setFadeOut(true);
                 setTimeout(() => {
                     setVisible(false);

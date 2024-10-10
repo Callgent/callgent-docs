@@ -11,11 +11,11 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
     const [isSubmitting, handleSubmit, message] = useSubmit();
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
-        const formValues = Object.fromEntries(formData.entries()) as { endpointId: string, text: any, format: string };
-        formValues.endpointId = initialData.id;
+        const formValues = Object.fromEntries(formData.entries()) as { entryId: string, text: any, format: string };
+        formValues.entryId = initialData.id;
         // formValues.format = "json";
         type === 'Edit' ?
-            // await axios.post('/api/endpoints/' + adaptorKey + '/create', formValues).then(req => {
+            // await axios.post('/api/entries/' + adaptorKey + '/create', formValues).then(req => {
             //     setImportState(true);
             //     setTimeout(() => { onClose(); }, 350);
             //     let { data } = req.data;

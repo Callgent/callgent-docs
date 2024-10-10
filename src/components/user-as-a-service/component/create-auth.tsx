@@ -87,7 +87,7 @@ const NewAuth = ({ callgentId, onClose, initialData = null, securities = null, u
 
     const handleSelectClick = async () => {
         try {
-            const { data } = await axios.post(`/api/callgent-realms/securities/${securities?.type ? 'endpoint' : 'function'}/${securities?.id}`, [
+            const { data } = await axios.post(`/api/callgent-realms/securities/${securities?.type ? 'entry' : 'function'}/${securities?.id}`, [
                 {
                     "realmKey": initialData?.realmKey
                 }

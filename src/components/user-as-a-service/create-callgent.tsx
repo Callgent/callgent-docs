@@ -20,7 +20,7 @@ const CreateCallgent: React.FC<CreateCallgentProps> = ({ name, onDataReceived })
         const formData = new FormData(formRef.current);
         const formValues = Object.fromEntries(formData.entries());
         try {
-            const { data } = await axios.post('/api/bff/callgent-endpoints', formValues);
+            const { data } = await axios.post('/api/bff/callgent-entries', formValues);
             if (onDataReceived) {
                 onDataReceived(data.data);
             }

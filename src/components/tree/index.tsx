@@ -2,7 +2,7 @@ import { ModalType, TreeNodeType } from '@site/src/types/components';
 import CreateCallgent from '../user-as-a-service/create-callgent';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState } from 'react';
-import Endpoints from './endpoints';
+import Entries from './entries';
 import { TreeNode } from './tree';
 import Callgent from './callgent';
 import Modal from './component/modal';
@@ -20,7 +20,7 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
     const handleAdd = (item: TreeNodeType, level: number) => {
         const { id } = item;
         if (level === 2) {
-            setModalData({ ...modalData, title: id, id, type: 'Create', endpoint: true, initialData: item });
+            setModalData({ ...modalData, title: id, id, type: 'Create', entry: true, initialData: item });
         } else if (level === 3) {
             setModalData({ ...modalData, title: id, id, type: 'Import', import: true, initialData: item });
         }
@@ -40,7 +40,7 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
         if (level === 1) {
             setModalData({ ...modalData, title: item.title, id, type: 'Edit', callgent: true, initialData: item });
         } else if (level === 3) {
-            setModalData({ ...modalData, title: item.title, id, type: 'Edit', endpoint: true, initialData: item });
+            setModalData({ ...modalData, title: item.title, id, type: 'Edit', entry: true, initialData: item });
         } else if (level === 4) {
             setModalData({ ...modalData, title: item.title, id, type: 'Edit', import: true, initialData: item });
         }
@@ -117,17 +117,17 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
                     treeData={treeData[0]}
                     onSubmit={handleModalSubmit}
                     setTreeData={setTreeData}
-                    onClose={() => setModalData({ ...modalData, endpoint: false })}
+                    onClose={() => setModalData({ ...modalData, entry: false })}
                 />
             </Modal>
-            <Modal isOpen={modalData?.endpoint} onClose={() => setModalData({ ...modalData, endpoint: false })} title={modalData?.type + " " + modalData?.title + " Endpoint"}>
-                <Endpoints
+            <Modal isOpen={modalData?.entry} onClose={() => setModalData({ ...modalData, entry: false })} title={modalData?.type + " " + modalData?.title + " Entry"}>
+                <Entries
                     adaptorKey={adaptorKey}
                     treeData={treeData[0]}
                     initialData={modalData?.initialData}
                     onSubmit={handleModalSubmit}
                     type={modalData?.type}
-                    onClose={() => setModalData({ ...modalData, endpoint: false })}
+                    onClose={() => setModalData({ ...modalData, entry: false })}
                 />
             </Modal>
             <Modal isOpen={modalData?.callgent} onClose={() => setModalData({ ...modalData, callgent: false })} title={modalData?.type + " Callgent"}>
@@ -135,7 +135,7 @@ const CascadingMenu: React.FC = ({ adaptorKey, name }: { adaptorKey?: string, na
                     initialData={modalData?.initialData}
                     treeData={treeData[0]}
                     setTreeData={setTreeData}
-                    onClose={() => setModalData({ ...modalData, endpoint: false })}
+                    onClose={() => setModalData({ ...modalData, entry: false })}
                 />
             </Modal>
             <Modal isOpen={modalData?.import} onClose={() => setModalData({ ...modalData, import: false })} title={modalData?.type + " Api"}>

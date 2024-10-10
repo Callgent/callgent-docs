@@ -34,18 +34,18 @@ Follow the instructions to fill in the API key, then confirm the creation.
 On successful creation, you will see a webhook URL on the callgent card. You must set this webhook URL on your canny.io > Settings > API > Webhooks.
 
 :::info
-The webhook URL is a event endpoint for canny.io to receive notification events to your callgent.
+The webhook URL is an event entry for canny.io to receive notification events to your callgent.
 :::
 
 ## Using your canny.io callgent
 
-### Client endpoint
+### Client entry
 
 Every user interactions on canny.io will go directly into your callgent task queue.
 
-### Server endpoint
+### Server entry
 
-You can add any server endpoint to your callgent. So that you can respond to these tasks anywhere, e.g.
+You can add any server entry to your callgent. So that you can respond to these tasks anywhere, e.g.
 
 - send to your Slack channels
 - as a github issue

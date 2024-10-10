@@ -14,7 +14,7 @@ const ImportApi = () => {
 
     const submitFunction = async () => {
         const body = {
-            endpoint: "HDr6wTsLJ45CY4yq2bgIt",
+            entryId: "HDr6wTsLJ45CY4yq2bgIt",
             text: textareaRef.current?.value || '',
             format: "openAPI"
         }

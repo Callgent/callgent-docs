@@ -25,7 +25,7 @@ export interface ModalType {
     title?: string;
     id?: string;
     callgent?: boolean;
-    endpoint?: boolean;
+    entry?: boolean;
     auth?: boolean;
     import?: boolean;
     initialData?: TreeNodeType;

@@ -87,7 +87,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onLock
                         {node?.delete &&
                             <div>
                                 <Popconfirm
-                                    title={level === 1 ? 'Delete the callgent' : 'Delete the endpoint'}
+                                    title={level === 1 ? 'Delete the callgent' : 'Delete the entry'}
                                     description="Are you sure you want to delete this content?"
                                     initialData={{ id: node.id, level }}
                                     onCancel={() => { }}

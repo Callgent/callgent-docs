@@ -1,20 +1,20 @@
 ---
 sidebar_position: 2
-title: Webhook - Callgent Event Endpoint
-description: Guide to create an Callgent Event Endpoint as the service webhook
+title: Webhook - Callgent Event Entry
+description: Guide to create an Callgent Event Entry as the service webhook
 keywords: [Callgent function-calling technique, integrate AI with email and Slack, Callgent vs Zapier functionality,  Callgent for no-code automation, progressive function calling in AI, Callgent API integration examples, Callgent user-system orchestration, copilot, code generator, v0.dev, SWE-bench, iPaaS]
 ---
 
 ## Scenarios
 
-The callgent you create is no more than the delegate to a business service. It receives requests from `Client endpoint`s (CEP), then maps the requests to specific `Server Endpoint`s (SEP) to do invocation to the actual business service.
+The callgent you create is no more than the delegate to a business service. It receives requests from `Client entry`s (CEP), then maps the requests to specific `Server Entry`s (SEP) to do invocation to the actual business service.
 
 There is one more scenario, where the actual business services may have several internal Service `Event`s to notify users/clients, usually via `webhook` or emails.
 
-Callgent provides `Event Endpoint`s (EEP) to receive these events.
+Callgent provides `Event Entry`s (EEP) to receive these events.
 
 <figure>
-![Callgent Endpoints](/img/callgent-endpoints.png "Callgent Endpoints")
+![Callgent Entries](/img/callgent-entries.png "Callgent Entries")
 </figure>
 
 :::info difference between CEP and EEP
