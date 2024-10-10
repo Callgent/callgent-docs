@@ -9,8 +9,11 @@ export interface TreeNodeType {
     edit?: boolean;
     delete?: boolean;
     import?: boolean;
+    lock?: boolean;
     adaptorKey?: string;
     children: TreeNodeType[];
+    realms?: Realms;
+    securities?: any;
 }
 
 export interface HostType {
@@ -22,7 +25,8 @@ export interface ModalType {
     title?: string;
     id?: string;
     callgent?: boolean;
-    endpoint?: boolean;
+    entry?: boolean;
+    auth?: boolean;
     import?: boolean;
     initialData?: TreeNodeType;
 }
@@ -31,6 +35,7 @@ export interface TreeNodeProps {
     nodes: TreeNodeType[];
     onAdd: (item: TreeNodeType, level: number) => void;
     onEdit: (item: TreeNodeType, level: number) => void;
+    onLock: (item: TreeNodeType, level: number) => void;
     treeData?: TreeNodeType;
     setTreeData: (data: TreeNodeType[]) => void;
 }
@@ -62,4 +67,33 @@ export interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     children: React.ReactNode;
+}
+
+interface TabItem {
+    label: string;
+    content: React.ReactNode;
+}
+export interface TabsProps {
+    tabs: TabItem[];
+    callgentId?: string;
+}
+
+export interface Scheme {
+    type: string;
+    in: string;
+    name: string;
+    provider: string;
+}
+
+export interface Realm {
+    realmKey: string;
+    authType: string;
+    realm: string;
+    scheme: Scheme;
+    perUser: boolean;
+    enabled: boolean;
+}
+
+export interface Realms {
+    realms: Realm[];
 }

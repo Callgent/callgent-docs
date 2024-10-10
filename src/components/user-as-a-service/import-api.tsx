@@ -14,11 +14,11 @@ const ImportApi = () => {
 
     const submitFunction = async () => {
         const body = {
-            endpoint: "HDr6wTsLJ45CY4yq2bgIt",
+            entryId: "HDr6wTsLJ45CY4yq2bgIt",
             text: textareaRef.current?.value || '',
             format: "openAPI"
         }
-        await axios.post('/api/callgent-functions/import', body).then(req => {
+        await axios.post('/api/endpoints/import', body).then(req => {
             setImportState(true);
         }).catch(error => {
             const { data } = error.response;

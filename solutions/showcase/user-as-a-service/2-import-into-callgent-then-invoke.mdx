@@ -5,7 +5,7 @@ description: .
 keywords: [user as a service]
 ---
 
-import CreateEndpoints from "@site/src/components/user-as-a-service/create-endpoints"
+import CreateEntries from "@site/src/components/user-as-a-service/create-entries"
 import CreateCallgent from "@site/src/components/user-as-a-service/create-callgent"
 import ImportApi from "@site/src/components/user-as-a-service/import-api"
 import Email from "@site/src/components/quick-start/email"
@@ -22,11 +22,11 @@ We can use the following widget to create a new callgent,
 
 A callgent contains:
 
-- a list of `Client Endpoints`  
+- a list of `Client Entries`  
     to accept calling requests to the callgent,
-- a list of `Server Endpoints`  
+- a list of `Server Entries`  
     to forward the calling requests to the actual services,
-- a list of `Event Endpoints`  
+- a list of `Event Entries`  
     callback hooks from actual service.
 
 ## Import the API document
@@ -53,7 +53,7 @@ Now you may call this new service anywhere by every `CEP` as show in the callgen
 try invoke `List all job positions` API as follows,
 
 ```shell
-curl https://api.callgent.com/api/callgents/{callgentId}/{sepId}/invoke/api/positions
+curl https://api.callgent.com/api/rest/invoke/{callgentId}/{clientEntryId}/positions
 ```
 
 ### Sending Email
@@ -61,6 +61,6 @@ curl https://api.callgent.com/api/callgents/{callgentId}/{sepId}/invoke/api/posi
 or by sending an Email to  
 <a href="mailto:callgent+{yourCepId}@my.callgent.com?subject=Please%20Respond%20Calling%20to%20`List%20all%20job%20positions`&body=I%20am%20requesting%20to%20call%20`List%20all%20job%20positions`.%20Please%20respond%20to%20this%20Email%20with%20the%20calling%20request%20details.">callgent+yourCepId#my.callgent.com</a>
 
-### More calling endpoints
+### More calling entries
 
-You may create more `CEP`s to accept calling requests to the callgent, e.g. `SIP`, `WebRTC`, `SMS`, etc.  
+You may create more `CEN`s to accept calling requests to the callgent, e.g. `SIP`, `WebRTC`, `SMS`, etc.  

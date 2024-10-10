@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 keywords: [composite callgent, group callgent, Nested Callgents]
-description: Learn how to create and manage a Composite Callgent. Discover how to handle complex call requests, utilize nested callgents, and perform map/reduce operations. Simplify your call process with a single call endpoint and efficient callgent orchestration..
+description: Learn how to create and manage a Composite Callgent. Discover how to handle complex call requests, utilize nested callgents, and perform map/reduce operations. Simplify your call process with a single call entry and efficient callgent orchestration..
 ---
 
 # Group of Callgents
@@ -10,12 +10,12 @@ Multiple callgents can naturally be combined to form a new composite callgent, w
 
 ## Creating a Composite Callgent
 
-Similar to a regular callgent, which maintains a list of `function entries` to automatically map each request to a function entry, call it, and return the result, a composite callgent maintains a list of callgents. This allows each request to be automatically mapped to a `callgent entry`, called, and the result returned.
+Similar to a regular callgent, which maintains a list of `functional endpoints` to automatically map each request to an endpoint, call it, and return the result, a composite callgent maintains a list of callgents. This allows each request to be automatically mapped to a `callgent entry`, called, and the result returned.
 
 :::tip
-Callgent entries come in two types: `function entries` and `callgent entries`. These two types of entries can be mixed together.
+Callgent entries come in two types: `functional entries` and `callgentive entries`. These two types of entries can be mixed together.
 
-A callgent that contains `callgent entries` is typically referred to as a composite callgent.
+A callgent that contains `callgentive entries` is typically referred to as a composite callgent.
 :::
 
 ## Composite Callgent Invocation Process
@@ -30,7 +30,7 @@ Composite callgents can be nested, forming a call tree. Each node in the call tr
 
 ## Multiple Internal Invocations
 
-A callgent automatically maps a single request to an entry for processing and retrieves the response result. Based on the original request, the callgent decides whether to return the response to the caller or continue calling the next entry. This process repeats until the final result is returned to the caller.
+A callgent automatically maps a single request to an endpoint for processing and retrieves the response result. Based on the original request, the callgent decides whether to return the response to the caller or continue calling the next endpoint. This process repeats until the final result is returned to the caller.
 
 ### Request with Collection Data
 
@@ -38,7 +38,7 @@ If the request contains collection data, the callgent may automatically perform 
 
 ## Advantages of Composite Callgent
 
-Composite Callgent allows multiple callgents to work together while maintaining a single call endpoint, enabling the handling of complex call requests.
+Composite Callgent allows multiple callgents to work together while maintaining a single call entry, enabling the handling of complex call requests.
 
 :::info
 Composite Callgent allows you to interact with a single callgent to invoke multiple callgents, simplifying the call process.

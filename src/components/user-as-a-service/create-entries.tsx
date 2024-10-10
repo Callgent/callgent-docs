@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import useSubmit from '@site/src/hooks/button';
 import axios from 'axios';
 
-const CreateEndpoints = () => {
+const CreateEntries = () => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const userinfo = JSON.parse(localStorage.getItem('userinfo'));
@@ -19,7 +19,7 @@ const CreateEndpoints = () => {
             "host": formValues.email,
             "callgentId": callgent.id
         }
-        await axios.post('/api/endpoints/email/callgents', data).then(req => {
+        await axios.post('/api/entries/email/callgents', data).then(req => {
             localStorage.removeItem('callgent');
         }).catch(error => {
             const { data } = error.response;
@@ -57,4 +57,4 @@ const CreateEndpoints = () => {
         </form>
     );
 };
-export default CreateEndpoints;
+export default CreateEntries;

@@ -1,8 +1,8 @@
 {
-  "label": "Callgent Endpoints",
+  "label": "Callgent Entries",
   "position": 1,
   "link": {
     "type": "doc",
-    "id": "endpoints"
+    "id": "entries"
   }
 }

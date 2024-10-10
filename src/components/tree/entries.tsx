@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react';
 import useSubmit from '@site/src/hooks/button';
 import axios from 'axios';
 
-const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeData, onSubmit, onClose }) => {
+const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeData, onSubmit, onClose }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const formRef = useRef<HTMLFormElement>(null);
@@ -15,12 +15,13 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
         formValues.callgentId = treeData.id;
         formValues.type = initialData.id;
         type === 'Edit' ?
-            await axios.put('/api/endpoints/' + initialData.id, { host: formValues.host }).then(req => {
+            await axios.put('/api/entries/' + initialData.id, { host: formValues.host }).then(req => {
                 setTimeout(() => { onClose(); }, 350);
                 let { data } = req.data;
                 data.id = data.id;
                 data.edit = true;
                 data.delete = true;
+                data.lock = true;
                 data.import = formValues?.type === 'SERVER' ? true : false;
                 onSubmit(data)
             }).catch(error => {
@@ -28,12 +29,13 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
                 throw new Error(JSON.stringify(data.message));
             })
             :
-            await axios.post('/api/endpoints/' + adaptorKey + '/create', formValues).then(req => {
+            await axios.post('/api/entries/' + adaptorKey + '/create', formValues).then(req => {
                 setTimeout(() => { onClose(); }, 350);
                 let { data } = req.data;
                 data.id = data.id;
                 data.edit = true;
                 data.delete = true;
+                data.lock = true;
                 data.children = [];
                 data.import = formValues?.type === 'SERVER' ? true : false;
                 onSubmit(data)
@@ -47,7 +49,7 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
         <form ref={formRef}>
             {!adaptorKey && (
                 <div className="form-group">
-                    <label htmlFor="adaptor">Server Endpoint adaptor</label>
+                    <label htmlFor="adaptor">Server Entry adaptor</label>
                     <select id="adaptor" name='adaptor' >
                         <option value="email">Email</option>
                         <option value="restapi">RestAPI</option>
@@ -79,4 +81,4 @@ const Endpoints: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tr
     );
 };
 
-export default Endpoints;
+export default Entries;

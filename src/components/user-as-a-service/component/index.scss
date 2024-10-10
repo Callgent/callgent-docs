@@ -1,0 +1,35 @@
+.create-auth {
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        overflow: auto;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    label span {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    input[disabled],
+    select[disabled] {
+        background-color: #f5f5f5;
+    }
+}
