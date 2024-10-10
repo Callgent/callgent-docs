@@ -30,7 +30,7 @@ const Import: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeD
             // });
             null
             :
-            await axios.post('/api/bff/callgent-functions/import', formValues).then((req) => {
+            await axios.post('/api/bff/endpoints/import', formValues).then((req) => {
                 const { data } = req.data;
                 setTimeout(onClose, 350);
                 data
