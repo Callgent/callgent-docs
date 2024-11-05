@@ -78,6 +78,6 @@ Callgent redefines collaboration, merging human intuition with digital efficienc
 
 Overall, our goal is to place everything on the same platform, especially emphasizing the seamless integration of the
 
-- "Service as a Callable Agent"
+- "Service as a Callable AI Agent"
 
 concepts.
