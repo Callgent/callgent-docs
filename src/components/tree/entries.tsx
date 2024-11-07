@@ -1,6 +1,6 @@
 import { ModalFormProps } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import useSubmit from '@site/src/hooks/button';
 import axios from 'axios';
 
@@ -9,6 +9,7 @@ const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tree
     if (!isBrowser) { return null; }
     const formRef = useRef<HTMLFormElement>(null);
     const [isSubmitting, handleSubmit, message] = useSubmit();
+    const [adaptor, setAdaptor] = useState(adaptorKey);
     const submitFunction = async () => {
         const formData = new FormData(formRef.current);
         const formValues = Object.fromEntries(formData.entries()) as { type: string, host: any, callgentId: string };
@@ -29,7 +30,7 @@ const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tree
                 throw new Error(JSON.stringify(data.message));
             })
             :
-            await axios.post('/api/entries/' + adaptorKey + '/create', formValues).then(req => {
+            await axios.post('/api/entries/' + adaptor + '/create', formValues).then(req => {
                 setTimeout(() => { onClose(); }, 350);
                 let { data } = req.data;
                 data.id = data.id;
@@ -44,40 +45,53 @@ const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tree
                 throw new Error(JSON.stringify(data.message));
             });
     };
-
+    const [adaptorKeys, setAdaptorKeys] = useState([]);
+    const getAdaptorKeys = async () => {
+        await axios.get('/api/entries/adaptors?client=true').then(req => {
+            let { data } = req;
+            setAdaptorKeys(data)
+        }).catch(error => {
+            const { data } = error.response;
+            throw new Error(JSON.stringify(data.message));
+        });
+    }
+    useEffect(() => {
+        getAdaptorKeys()
+    }, [])
     return (
-        <form ref={formRef}>
-            {!adaptorKey && (
+        <>
+            <div className="form-group" style={{ display: adaptorKey ? 'none' : 'block' }}>
+                <label htmlFor="adaptor">Server Entry adaptor</label>
+                <select id="adaptor" name='adaptor' onChange={(e) => setAdaptor(e.target.value)} >
+                    {adaptorKeys?.map((item: string) => (
+                        <option value={item} key={item}>{item}</option>
+                    ))}
+                </select>
+            </div>
+            <form ref={formRef}>
                 <div className="form-group">
-                    <label htmlFor="adaptor">Server Entry adaptor</label>
-                    <select id="adaptor" name='adaptor' >
-                        <option value="email">Email</option>
-                        <option value="restapi">RestAPI</option>
-                    </select>
+                    <label htmlFor="host">{initialData?.adaptorKey ? `${initialData?.adaptorKey} Host Address` : `${adaptorKey || ''} Host Address`}</label>
+                    <input
+                        type="text"
+                        name='host'
+                        id="host"
+                        defaultValue={typeof initialData?.host === 'string' ? initialData?.host : JSON.stringify(initialData?.host)}
+                    />
                 </div>
-            )}
-            <div className="form-group">
-                <label htmlFor="host">{initialData?.adaptorKey ? `${initialData?.adaptorKey} Host Address` : `${adaptorKey || ''} Host Address`}</label>
-                <input
-                    type="text"
-                    name='host'
-                    id="host"
-                    defaultValue={typeof initialData?.host === 'string' ? initialData?.host : JSON.stringify(initialData?.host)}
-                />
-            </div>
-            <div>
-                {message === true && <span className="margin--md text--success">Successfully {type}!</span>}
-                {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
-            </div>
-            <div className="modal-footer">
-                <button type="button" className="cancel-button" onClick={onClose}>
-                    Cancel
-                </button>
-                <button type="submit" onClick={() => handleSubmit(submitFunction)} disabled={isSubmitting} className="button button--info button--secondary create-button">
-                    {type}
-                </button>
-            </div>
-        </form>
+                <div>
+                    {message === true && <span className="margin--md text--success">Successfully {type}!</span>}
+                    {message !== true && message !== null && <span className="margin--md text--danger">{message}</span>}
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="cancel-button" onClick={onClose}>
+                        Cancel
+                    </button>
+                    <button type="submit" onClick={() => handleSubmit(submitFunction)} disabled={isSubmitting} className="button button--info button--secondary create-button">
+                        {type}
+                    </button>
+                </div>
+            </form>
+        </>
     );
 };
 
