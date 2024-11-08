@@ -48,8 +48,8 @@ const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tree
     const [adaptorKeys, setAdaptorKeys] = useState([]);
     const getAdaptorKeys = async () => {
         await axios.get('/api/entries/adaptors?client=true').then(req => {
-            let { data } = req;
-            setAdaptorKeys(data)
+            let { data } = req.data;
+            setAdaptorKeys(Object.entries(data))
         }).catch(error => {
             const { data } = error.response;
             throw new Error(JSON.stringify(data.message));
