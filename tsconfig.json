@@ -1,8 +1,18 @@
 {
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": "."
   },
-  "types": ["docusaurus-plugin-sass"]
+  "types": [
+    "docusaurus-plugin-sass"
+  ],
+  "include": [
+    "src/**/*",
+    "src/types/*.d.ts"
+  ]
 }

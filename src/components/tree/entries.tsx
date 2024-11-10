@@ -1,12 +1,17 @@
 import { ModalFormProps } from '@site/src/types/components';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState, useRef, useEffect } from 'react';
+import { adaptorsState } from '@site/src/recoil/treeState';
 import useSubmit from '@site/src/hooks/button';
+import { useRecoilState } from 'recoil';
 import axios from 'axios';
+import { fetchAdaptors } from '@site/src/api/tree';
+import CustomSelect from './component/select';
 
 const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, treeData, onSubmit, onClose }) => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
+    const [adaptorKeys, setTreeData] = useRecoilState(adaptorsState);
     const formRef = useRef<HTMLFormElement>(null);
     const [isSubmitting, handleSubmit, message] = useSubmit();
     const [adaptor, setAdaptor] = useState(adaptorKey);
@@ -45,28 +50,22 @@ const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tree
                 throw new Error(JSON.stringify(data.message));
             });
     };
-    const [adaptorKeys, setAdaptorKeys] = useState([]);
     const getAdaptorKeys = async () => {
-        await axios.get('/api/entries/adaptors?client=true').then(req => {
-            let { data } = req.data;
-            setAdaptorKeys(Object.entries(data))
-        }).catch(error => {
-            const { data } = error.response;
-            throw new Error(JSON.stringify(data.message));
-        });
+        const { data } = await fetchAdaptors();
+        setTreeData(data);
     }
     useEffect(() => {
         getAdaptorKeys()
-    }, [])
+    }, []);
     return (
         <>
             <div className="form-group" style={{ display: adaptorKey ? 'none' : 'block' }}>
-                <label htmlFor="adaptor">Server Entry adaptor</label>
-                <select id="adaptor" name='adaptor' onChange={(e) => setAdaptor(e.target.value)} >
-                    {adaptorKeys?.map((item: string) => (
-                        <option value={item} key={item}>{item}</option>
-                    ))}
-                </select>
+                <CustomSelect
+                    label={`${initialData.id} Entry adaptor`}
+                    options={adaptorKeys}
+                    selectedKey={adaptor}
+                    onSelect={setAdaptor}
+                />
             </div>
             <form ref={formRef}>
                 <div className="form-group">

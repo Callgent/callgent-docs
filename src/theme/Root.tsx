@@ -4,6 +4,7 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import ShowLogin from '../components/module/login';
 import { deleteCookie, setLocalStorageItem } from '../util/cookie';
 import { GlobalProvider } from '../context/GlobalContext';
+import { RecoilRoot } from 'recoil';
 import axios from 'axios';
 
 export default function Root({ children }) {
@@ -35,8 +36,10 @@ export default function Root({ children }) {
 
     return (
         <GlobalProvider>
-            <ShowLogin />
-            {children}
+            <RecoilRoot>
+                <ShowLogin />
+                {children}
+            </RecoilRoot>
         </GlobalProvider>
     );
 }

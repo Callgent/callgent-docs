@@ -36,6 +36,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onLock
     };
 
     const getIconSrc = (level: number, node: TreeNodeType) => {
+        if (node.icon_url) { return node.icon_url }
         switch (level) {
             case 1:
                 return '/icons/Recruitment.svg';
