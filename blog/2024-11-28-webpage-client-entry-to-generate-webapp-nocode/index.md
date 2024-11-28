@@ -31,3 +31,11 @@ In this example, you yourself act as the server for the app, responding to each 
 In reality, you can directly integrate existing SaaS services into your app (e.g., integrate [Auth0](https://auth0.com/docs/api) for user registration and login, or integrate [Zoom](https://developers.zoom.us/docs/api/) for online meetings). For more service options, please refer to the [Callgent hub](#).
 
 Remember, Callgent helps you easily integrate various SaaS services and quickly generate interfaces (webpages, chatboxes, emails, Slack channels, etc.), allowing users to freely use the apps you create.
+
+## Showcase
+
+Here's a quick result of our recruitment app, using GPT-4o:
+
+![Generated recruitment app](recruitment-app.png)
+
+Generated code is available [here](https://codesandbox.io/p/sandbox/vue3-forked-d897c8).
