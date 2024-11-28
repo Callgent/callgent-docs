@@ -1,6 +1,6 @@
 ---
 slug: webpage-client-entry-to-generate-webapp-nocode
-title: 📦 [Release Notes] Callgent Webpage client entry to Generate your own APPs without coding
+title: 📦 [Release Notes] Generate your own APPs without coding
 authors: jamesp
 tags: [Release Notes]
 keywords: [Callgent, no-code app builder, SaaS integration, AI agents, generate apps]
