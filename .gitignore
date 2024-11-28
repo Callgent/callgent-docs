@@ -7,6 +7,8 @@
 # husky
 .husky/_
 
+*/**/draft-*
+
 # Generated files
 .docusaurus
 .cache-loader
