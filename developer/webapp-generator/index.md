@@ -7,6 +7,8 @@ tags: [Developers, AI Agent, Prompt Engineering]
 
 # Webpage Generator
 
+> If you want to try a hands-on example, please see [here](/blog/webpage-client-entry-to-generate-webapp-nocode)
+
 This article delves into the technical aspects of building an AI agent, specifically focusing on the prompt engineering principles and methods behind a Callgent entry that automatically generates a fully functional webapp. The key differentiator of this webapp generator, compared to other excellent products like [v0.dev](https://v0.dev), [bolt.new](https://bolt.new), is its **built-in API auto-integration**, enabling one-click generation of a ready-to-use webapp.
 
 ## Introduction to Callgent
