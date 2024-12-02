@@ -124,3 +124,24 @@
   padding-right: 90px;
   position: relative;
 }
+
+/* tailwind */
+.tailwind {
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  @tailwind screens;
+}
+
+@keyframes grow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(5);
+  }
+}
+
+.animate-grow {
+  animation: grow 1.5s infinite ease-in-out;
+}

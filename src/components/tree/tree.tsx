@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Add, Delete, Edit, Import, Lock } from './icon';
 import Popconfirm from './confirm-delete';
 import './index.scss';
+import Link from '@docusaurus/Link';
 
 export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onLock, treeData, setTreeData }) => {
     const isBrowser = useIsBrowser();
@@ -58,9 +59,16 @@ export const TreeNode: React.FC<TreeNodeProps> = ({ nodes, onAdd, onEdit, onLock
                         <button className="toggle" title={node?.hint} >
                             <span className="icon-text">
                                 <img src={getIconSrc(level, node)} />
-                                <div className='left-text'>
-                                    {node?.name}
-                                </div>
+                                {
+                                    node?.adaptorKey !== 'Webpage' ?
+                                        (<div className='left-text'>
+                                            {node?.name}
+                                        </div>) : (
+                                            <Link to={`/chatbox?callgentId=${treeData?.id}&entryId=${node?.id}`} className='left-text'>
+                                                {node?.name}
+                                            </Link>
+                                        )
+                                }
                             </span>
                         </button>
                     </div>

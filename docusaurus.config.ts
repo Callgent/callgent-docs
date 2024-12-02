@@ -64,6 +64,16 @@ const config: Config = {
         // ... other options
       },
     ],
+    async function myPlugin(context, options) {
+      return {
+        name: 'docusaurus-tailwindcss',
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins.push(require('tailwindcss'));
+          postcssOptions.plugins.push(require('autoprefixer'));
+          return postcssOptions;
+        },
+      };
+    },
   ],
 
   presets: [
@@ -88,7 +98,9 @@ const config: Config = {
         },
         googleTagManager: { containerId: process.env.GTMID },
       } satisfies Preset.Options,
+
     ],
+
   ],
 
   themeConfig: {
