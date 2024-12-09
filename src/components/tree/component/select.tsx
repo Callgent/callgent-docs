@@ -32,7 +32,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({ label, options, onSelect, s
     const selectedValue = options[currentSelectedKey] || '';
     useEffect(() => {
         if (Object.keys(options).length > 0) {
-            setCurrentSelectedKey(Object.keys(options)[0]);
+            onSelect(Object.keys(options)[0]);
         }
     }, []);
     return (
