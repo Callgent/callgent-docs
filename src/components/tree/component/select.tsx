@@ -30,7 +30,11 @@ const CustomSelect: React.FC<CustomSelectProps> = ({ label, options, onSelect, s
     };
 
     const selectedValue = options[currentSelectedKey] || '';
-
+    useEffect(() => {
+        if (Object.keys(options).length > 0) {
+            setCurrentSelectedKey(Object.keys(options)[0]);
+        }
+    }, []);
     return (
         <div className="form-group">
             <label htmlFor="adaptor">{label}</label>
