@@ -48,6 +48,18 @@ const ApiKeyForm = ({ formValues, handleInputChange, isEditable }) => (
                 disabled={!isEditable}
             />
         </label>
+
+        <label>
+            <span>Secret:</span>
+            <input
+                type="text"
+                name="secret"
+                placeholder="Enter secret, e.g. 'api.callgent.com'"
+                value={formValues.scheme.secret}
+                onChange={handleInputChange}
+                disabled={!isEditable}
+            />
+        </label>
     </>
 );
 
