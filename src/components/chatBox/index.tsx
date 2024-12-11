@@ -1,29 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { chatBoxState } from '@site/src/recoil/chatBox';
+import { chatBoxState, webcontainerState, webcontainerUrl } from '@site/src/recoil/chatBox';
 import { getChat } from '@site/src/api/chatBox';
-import { useLocation } from '@docusaurus/router';
 import InputField from './Input';
 import ChatBox from './chat-box';
-
+import { WebContainer } from '@webcontainer/api';
+import { asyncForEach, initPackages, runShellCommand, vueFiles, writeFile } from '@site/src/util/webcontainer';
 export default function Chat(): JSX.Element {
     const [chatBox, setChatBox] = useRecoilState(chatBoxState);
     const [input, setInput] = useState<string>('');
     const [started, setStarted] = useState<boolean>(false);
     const queryParams = new URLSearchParams(location.search);
     const chatEndRef = useRef<HTMLDivElement | null>(null);
-
+    const [loading, setLoading] = useState(false)
     const handleSendMessage = async () => {
-        if (!input.trim()) return;
+        if (!input.trim() || loading) return;
         if (!started) setStarted(true);
-
+        setLoading(true);
         setChatBox((prevChatBox) => [...prevChatBox, { role: 'user', type: 'message', message: input }]);
         setInput('');
-        
         try {
             const callgentId = queryParams.get('callgentId');
             const entryId = queryParams.get('entryId');
-            const response = await getChat(callgentId,entryId,input);
+            const response = await getChat(callgentId, entryId, input);
             const { data, message } = response.data;
             if (message) {
                 setChatBox((prevChatBox) => [...prevChatBox, { role: 'bot', type: 'message', message: message }]);
@@ -34,6 +33,7 @@ export default function Chat(): JSX.Element {
         } catch (error) {
             console.error('Error fetching data:', error.message);
         }
+        setLoading(false)
     };
 
     useEffect(() => {
@@ -42,6 +42,30 @@ export default function Chat(): JSX.Element {
         }
     }, [chatBox]);
 
+    const [webcontainer, setWebcontainer] = useRecoilState(webcontainerState);
+    const [webcontainerurl, setwebcontainerUrl] = useRecoilState(webcontainerUrl);
+    const init = async () => {
+        const webcontainer = await WebContainer.boot();
+        setWebcontainer(webcontainer)
+        const initFiles = vueFiles([], {})
+        await asyncForEach(initFiles, async (item) => {
+            await new Promise<void>(async (resolve, reject) => {
+                await writeFile(webcontainer, item.path, item.code, '/vite');
+                resolve();
+            });
+        });
+        await runShellCommand(webcontainer, 'pnpm i', { cwd: '/vite' })
+        await runShellCommand(webcontainer, 'pnpm i ' + initPackages.join(' '), { cwd: '/vite' })
+        await webcontainer.spawn('pnpm', ['run', 'dev'], { cwd: '/vite' });
+        webcontainer.on('server-ready', (port, url) => {
+            setwebcontainerUrl(url)
+            console.log('ok');
+        });
+    }
+
+    useEffect(() => {
+        if (!webcontainer) { init() }
+    }, [])
     return (
         <div className="h-screen items-center justify-center transition-colors overflow-y-scroll scrollbar-custom">
             <div className="fixed w-[calc(100vw-15px)] flex justify-end p-2 bg-white dark:bg-[#1B1B1D]">

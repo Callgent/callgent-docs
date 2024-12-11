@@ -25,7 +25,6 @@ const InputField: React.FC<InputFieldProps> = ({ input, setInput, handleSendMess
             e.preventDefault();
             handleSendMessage();
         } else if (e.key === 'Enter' && e.shiftKey) {
-            // 默认行为：换行
             return;
         }
     };

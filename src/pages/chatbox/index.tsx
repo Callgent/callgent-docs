@@ -1,5 +1,6 @@
 import React from 'react';
 import ChatBox from '@site/src/components/chatBox';
+
 export default function Chat(): JSX.Element {
     return (
         <div className='tailwind'>
