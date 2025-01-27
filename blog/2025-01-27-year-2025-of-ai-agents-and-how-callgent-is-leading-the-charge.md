@@ -1,6 +1,6 @@
 ---
 slug: year-2025-of-ai-agents-and-how-callgent-is-leading-the-charge
-title: 🤖 2025: The Year of AI Agents and How Callgent is Leading the Charge
+title: "🤖 2025: The Year of AI Agents and How Callgent is Leading the Charge"
 authors: jamesp
 tags: [Industry Trends, Business Innovation, AI Integration, Business Solutions]
 keywords: [AI Agent 2025, AI Agent for SaaS Automation, Automate SaaS with AI Agent, OpenAPI Task Orchestration, AI Agent for Business Workflows, Nested AI Task Management]
