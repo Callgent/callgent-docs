@@ -2,6 +2,7 @@
 sidebar_position: 1
 keywords: [callgent architecture explained, how callgent works, callgent system components, how to connect services using callgent, semantic invocation in callgent, diagram of callgent product architecture, how callgent integrates into APIs, understanding callgent’s system flow,Integration Platform as a Service, iPaaS]
 description: Explore the innovative architecture of Callgent, where services and users are encapsulated behind callgents to seamlessly connect through web, chat, email, and APIs. Learn how semantic invocations enhance interactions.
+tags: [Developers, Architecture, Terminology]
 ---
 
 # Concepts and Architecture

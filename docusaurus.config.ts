@@ -7,23 +7,23 @@ const config: Config = {
   title: "Service as a Callgent",
   titleDelimiter: "-",
   tagline:
-    "Service as a Callable Agent <br/> Break the silos among Users & Systems",
+    "Service as a Callable AI Agent <br/> Break the silos among Users & Systems",
   favicon: "img/favicon.ico",
 
   customFields: {
     homeTitle: "Callgent Documentations",
     homeDescription:
-      "The documentations for Callgent - Service as a Callable Agent",
+      "The documentations for Callgent - Service as a Callable AI Agent",
     signupUrl: process.env.SITE_SIGNUP_URL,
     apiSiteUrl: process.env.API_SITE_URL,
     cookieDomain: process.env.SITE_URL_DOMAIN,
   },
 
   // Set the production url of your site here
-  url: process.env.SITE_URL_DOCUMENTATION_URL,
+  url: process.env.SITE_URL_DOCUMENTATION_URL!,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: process.env.SITE_BASE_PATH,
+  baseUrl: process.env.SITE_BASE_PATH!,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -64,6 +64,17 @@ const config: Config = {
         // ... other options
       },
     ],
+    async function myPlugin(context, options) {
+      return {
+        name: 'docusaurus-tailwindcss',
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins.push(require('tailwindcss'));
+          postcssOptions.plugins.push(require('autoprefixer'));
+          return postcssOptions;
+        },
+      };
+    },
+    require.resolve('./src/util/index.js')
   ],
 
   presets: [
@@ -88,7 +99,9 @@ const config: Config = {
         },
         googleTagManager: { containerId: process.env.GTMID },
       } satisfies Preset.Options,
+
     ],
+
   ],
 
   themeConfig: {

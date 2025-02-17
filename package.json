@@ -19,33 +19,40 @@
     "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
-    "@docusaurus/core": "3.3.2",
-    "@docusaurus/preset-classic": "3.3.2",
+    "@codesandbox/sandpack-react": "^2.19.10",
+    "@docusaurus/core": "3.4.0",
+    "@docusaurus/preset-classic": "3.4.0",
     "@docusaurus/theme-common": "^3.3.2",
     "@mdx-js/react": "^3.0.0",
+    "@webcontainer/api": "1.5.1-internal.3",
     "axios": "^1.6.7",
     "clsx": "^2.0.0",
     "docusaurus-plugin-sass": "^0.2.5",
     "dotenv": "^16.4.5",
+    "marked": "^15.0.3",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-social-login-buttons": "^3.9.1",
+    "recoil": "^0.7.7",
     "sass": "^1.77.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.0",
     "@commitlint/config-angular": "^19.1.0",
-    "@docusaurus/module-type-aliases": "3.3.2",
+    "@docusaurus/module-type-aliases": "3.5.2",
     "@docusaurus/tsconfig": "3.1.1",
     "@docusaurus/types": "3.1.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
     "commitizen": "^4.3.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.0.11",
+    "postcss": "^8.4.49",
     "standard-version": "^9.5.0",
+    "tailwindcss": "^3.4.15",
     "typescript": "~5.2.2"
   },
   "browserslist": {
@@ -61,7 +68,7 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": "18.x"
   },
   "config": {
     "commitizen": {

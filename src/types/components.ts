@@ -11,6 +11,7 @@ export interface TreeNodeType {
     import?: boolean;
     lock?: boolean;
     adaptorKey?: string;
+    icon_url?: string;
     children: TreeNodeType[];
     realms?: Realms;
     securities?: any;

@@ -27,13 +27,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
     }
 
     return (
-        <div className={`modal-overlay ${isClosing ? 'fade-out' : ''}`}>
-            <div className={`modal ${isClosing ? 'fade-out' : ''}`}>
+        <div className={`modal-overlay ${isClosing ? 'fade-out' : ''}`} >
+            <div className={`modal ${isClosing ? 'fade-out' : ''}`} style={{ overflow: 'auto' }}>
                 <div className="modal-header">
                     <h2>{title}</h2>
                     <button className="close-button" onClick={handleClose}>×</button>
                 </div>
-                <div className="modal-body">
+                <div className="modal-body" >
                     {React.cloneElement(children as React.ReactElement, { onClose: handleClose })}
                 </div>
             </div>

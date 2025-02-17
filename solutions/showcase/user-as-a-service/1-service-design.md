@@ -21,7 +21,7 @@ Firstly, you may send the below prompt to some AI tools like [Mistral](https://c
 
 ```markdown
 Generate an OpenAPI documentation in json format for `Recruiting Service`,
-including the following functions:
+including the following endpoints:
  - `List/View job positions`
  - `Apply for a position`
 ```
