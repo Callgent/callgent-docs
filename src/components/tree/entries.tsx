@@ -61,7 +61,7 @@ const Entries: React.FC<ModalFormProps> = ({ initialData, type, adaptorKey, tree
         <>
             <div className="form-group" style={{ display: adaptorKey ? 'none' : 'block' }}>
                 <CustomSelect
-                    label={`${initialData.id} Entry adaptor`}
+                    label={`${initialData.id} Adaptor Type`}
                     options={adaptorKeys}
                     selectedKey={adaptor}
                     onSelect={setAdaptor}
