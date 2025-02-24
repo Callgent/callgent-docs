@@ -6,7 +6,10 @@ import InputField from './Input';
 import ChatBox from './chat-box';
 import { WebContainer } from '@webcontainer/api';
 import { asyncForEach, initPackages, runShellCommand, vueFiles, writeFile } from '@site/src/util/webcontainer';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 export default function Chat(): JSX.Element {
+    const isBrowser = useIsBrowser();
+    if (!isBrowser) { return null; }
     const [chatBox, setChatBox] = useRecoilState(chatBoxState);
     const [input, setInput] = useState<string>('');
     const [started, setStarted] = useState<boolean>(false);

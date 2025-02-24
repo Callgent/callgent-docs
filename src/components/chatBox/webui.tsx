@@ -1,9 +1,12 @@
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import { webcontainerState, webcontainerUrl, webUiState } from '@site/src/recoil/chatBox';
 import { startDev } from '@site/src/util/webcontainer';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from "recoil";
 
 const WebUi = () => {
+    const isBrowser = useIsBrowser();
+    if (!isBrowser) { return null; }
     const [webUi] = useRecoilState(webUiState);
     const [webcontainer] = useRecoilState(webcontainerState);
 

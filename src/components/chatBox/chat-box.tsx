@@ -3,6 +3,7 @@ import { marked } from 'marked';
 import { useRecoilState } from 'recoil';
 import { webUiState } from '@site/src/recoil/chatBox';
 import Link from '@docusaurus/Link';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 interface Message {
     role: 'user' | 'bot';
     type?: string;
@@ -14,6 +15,8 @@ interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = ({ chatBox }) => {
+    const isBrowser = useIsBrowser();
+    if (!isBrowser) { return null; }
     const [webUi, setWebUi] = useRecoilState(webUiState);
 
     const pushWebUi = (item) => {
