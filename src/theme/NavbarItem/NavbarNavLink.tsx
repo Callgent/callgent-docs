@@ -6,6 +6,7 @@ import { isRegexpStringMatch } from "@docusaurus/theme-common";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import type { Props } from "@theme/NavbarItem/NavbarNavLink";
 import { CallgentResponse } from "@site/src/types/user";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 
 export default function NavbarNavLink({
   activeBasePath,
@@ -18,6 +19,8 @@ export default function NavbarNavLink({
   prependBaseUrlToHref,
   ...props
 }: Props): JSX.Element {
+  const isBrowser = useIsBrowser();
+  if (!isBrowser) { return null; }
   const toUrl = useBaseUrl(to);
   const activeBaseUrl = useBaseUrl(activeBasePath);
   const normalizedHref = useBaseUrl(href, { forcePrependBaseUrl: true });

@@ -1,6 +1,5 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import React, { useContext, useEffect } from 'react';
-import useIsBrowser from '@docusaurus/useIsBrowser';
+import React, { useEffect } from 'react';
 import ShowLogin from '../components/module/login';
 import { deleteCookie, setLocalStorageItem } from '../util/cookie';
 import { GlobalProvider } from '../context/GlobalContext';
@@ -8,9 +7,6 @@ import { RecoilRoot } from 'recoil';
 import axios from 'axios';
 
 export default function Root({ children }) {
-    const isBrowser = useIsBrowser();
-    if (!isBrowser) { return null; }
-
     // axios
     const { siteConfig } = useDocusaurusContext();
     const baseUrl = siteConfig.customFields.apiSiteUrl;
@@ -27,6 +23,8 @@ export default function Root({ children }) {
                 localStorage.removeItem('userinfo');
                 deleteCookie('x-callgent-jwt')
             }
+        }).catch((error) => {
+            console.error(error);
         })
     }
 

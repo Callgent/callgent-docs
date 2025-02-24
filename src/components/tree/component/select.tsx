@@ -1,3 +1,4 @@
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useState, useEffect } from 'react';
 
 type OptionType = {
@@ -12,6 +13,8 @@ interface CustomSelectProps {
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({ label, options, onSelect, selectedKey }) => {
+    const isBrowser = useIsBrowser();
+    if (!isBrowser) { return null; }
     const [isOpen, setIsOpen] = useState(false);
     const [currentSelectedKey, setCurrentSelectedKey] = useState<string>('');
 

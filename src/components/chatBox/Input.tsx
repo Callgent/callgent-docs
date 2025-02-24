@@ -1,3 +1,4 @@
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useEffect, useRef } from 'react';
 
 interface InputFieldProps {
@@ -7,7 +8,8 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({ input, setInput, handleSendMessage }) => {
-
+    const isBrowser = useIsBrowser();
+    if (!isBrowser) { return null; }
     const textareaRef = useRef(null);
 
     useEffect(() => {
