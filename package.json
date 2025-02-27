@@ -24,7 +24,7 @@
     "@docusaurus/preset-classic": "3.3.2",
     "@docusaurus/theme-common": "3.3.2",
     "@mdx-js/react": "^3.0.0",
-    "@webcontainer/api": "1.5.1-internal.3",
+    "@webcontainer/api": "1.5.1",
     "axios": "^1.6.7",
     "clsx": "^2.0.0",
     "docusaurus-plugin-sass": "^0.2.5",
