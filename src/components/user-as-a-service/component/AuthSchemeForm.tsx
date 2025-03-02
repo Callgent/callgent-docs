@@ -42,7 +42,7 @@ const ApiKeyForm = ({ formValues, handleInputChange, isEditable }) => (
             <input
                 type="text"
                 name="provider"
-                placeholder="Enter provider, e.g. 'api.callgent.com'"
+                placeholder="Enter provider hostname, e.g. 'api.callgent.com'"
                 value={formValues.scheme.provider}
                 onChange={handleInputChange}
                 disabled={!isEditable}
@@ -54,7 +54,7 @@ const ApiKeyForm = ({ formValues, handleInputChange, isEditable }) => (
             <input
                 type="text"
                 name="secret"
-                placeholder="Enter secret, e.g. 'api.callgent.com'"
+                placeholder="Enter secret, leave empty for user to fill in"
                 value={formValues.scheme.secret}
                 onChange={handleInputChange}
                 disabled={!isEditable}
