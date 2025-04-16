@@ -29,6 +29,9 @@ importers:
       axios:
         specifier: ^1.6.7
         version: 1.7.9
+      callgent-docs:
+        specifier: 'file:'
+        version: file:(@algolia/client-search@5.20.2)(@docusaurus/types@3.1.1(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.18)(acorn@8.14.0)(search-insights@2.17.3)(typescript@5.2.2)(webpack@5.98.0)
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
@@ -1916,6 +1919,10 @@ packages:
   call-bound@1.0.3:
     resolution: {integrity: sha512-YTd+6wGlNlPxSuri7Y6X8tY2dmm12UMH66RpKMhiX6rsk5wXXnYgbUcOt8kiS31/AjfoTOvCsE+w8nZQLQnzHA==}
     engines: {node: '>= 0.4'}
+
+  'callgent-docs@file:':
+    resolution: {directory: '', type: directory}
+    engines: {node: 18.x}
 
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -8987,6 +8994,52 @@ snapshots:
     dependencies:
       call-bind-apply-helpers: 1.0.2
       get-intrinsic: 1.2.7
+
+  callgent-docs@file:(@algolia/client-search@5.20.2)(@docusaurus/types@3.1.1(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.18)(acorn@8.14.0)(search-insights@2.17.3)(typescript@5.2.2)(webpack@5.98.0):
+    dependencies:
+      '@codesandbox/sandpack-react': 2.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@docusaurus/core': 3.3.2(@docusaurus/types@3.1.1(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.2.2)
+      '@docusaurus/preset-classic': 3.3.2(@algolia/client-search@5.20.2)(@types/react@18.3.18)(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@5.2.2)
+      '@docusaurus/theme-common': 3.3.2(@docusaurus/types@3.1.1(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.2.2)
+      '@mdx-js/react': 3.1.0(@types/react@18.3.18)(react@18.3.1)
+      '@webcontainer/api': 1.5.1-internal.3
+      axios: 1.7.9
+      clsx: 2.1.1
+      docusaurus-plugin-sass: 0.2.6(@docusaurus/core@3.3.2(@docusaurus/types@3.1.1(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.2.2))(sass@1.85.0)(webpack@5.98.0)
+      dotenv: 16.4.7
+      marked: 15.0.7
+      prism-react-renderer: 2.4.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-social-login-buttons: 3.9.1(react@18.3.1)
+      recoil: 0.7.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      sass: 1.85.0
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@docusaurus/types'
+      - '@parcel/css'
+      - '@rspack/core'
+      - '@swc/core'
+      - '@swc/css'
+      - '@types/react'
+      - acorn
+      - bufferutil
+      - csso
+      - debug
+      - esbuild
+      - eslint
+      - lightningcss
+      - node-sass
+      - react-native
+      - sass-embedded
+      - search-insights
+      - supports-color
+      - typescript
+      - uglify-js
+      - utf-8-validate
+      - vue-template-compiler
+      - webpack
+      - webpack-cli
 
   callsites@3.1.0: {}
 
