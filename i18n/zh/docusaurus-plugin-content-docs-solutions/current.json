@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Showcases": {
+    "message": "Showcases",
+    "description": "The label for category Showcases in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Showcases.link.generated-index.description": {
+    "message": "Provide users with some solutions for getting to know how to define and utilize Callgents.",
+    "description": "The generated-index page description for category Showcases in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User as a Service": {
+    "message": "User as a Service",
+    "description": "The label for category User as a Service in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User as a Service.link.generated-index.description": {
+    "message": "Now, as an example, let's create a recruiting callgent to receive and process job applications.  Behind the callgent, a real person may handle all requests, via email or IM channels. So the person can be integrated as normal callgent service into any systems.",
+    "description": "The generated-index page description for category User as a Service in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Glue Code": {
+    "message": "Glue Code",
+    "description": "The label for category Glue Code in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Glue Code.link.generated-index.description": {
+    "message": "Now, let's encapsulate a user as a REST-API service. By default, the user may respond to invocations by email. And user can respond from Slack channels and other scenarios easily.",
+    "description": "The generated-index page description for category Glue Code in sidebar tutorialSidebar"
+  }
+}

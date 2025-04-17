@@ -1,0 +1,38 @@
+{
+  "title": {
+    "message": "Callgent",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Callgent Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Tutorials": {
+    "message": "Tutorials",
+    "description": "Navbar item with label Tutorials"
+  },
+  "item.label.Solutions": {
+    "message": "Solutions",
+    "description": "Navbar item with label Solutions"
+  },
+  "item.label.Developers": {
+    "message": "Developers",
+    "description": "Navbar item with label Developers"
+  },
+  "item.label.API Reference": {
+    "message": "API Reference",
+    "description": "Navbar item with label API Reference"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Login": {
+    "message": "Login",
+    "description": "Navbar item with label Login"
+  }
+}

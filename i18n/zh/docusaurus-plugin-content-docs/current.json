@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Quick Start": {
+    "message": "Quick Start",
+    "description": "The label for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Quick Start.link.generated-index.description": {
+    "message": "To start using Callgent, you may follow the quick start guide below.",
+    "description": "The generated-index page description for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Advanced Topics": {
+    "message": "Advanced Topics",
+    "description": "The label for category Advanced Topics in sidebar tutorialSidebar"
+  }
+}
