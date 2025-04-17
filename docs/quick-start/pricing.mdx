@@ -3,26 +3,34 @@ sidebar_position: 5
 tags: [演示, 入门, 变现]
 ---
 
-# 轻松让您的机器人实现变现
+# 轻松通过 Callgent 变现
 
-想让您的智能机器人为您创造收益？Callgent 提供简单、灵活的变现方案！只需几分钟配置，您的 API 服务即可开始盈利！
+Callgent 提供简单、灵活的变现方案！我的 Callgent 只通过几分钟配置，便可开始盈利！
 
 ## 🚀 3 个步骤快速开启变现
 
+:::tip
+本文章假定你已掌握如何[创建一个Callgent](/docs/quick-start/create-a-new-callgent)
+:::
+
+import SelectCallgent from "@site/src/components/module/select-callgent"
+
 ### 1. 选择 Callgent
-（从 Callgent 列表中选择一个服务作为起点。）
+
+<pre>
+<SelectCallgent />
+</pre>
 
 ### 2. 设置认证
-配置认证以确保服务安全，并指定扣款方式：开启锁表示由创建者扣费，设置价格表示由调用者付费，未来还将支持指定扣款用户。
+配置认证以确保服务安全，并指定扣款方式，不同类型的锁表示不同作用。
+
+Client Entries：用于身份认证，如果锁是打开状态，表示创建者扣费，关闭则是调用者扣费。
+
+Service Adaptors：用于表示本次请求如何进行扣费。
 
 ![认证设置](/img/tutorials/auth.jpg)
 
-### 3. 启用变现
-在图一**test**下找到您的 API，点击锁状图标，选择认证方式，确认锁已关闭即表示设置成功。
-
-## 💸 灵活的计费模式
-
-根据您的服务类型选择最适合的计费方式，操作简单且透明。
+## 💸 我们有灵活的计费模式
 
 ![计费选项](/img/tutorials/pricing.jpg)
 
@@ -39,14 +47,18 @@ tags: [演示, 入门, 变现]
 - **适用场景**：输出长度可变的服务
 - **示例代码**：
 ```javascript
+// 每个 Token 收费 $0.0002
 function calcPrice(req) {
-  // 每个 Token 收费 $0.0002
   return req.tokenUsage * 0.0002;
 }
 ```
 
-## 🔗 测试您的服务
-设置完成后，您即可调用已变现的服务。了解详情：[调用 Callgent](/docs/quick-start/call-the-callgent)
+### 3. 启用变现
+在图一**test**下找到我们刚才新建导入的 API，点击锁状图标，选择认证方式，确认锁已关闭即表示设置成功，<a href="/solutions/showcase/user-as-a-service/service-design" target="_blank">如何导入 Api？</a>。
+
+
+## 🔗 测试我的 Callgent 收费
+设置完成后，即可调用已变现的服务。了解详情：[调用 Callgent](/docs/quick-start/call-the-callgent)
 
 ## 🌟 Callgent 的变现优势
 - **零门槛**：无需编写代码即可拥有变现机器人
@@ -55,4 +67,4 @@ function calcPrice(req) {
 - **灵活选择**：根据服务类型自由选择计费模式
 
 ## 🎉 立即开启变现之旅！
-借助 Callgent 的强大变现工具，将您的机器人转变为创收利器。现在就行动吧！🚀
+借助 Callgent 的强大变现工具，将 AI Agent 转变为创收利器。现在行动吧！🚀
