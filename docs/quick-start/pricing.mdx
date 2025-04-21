@@ -1,0 +1,84 @@
+---
+sidebar_position: 5  
+tags: [Demo, Getting Started, Monetization]
+---
+
+# Easily Monetize with Callgent
+
+Callgent offers simple and flexible monetization options! With just a few minutes of configuration, your Callgent can start generating revenue!
+
+## 🚀 Start Monetizing in 3 Easy Steps
+
+:::tip
+This article assumes you already know [how to create a Callgent](/docs/quick-start/create-a-new-callgent)
+:::
+
+import SelectCallgent from "@site/src/components/module/select-callgent"
+import Publish from "@site/src/components/quick-start/publish"
+
+### 1. Select Your Callgent
+
+<pre>
+<SelectCallgent />
+</pre>
+
+### 2. Configure Authentication  
+Set up authentication to ensure service security and specify who pays for the request. Different types of locks indicate different roles.
+
+**Client Entries**: Used for identity verification. If the lock is open, the creator pays; if closed, the caller pays by default. Of cause you may specify a fixed payer.
+
+**Service Adaptors**: Indicate how the current request will be charged.
+
+![Authentication Setup](/img/tutorials/auth.jpg)
+
+## 💸 Flexible Pricing Models
+
+![Pricing Options](/img/tutorials/pricing.jpg)
+
+### Option 1: Per-Call Billing (Ideal for Beginners)  
+Charge a fixed amount per API call. Suitable for standardized services.
+
+- **Use Case**: Fixed, predictable query services  
+- **Example**: $0.01 per call  
+- **How to Set**: Simply input the amount in the pricing field
+
+### Option 2: Per-Token Billing (Great for Content Services)  
+Charge based on token usage. Best for dynamic content services like text generation or translation.
+
+- **Use Case**: Services with variable-length output  
+- **Example Code**:
+```javascript
+// Charge $0.0002 per token
+function calcPrice(req) {
+  return req.tokenUsage * 0.0002;
+}
+```
+
+### 3. Enable Monetization  
+In Figure 1 **test**, find the newly imported API. Click the lock icon, choose your authentication method, and confirm the lock is closed to complete the setup.  
+<a href="/solutions/showcase/user-as-a-service/service-design" target="_blank">How to import an API?</a>
+
+## 🔗 Test Your Monetized Callgent  
+Once setup is complete, you can <Publish name='publish' /> your Callgent service for users to call. 
+
+Learn more: [Call the Callgent](/docs/quick-start/call-the-callgent)
+
+## 🌟 Benefits of Monetizing with Callgent
+
+- **Zero Coding Required**: Start monetizing without writing any code  
+- **Instant Activation**: Monetization takes effect immediately upon setup  
+- **Full Transparency**: Users can clearly see the cost breakdown  
+- **Flexible Options**: Choose the billing method that best fits your service
+- **[Transaction Details](/redirect?app=billing)**: View your income and expense records
+
+![Transaction Details](/img/tutorials/billing.png)
+
+## 🎉 Start Your Monetization Journey Today!  
+With Callgent's powerful monetization tools, turn your AI agent into a revenue-generating machine. Get started now! 🚀
+
+
+The next step is how to promote my cg service based on the interface/tag on the hub.
+
+:::success  
+How to promote my CG service on the hub based on interface or tag.  
+:::

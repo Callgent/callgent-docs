@@ -34,7 +34,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({ label, options, onSelect, s
 
     const selectedValue = options[currentSelectedKey] || '';
     useEffect(() => {
-        if (Object.keys(options).length > 0) {
+        if (Object.keys(options).length > 0 && !selectedKey) {
             onSelect(Object.keys(options)[0]);
         }
     }, []);

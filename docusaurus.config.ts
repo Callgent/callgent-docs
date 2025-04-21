@@ -17,6 +17,8 @@ const config: Config = {
     signupUrl: process.env.SITE_SIGNUP_URL,
     apiSiteUrl: process.env.API_SITE_URL,
     cookieDomain: process.env.SITE_URL_DOMAIN,
+    siteUrl: process.env.SITE_URL,
+    appUrl: process.env.APP_URL,
   },
 
   // Set the production url of your site here

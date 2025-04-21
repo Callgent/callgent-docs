@@ -170,10 +170,10 @@ RLS is only applicable in `postgreSQL`
 
 ### How to implement
 
-1. in `schema.prisma` file, set db column `tenant_id` default value to context variable `tenancy.tenantPk`,
+1. in `schema.prisma` file, set db column `tenant_id` default value to context variable `abac.tenantPk`,
 
    ```prisma
-   tenant_id Int  @default(dbgenerated("(current_setting('tenancy.tenantPk'))::int"))
+   tenant_id Int  @default(dbgenerated("(current_setting('abac.tenantPk'))::int"))
    ```
 
 2. enable postgres row level security(RLS), so that we can filter data by `tenant_id` automatically:
@@ -189,27 +189,27 @@ RLS is only applicable in `postgreSQL`
 4. extend `PrismaClient` to set `tenant_id` before any query, refer to [prisma-tenancy.provider.ts](https://github.com/Callgent/callgent-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.provider.ts),
 
    ```sql
-   SELECT set_config('tenancy.tenantPk', cls.get('TENANT_ID') ...
+   SELECT set_config('abac.tenantPk', cls.get('TENANT_ID') ...
    ```
 
 5. if you want to bypass rls, for example, by admin, or looking up the logon user to determine their tenant ID:
 
    ```sql
-   CREATE POLICY bypass_rls_policy ON "User" USING (current_setting('tenancy.bypass_rls', TRUE)::text = 'on');
+   CREATE POLICY bypass_rls_policy ON "User" USING (current_setting('abac.bypass_rls', TRUE)::text = 'on');
    ```
 
-   then when you want to bypass rls, you must set `tenancy.bypass_rls` to `on` before running the query, refer to [prisma-tenancy.service.ts](https://github.com/Callgent/callgent-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.service.ts),
+   then when you want to bypass rls, you must set `abac.bypass_rls` to `on` before running the query, refer to [prisma-tenancy.service.ts](https://github.com/Callgent/callgent-api/blob/main/src/infra/repo/tenancy/prisma-tenancy.service.ts),
 
    ```js
-   await prisma.$executeRaw`SELECT set_config('tenancy.bypass_rls', 'on', TRUE)`;
+   await prisma.$executeRaw`SELECT set_config('abac.bypass_rls', 'on', TRUE)`;
    ```
 
 ### how it works
 
 1. `tenantPk` is set into `cls` context on each request from current user.
-2. `PrismaClient` is extended on `$allOperations` to set `tenantPk` into db variable `tenancy.tenantPk` before any query.
-3. postgreSQL RLS is enabled, so that all queries will be filtered by `tenancy.tenantPk` automatically.
-4. on db `insert` operation, `tenancy.tenantPk` is set into `tenant_id` column as default value.
+2. `PrismaClient` is extended on `$allOperations` to set `tenantPk` into db variable `abac.tenantPk` before any query.
+3. postgreSQL RLS is enabled, so that all queries will be filtered by `abac.tenantPk` automatically.
+4. on db `insert` operation, `abac.tenantPk` is set into `tenant_id` column as default value.
 
 ## Integrate them all
 

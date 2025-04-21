@@ -21,6 +21,9 @@ const CreateCallgent: React.FC<CreateCallgentProps> = ({ name, onDataReceived })
         const formValues = Object.fromEntries(formData.entries());
         try {
             const { data } = await axios.post('/api/bff/callgent-tree', formValues);
+            if (data.data?.id) {
+                sessionStorage.setItem('callgent',JSON.stringify(data.data))
+            }
             if (onDataReceived) {
                 onDataReceived(data.data);
             }
