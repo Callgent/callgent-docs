@@ -3,7 +3,7 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import { CallgentResponse } from '@site/src/types/user';
 import React, { useEffect, useState } from 'react';
 
-const ShowLogin = () => {
+const SelectCallgent = () => {
     const isBrowser = useIsBrowser();
     if (!isBrowser) { return null; }
     const [callgent, setCallgent] = useState<CallgentResponse>();
@@ -26,4 +26,4 @@ const ShowLogin = () => {
     );
 };
 
-export default ShowLogin;
+export default SelectCallgent;

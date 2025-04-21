@@ -14,6 +14,7 @@ This article assumes you already know [how to create a Callgent](/docs/quick-sta
 :::
 
 import SelectCallgent from "@site/src/components/module/select-callgent"
+import Publish from "@site/src/components/quick-start/publish"
 
 ### 1. Select Your Callgent
 
@@ -24,7 +25,7 @@ import SelectCallgent from "@site/src/components/module/select-callgent"
 ### 2. Configure Authentication  
 Set up authentication to ensure service security and specify who pays for the request. Different types of locks indicate different roles.
 
-**Client Entries**: Used for identity verification. If the lock is open, the creator pays; if closed, the caller pays.
+**Client Entries**: Used for identity verification. If the lock is open, the creator pays; if closed, the caller pays by default. Of cause you may specify a fixed payer.
 
 **Service Adaptors**: Indicate how the current request will be charged.
 
@@ -54,11 +55,13 @@ function calcPrice(req) {
 ```
 
 ### 3. Enable Monetization  
-Under the **test** section in the image above, find the newly imported API. Click the lock icon, choose your authentication method, and confirm the lock is closed to complete the setup.  
+In Figure 1 **test**, find the newly imported API. Click the lock icon, choose your authentication method, and confirm the lock is closed to complete the setup.  
 <a href="/solutions/showcase/user-as-a-service/service-design" target="_blank">How to import an API?</a>
 
 ## 🔗 Test Your Monetized Callgent  
-Once setup is complete, you can start calling your monetized service. Learn more: [Call the Callgent](/docs/quick-start/call-the-callgent)
+Once setup is complete, you can <Publish name='publish' /> your Callgent service for users to call. 
+
+Learn more: [Call the Callgent](/docs/quick-start/call-the-callgent)
 
 ## 🌟 Benefits of Monetizing with Callgent
 
@@ -66,6 +69,14 @@ Once setup is complete, you can start calling your monetized service. Learn more
 - **Instant Activation**: Monetization takes effect immediately upon setup  
 - **Full Transparency**: Users can clearly see the cost breakdown  
 - **Flexible Options**: Choose the billing method that best fits your service
+- **[Transaction Details](/redirect?app=billing)**: View your income and expense records
 
 ## 🎉 Start Your Monetization Journey Today!  
 With Callgent's powerful monetization tools, turn your AI agent into a revenue-generating machine. Get started now! 🚀
+
+
+The next step is how to promote my cg service based on the interface/tag on the hub.
+
+:::success  
+How to promote my CG service on the hub based on interface or tag.  
+:::
