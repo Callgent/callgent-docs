@@ -36,7 +36,7 @@
     "react-dom": "^18.0.0",
     "react-social-login-buttons": "^3.9.1",
     "recoil": "^0.7.7",
-    "sass": "^1.77.4"
+    "sass": "^1.86.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.0",
