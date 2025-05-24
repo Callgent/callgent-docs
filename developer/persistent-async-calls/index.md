@@ -24,7 +24,7 @@ sequenceDiagram
     end
     Task Script->>Callgent: call `invokeService`, which send request to Callgent via stdout
     Callgent->>Service: Get response from service
-    alt Pending response: response.statusCode == 2
+    alt Pending response: response.statusCode === 2
         Callgent->>CRIU: freeze task process by pid, save checkpoint
     Service->>Callgent: Callback with response
         note right of Callgent: When callback, goto beginning of the sequence

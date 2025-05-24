@@ -80,7 +80,7 @@ let prismaService;
 
 // This function must be called before every test
 async function beforeEachFn(): Promise<void> {
-  if(prismaTestingHelper == null) {
+  if(prismaTestingHelper === null) {
     prismaTestingHelper = new PrismaTestingHelper(app.get(PrismaService));
     prismaService = prismaTestingHelper.getProxyClient();
   }
@@ -114,7 +114,7 @@ const beforeAllFn = () => {
   const moduleFixtureForTest = await Test.createTestingModule({ imports: [AppModule] })
       .overrideProvider(PrismaService)
       .useFactory({ factory: (originalPrisma: PrismaService) => {
-          if (prismaTestingHelper == null) {
+          if (prismaTestingHelper === null) {
             prismaTestingHelper = new PrismaTestingHelper(originalPrisma);
             prismaServiceForTest = prismaTestingHelper.getProxyClient();
           }
