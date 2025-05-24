@@ -196,6 +196,10 @@ const config: Config = {
               label: "GitHub",
               href: "https://github.com/Callgent/callgent-docs",
             },
+            {
+              label: "𑢡teprun.ai",
+              href: "https://steprun.ai",
+            },
           ],
         },
       ],
