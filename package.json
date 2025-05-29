@@ -21,7 +21,7 @@
   "dependencies": {
     "@docusaurus/core": "3.3.2",
     "@docusaurus/preset-classic": "3.3.2",
-    "@docusaurus/theme-common": "3.3.2",
+    "@docusaurus/theme-common": "3.7.0",
     "@mdx-js/react": "^3.0.0",
     "@webcontainer/api": "1.5.1-internal.3",
     "axios": "^1.6.7",
