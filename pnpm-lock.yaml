@@ -21,8 +21,8 @@ importers:
         specifier: ^3.0.0
         version: 3.1.0(@types/react@18.3.20)(react@18.3.1)
       '@webcontainer/api':
-        specifier: 1.5.1-internal.3
-        version: 1.5.1-internal.3
+        specifier: 1.6.1
+        version: 1.6.1
       axios:
         specifier: ^1.6.7
         version: 1.8.4
@@ -1548,8 +1548,8 @@ packages:
   '@webassemblyjs/wast-printer@1.14.1':
     resolution: {integrity: sha512-kPSSXE6De1XOR820C90RIo2ogvZG+c3KiHzqUoO/F34Y2shGzesfqv7o57xrxovZJH/MetF5UjroJ/R/3isoiw==}
 
-  '@webcontainer/api@1.5.1-internal.3':
-    resolution: {integrity: sha512-6JQvEuNDR3J2xfqgwzJv1mAaDdyhhSMmkFM6YDnHCixPh50bzTlsaDPfyVdywMMFHPl6wrb3ytoevcXVuo+oQg==}
+  '@webcontainer/api@1.6.1':
+    resolution: {integrity: sha512-2RS2KiIw32BY1Icf6M1DvqSmcon9XICZCDgS29QJb2NmF12ZY2V5Ia+949hMKB3Wno+P/Y8W+sPP59PZeXSELg==}
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -8337,7 +8337,7 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webcontainer/api@1.5.1-internal.3': {}
+  '@webcontainer/api@1.6.1': {}
 
   '@xtuc/ieee754@1.2.0': {}
 
@@ -8676,7 +8676,7 @@ snapshots:
       '@docusaurus/preset-classic': 3.3.2(@algolia/client-search@5.23.4)(@types/react@18.3.20)(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)(typescript@5.2.2)
       '@docusaurus/theme-common': 3.3.2(@docusaurus/types@3.1.1(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.2.2)
       '@mdx-js/react': 3.1.0(@types/react@18.3.20)(react@18.3.1)
-      '@webcontainer/api': 1.5.1-internal.3
+      '@webcontainer/api': 1.6.1
       axios: 1.8.4
       clsx: 2.1.1
       docusaurus-plugin-sass: 0.2.6(@docusaurus/core@3.3.2(@docusaurus/types@3.1.1(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.2.2))(sass@1.86.3)(webpack@5.99.6)
